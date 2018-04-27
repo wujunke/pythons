@@ -1,0 +1,6 @@
+#LWP-Cookies-2.0
+Set-Cookie3: bcookie="\"v=2&6174e2fd-21cb-420b-8def-6d3dcc154964\""; path="/"; domain=".linkedin.com"; path_spec; domain_dot; expires="2018-09-21 21:26:25Z"; version=0
+Set-Cookie3: lidc="\"b=SGST04:g=1:u=1:i=1474451333:t=1474537733:s=AQEMH-e1Vr6GGoXYcawQFdESrVIVBo8a\""; path="/"; domain=".linkedin.com"; path_spec; domain_dot; expires="2016-09-22 09:48:53Z"; version=0
+Set-Cookie3: bscookie="\"v=1&20160921094853b54e6de0-e7a8-423d-8fee-55f6c877caaeAQGNOId-Qq1LaSnDGtIxshawzBiJF4kE\""; path="/"; domain=".www.linkedin.com"; path_spec; domain_dot; secure; expires="2018-09-21 21:26:25Z"; HttpOnly=None; version=0
+Set-Cookie3: leo_auth_token="\"GST:ZrpoTPfD6UF0pPkUBTHExw954Ln6qpffwStkK63DNkJTUpALETnBbG:1474453070:e36b9880f0288fe9282e64d3ee5e900efe396208\""; path="/"; domain="www.linkedin.com"; path_spec; expires="2016-09-21 10:47:49Z"; version=0
+Set-Cookie3: visit="\"v=1&G\""; path="/"; domain="www.linkedin.com"; path_spec; expires="2018-09-21 09:48:57Z"; version=0

@@ -1,0 +1,3 @@
+#LWP-Cookies-2.0
+Set-Cookie3: session=aa7e8c2b34fff778e970a8afe0c7135781fd46e0; path="/"; domain=".itjuzi.com"; path_spec; domain_dot; expires="2017-10-11 10:46:07Z"; HttpOnly=None; version=0
+Set-Cookie3: acw_tc="AQAAADmENAzL/QEAKgU4b6GdQ/6XN/DP"; path="/"; domain="www.itjuzi.com"; path_spec; discard; HttpOnly=None; version=0

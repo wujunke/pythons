@@ -1,0 +1,301 @@
+from data2.itjuzi_config import base_url, token, insert_rate, iplist, judgerepeat, find_rate
+
+
+def rand_proxie():
+    return {'http':'http://%s' % iplist[random.randint(0, len(iplist)) - 1],}
+
+headers = {
+            'Accept':'application/json, text/javascript, */*; q=0.01',
+            'Accept-Encoding': 'gzip, deflate',
+            'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6',
+            'Connection': 'keep-alive',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'Host':'radar.itjuzi.com',
+            'Referer':'http://radar.itjuzi.com///company?phpSessId=e65ca8471446469d5e68b8885ff06f67fc0d31db?phpSessId=d87230bfa03a3885aa4471da7ab09491948fff74',
+            'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
+            'X-Requested-With':'XMLHttpRequest',
+}
+
+
+class InvestError(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+
+
+def getHtml(url):
+    num = 3  # 重试次数
+    while num > 0:
+        try:
+            s = requests.Session()
+            html = s.get(url, headers=headers, proxies=rand_proxie()).content
+        except ConnectionError:
+            print 'Timeout, try again'
+            num -= 1
+        else:
+            # 成功获取
+            print 'ok'
+            break
+    else:
+        # 3次都失败
+        print 'Try 3 times, But all failed'
+        raise InvestError('连接失败，Try 3 times, But all failed')
+    return html
+
+def getInfo(url):
+    try:
+        result = json.loads(getHtml(url))
+        status = result['status']
+        if status == 1:
+            return result['data']['rows']
+        elif status == 2:
+            print '没有了，暂无数据'
+            return []
+        else:
+            print '请求失败'
+            print result
+            return None
+    except Exception as err:
+        print err
+        print '------'
+        return None
+
+def parseHtml(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    com_name = soup.title.text
+    com_web = None
+    a_s = soup.find('i', class_='fa fa-link t-small', )
+    if a_s:
+        com_web = a_s.parent['href']
+    name = soup.find('h1', class_='seo-important-title', )
+    if name:
+        com_name = name.text.replace(u'\t', u'')
+        com_name = com_name.split('\n')[1]
+    # 联系方式
+    ll = ['mobile', 'email', 'detailaddress']
+    response = {}
+    contact_ul = soup.find('ul',class_='list-block aboutus')
+    if contact_ul:
+        for info in contact_ul.find_all('li'):
+            if info.find('i',class_='fa icon icon-phone-o'):
+                response['mobile'] = info.text.replace('\n','').replace('\t','')
+            if info.find('i',class_='fa icon icon-email-o'):
+                response['email'] = info.text.replace('\n','').replace('\t','')
+            if info.find('i',class_='fa icon icon-address-o'):
+                response['detailaddress'] = info.text.replace('\n','').replace('\t','')
+
+    # 新闻
+    res = soup.find_all('ul', class_='list-unstyled news-list')
+    news = []
+    for ss in res:
+            # print ss.name
+            lilist = ss.find_all('li')
+            for li in lilist:
+                dic = {}
+                dic['newsdate'] = li.find('span', class_='news-date').text.replace('\n','').replace('\t','') if li.find('span', class_='news-date') else None
+                a = li.find('a', class_='line1')
+                dic['title'] = a.text.replace('\n','').replace('\t','')
+                dic['linkurl'] = a['href']
+                dic['newstag'] = li.find('span', class_='news-tag').text.replace('\n','').replace('\t','') if li.find('span', class_='news-tag') else None
+                news.append(dic)
+    response['news'] = news
+    response['com_web'] = com_web
+
+    # 工商信息
+    # recruit-info
+    recruit_info = soup.find('div',id='recruit-info')
+    if recruit_info:
+        tablistul = recruit_info.find('ul',class_='nav-tabs list-inline stock_titlebar')
+        tablistli = tablistul.find_all('li')
+        for tabli in tablistli:
+            tabhref = tabli.a['href'].replace('#','')
+            if tabhref in ['indus_base',u'indus_base']:   # 基本信息
+                indus_base = recruit_info.find('div', id=tabhref)
+                com_name = indus_base.find('th').text
+                infolisttd = indus_base.find_all('td')
+                infodic = {}
+                for info in infolisttd:
+                    if info:
+                        if info.find('span', class_='tab_title') and info.find('span', class_='tab_main'):
+                            if info.find('span', class_='tab_title').text:
+                                infodic[info.find('span', class_='tab_title').text] = info.find('span', class_='tab_main').text.replace('\n','').replace('\t','')
+                infodic[u'公司名称:'] = com_name.replace('\n','').replace('\t','')
+                response[tabhref] = infodic
+
+            if tabhref in ['indus_shareholder', u'indus_shareholder','indus_foreign_invest', u'indus_foreign_invest', 'indus_busi_info', u'indus_busi_info']:   #  股东信息、企业对外投资信息、工商变更信息
+                indus_shareholder = recruit_info.find('div', id=tabhref)
+                thead = indus_shareholder.find('thead')
+                theadthlist = thead.find_all('th')
+                theadlist = []
+                for theaditem in theadthlist:
+                    theadlist.append(theaditem.text)
+                tbody = indus_shareholder.find('tbody')
+                infolist = []
+                if tbody:
+                    trlist = tbody.find_all('tr')
+                    for tr in trlist:
+                        infodic = {}
+                        tdlist = tr.find_all('td')
+                        for i in range(0, len(theadlist) - 1):
+                            infodic[theadlist[i]] = tdlist[i].text if tdlist[i].text else None
+                        infolist.append(infodic)
+                response[tabhref] = infolist
+    return response, com_name
+
+
+def saveCompanyIndustyInfoToMongo(info):
+    res = requests.post(base_url + 'mongolog/projinfo', data=json.dumps(info),
+                        headers={'Content-Type': 'application/json', 'token': token}).content
+    res = json.loads(res)
+    if res['code'] == 1000:
+        print '新增indus_info--' + str(res['result'].get('com_id', None))
+        pass
+    elif res['code'] == 8001:
+        pass
+    else:
+        # print filepath
+        print '错误数据indus_info----' + 'com_id=%s' % info['com_id']
+        print res
+
+
+def saveCompanyNewsToMongo(newslist,com_id=None,com_name=None):
+    for news in newslist:
+        if news.get('linkurl'):
+            news['com_id'] = com_id if isinstance(com_id, int) else int(com_id)
+            news['com_name'] = com_name
+            res = requests.post(base_url + 'mongolog/projnews', data=json.dumps(news),
+                                headers={'Content-Type': 'application/json', 'token': token}).content
+            res = json.loads(res)
+            if res['code'] == 1000:
+                print '新增comnews--' + str(res['result'].get('com_id', None))
+                pass
+            elif res['code'] == 8001:
+                # repeat_count = repeat_count + 1
+                # break
+                pass
+                # print '重复company'
+            else:
+                # print filepath
+                print '错误数据news----' + 'com_id=%s' % news['com_id']
+                print res
+                break
+
+
+class insetManager():
+    def saveMergeInfoToMongo(self,info):
+        repeat_count = 0
+        aaaa = 0
+        for line in info:
+            time.sleep(insert_rate)
+            dic = json.loads(line)
+            dic['investormerge'] = 2
+            dic['com_id'] = int(dic['com_id'])
+            dic['merger_id'] = int(dic['merger_id'])
+            aaaa = aaaa + 1
+            res = requests.post(base_url + 'mongolog/event', data=json.dumps(dic),
+                                headers={'Content-Type': 'application/json', 'token': token}).content
+            res = json.loads(res)
+            if res['code'] == 1000:
+                print '新增merge--' + str(res['result'].get('merger_id', None))
+                pass
+            elif res['code'] == 8001:
+                repeat_count = repeat_count + 1
+            else:
+                print '错误数据merge' + '第%s行' % aaaa
+                print res
+        return repeat_count
+
+
+    def saveInvestInfoToMongo(self,info):
+        repeat_count = 0
+        aaaa = 0
+        for line in info:
+            time.sleep(insert_rate)
+            dic = json.loads(line)
+            dic['investormerge'] = 1
+            dic['com_id'] = int(dic['com_id'])
+            dic['invse_id'] = int(dic['invse_id'])
+            if isinstance(dic['invsest_with'], dict):
+                values = []
+                for key, value in dic['invsest_with'].items():
+                    values.append(value)
+                dic['invsest_with'] = values
+            aaaa = aaaa + 1
+            res = requests.post(base_url + 'mongolog/event', data=json.dumps(dic),
+                                headers={'Content-Type': 'application/json', 'token': token}).content
+            res = json.loads(res)
+            if res['code'] == 1000:
+                print '新增invse--' + str(res['result'].get('invse_id', None))
+                pass
+            elif res['code'] == 8001:
+                repeat_count = repeat_count + 1
+            else:
+                print '错误数据InvestIn' + '第%s行' % aaaa
+                print res
+                break
+        return repeat_count
+
+    def saveCompanyInfoToMongo(self, info):
+        repeat_count = 0
+        aaaa = 0
+        for line in info:
+            time.sleep(insert_rate)
+            aaaa = aaaa + 1
+            dic = json.loads(line)
+            dic['com_id'] = int(dic['com_id'])
+            res = requests.post(base_url + 'mongolog/proj', data=json.dumps(dic),
+                                headers={'Content-Type': 'application/json', 'token': token}).content
+            res = json.loads(res)
+            if res['code'] == 1000:
+                print '新增com--' + str(res['result'].get('com_id', None))
+                pass
+            elif res['code'] == 8001:
+                repeat_count = repeat_count + 1
+            else:
+                print '错误数据company' + '第%s行' % aaaa
+                print res
+        return repeat_count
+
+
+class Catch_Thread(threading.Thread):
+    def __init__(self, url, path, content, type, startpage, endpage):
+        self.url = url
+        self.path = path
+        self.content = content
+        self.type = type
+        self.startpage = startpage
+        self.endpage = endpage
+        threading.Thread.__init__(self)
+
+    def run(self):
+        manager = insetManager()
+        while True:
+            aa = True
+            page = 1
+            while aa:
+                try:
+                    info = getInfo(self.url + str(page))
+                    if self.type == 1:
+                        manager.saveInvestInfoToMongo(info)
+                    elif self.type == 2:
+                        manager.saveMergeInfoToMongo(info)
+                    else:
+                        manager.saveCompanyInfoToMongo(info)
+                    print self.content + 'page = %d' % page
+                    if judgerepeat:
+                        if page > 10:
+                            aa = False
+                            print datetime.now()
+                            print self.content + '终止请求page = %d' % page
+                        else:
+                            repeat_page = 0
+                    page = page + 1
+                    if page > self.endpage:
+                        aa = False
+                        print datetime.now()
+                        print self.content + '请求结束，终止请求page = %d' % page
+                except Exception as err:
+                    print err
+                    print '*****'
+            time.sleep(find_rate)
+
+
