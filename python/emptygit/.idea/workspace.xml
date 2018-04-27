@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55a664ab-9369-42f2-9bc8-e8b4ffed9699" name="Default" comment="" />
+    <list default="true" id="55a664ab-9369-42f2-9bc8-e8b4ffed9699" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/others/123.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/others/1234.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/others/222.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/others/333-out.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/others/333.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/others/742-out.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/others/742-water.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/others/742.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/saveExcel/jes_project1.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/saveExcel/jes_project2.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/saveExcel/users.xls" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py" afterPath="$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addInvestEvent/org" afterPath="$PROJECT_DIR$/addInvestEvent/org" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addInvestEvent/失败表" afterPath="$PROJECT_DIR$/addInvestEvent/失败表" />
+    </list>
     <ignored path="emptygit.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -37,7 +54,7 @@
     <SUITE FILE_PATH="coverage/emptygit$searchITdata.coverage" NAME="searchITdata Coverage Results" MODIFIED="1506747459903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/InvestargetData" />
     <SUITE FILE_PATH="coverage/emptygit$getItjuziOrg.coverage" NAME="getItjuziOrg Coverage Results" MODIFIED="1522036089322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/addInvestEvent" />
     <SUITE FILE_PATH="coverage/emptygit$zhihu.coverage" NAME="zhihu Coverage Results" MODIFIED="1513246774593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/emptygit$addeventfrommongo.coverage" NAME="addeventfrommongo Coverage Results" MODIFIED="1524552084262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/addInvestEvent" />
+    <SUITE FILE_PATH="coverage/emptygit$addeventfrommongo.coverage" NAME="addeventfrommongo Coverage Results" MODIFIED="1524825497048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/addInvestEvent" />
     <SUITE FILE_PATH="coverage/emptygit$baidu.coverage" NAME="baidu Coverage Results" MODIFIED="1480388896747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/emptygit$003.coverage" NAME="003 Coverage Results" MODIFIED="1480387513831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/emptygit$pandastest.coverage" NAME="pandastest Coverage Results" MODIFIED="1522234239875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/learntest" />
@@ -76,72 +93,18 @@
       <file leaf-file-name="driver2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webdriver/driver2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4440">
-              <caret line="313" column="29" lean-forward="false" selection-start-line="313" selection-start-column="29" selection-end-line="313" selection-end-column="29" />
+            <state relative-caret-position="4710">
+              <caret line="331" column="49" lean-forward="false" selection-start-line="331" selection-start-column="49" selection-end-line="331" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="merge_in" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data3/merge_in">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="updateMongoEvent.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/addInvestEvent/updateMongoEvent.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pdf+.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pdf/pdf+.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
-              <folding>
-                <element signature="e#35#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pdflibqwa.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pdf/pdflibqwa.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-              <folding>
-                <element signature="e#181#205#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PDFlib.py" pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/PDFlib/PDFlib.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addeventfrommongo.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addeventfrommongo.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3000">
-              <caret line="210" column="29" lean-forward="false" selection-start-line="210" selection-start-column="29" selection-end-line="210" selection-end-column="29" />
+            <state relative-caret-position="342">
+              <caret line="216" column="13" lean-forward="true" selection-start-line="216" selection-start-column="13" selection-end-line="216" selection-end-column="13" />
               <folding>
                 <element signature="e#16#27#0" expanded="true" />
               </folding>
@@ -161,9 +124,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fa icon icon-phone-o</find>
-      <find>fa icon icon-email-o</find>
-      <find>list-unstyled team-list limited-itemnum</find>
       <find>person-name</find>
       <find>per-position</find>
       <find>per-des</find>
@@ -178,7 +138,6 @@
       <find>nav-tabs list-inline stock_titlebar</find>
       <find>tab_main</find>
       <find>indus_busi_info</find>
-      <find>新增机构失败</find>
       <find>5510</find>
       <find>even</find>
       <find>融资</find>
@@ -191,12 +150,17 @@
       <find>10019</find>
       <find>奇正道和</find>
       <find>class PDFlibException</find>
+      <find>安信风投</find>
+      <find>新增机构失败</find>
+      <find>6577</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/36kr/36kr" />
         <option value="$PROJECT_DIR$/36kr/36kr2.txt" />
         <option value="$PROJECT_DIR$/36kr/36kr-index.py" />
         <option value="$PROJECT_DIR$/pachong/spider2.py" />
@@ -240,13 +204,14 @@
         <option value="$PROJECT_DIR$/webdriver/driver2.py" />
         <option value="$PROJECT_DIR$/saveExcel/jes.py" />
         <option value="$PROJECT_DIR$/addInvestEvent/IT桔子机构对照表3101-4500" />
-        <option value="$PROJECT_DIR$/addInvestEvent/失败表" />
-        <option value="$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py" />
         <option value="$PROJECT_DIR$/addInvestEvent/getItjuziOrg_haituoid.py" />
         <option value="$PROJECT_DIR$/pdf/pdf+.py" />
         <option value="$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/bind/init.py" />
         <option value="$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/bind/python/__init__.py" />
         <option value="$PROJECT_DIR$/pdf/pdflibqwa.py" />
+        <option value="$PROJECT_DIR$/addInvestEvent/失败表" />
+        <option value="$PROJECT_DIR$/addInvestEvent/IT桔子机构对照表4501-6939.csv" />
+        <option value="$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py" />
       </list>
     </option>
   </component>
@@ -257,11 +222,12 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="306" />
-    <option name="y" value="54" />
+    <option name="x" value="187" />
+    <option name="y" value="69" />
     <option name="width" value="1505" />
     <option name="height" value="911" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -278,16 +244,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -296,96 +252,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.12 virtualenv at ~/wxNLP-env &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="site-packages" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emptygit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.12 virtualenv at ~/wxNLP-env &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib-dynload" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emptygit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.12 virtualenv at ~/wxNLP-env &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emptygit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.12 virtualenv at ~/wxNLP-env &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="python2.7" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emptygit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.12 virtualenv at ~/wxNLP-env &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="python2.7" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib-dynload" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emptygit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="emptygit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -400,8 +266,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="pdf" />
+              <option name="myItemId" value="addInvestEvent" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -419,13 +295,6 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$USER_HOME$/wxNLP-env/lib/python2.7/site-packages" />
-      <recent name="$PROJECT_DIR$/../.." />
-      <recent name="$PROJECT_DIR$/webdriver" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/采集数据" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/addInvestEvent" />
       <recent name="$PROJECT_DIR$/data2" />
@@ -433,8 +302,15 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/pdf" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$USER_HOME$/wxNLP-env/lib/python2.7/site-packages" />
+      <recent name="$PROJECT_DIR$/../.." />
+      <recent name="$PROJECT_DIR$/webdriver" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/采集数据" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.pdflibqwa">
+  <component name="RunManager" selected="Python.addeventfrommongo">
     <configuration default="false" name="driver2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1103,8 +979,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.pdflibqwa" />
-        <item index="1" class="java.lang.String" itemvalue="Python.addeventfrommongo" />
+        <item index="0" class="java.lang.String" itemvalue="Python.addeventfrommongo" />
+        <item index="1" class="java.lang.String" itemvalue="Python.pdflibqwa" />
         <item index="2" class="java.lang.String" itemvalue="Python.driver2" />
         <item index="3" class="java.lang.String" itemvalue="Python.jes" />
         <item index="4" class="java.lang.String" itemvalue="Python.sara" />
@@ -1140,14 +1016,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="306" y="54" width="1505" height="911" extended-state="0" />
+    <frame x="187" y="69" width="1505" height="911" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18591934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30464327" sideWeight="0.23160341" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23163842" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24910778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13898306" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1162,7 +1038,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912987" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2967033" sideWeight="0.7683966" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33821735" sideWeight="0.7683966" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1256,18 +1132,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="509" />
+      <option name="time" value="512" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/addInvestEvent/aaa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Caches/PyCharm2016.3/python_stubs/-2120267529/__builtin__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -1351,23 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="375" column="37" lean-forward="false" selection-start-line="375" selection-start-column="8" selection-end-line="375" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addInvestEvent/addEvent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="73" column="59" lean-forward="true" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
-          <folding>
-            <element signature="e#16#27#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1458,14 +1310,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data3/merge_in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/saveExcel/sara.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -1477,14 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="687">
           <caret line="188" column="19" lean-forward="false" selection-start-line="188" selection-start-column="19" selection-end-line="188" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webdriver/driver2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4440">
-          <caret line="313" column="29" lean-forward="false" selection-start-line="313" selection-start-column="29" selection-end-line="313" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1502,13 +1338,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addInvestEvent/失败表">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addInvestEvent/IT桔子机构对照表3101-4500">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6922">
@@ -1516,38 +1345,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3000">
-          <caret line="210" column="29" lean-forward="false" selection-start-line="210" selection-start-column="29" selection-end-line="210" selection-end-column="29" />
-          <folding>
-            <element signature="e#16#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addInvestEvent/getItjuziOrg_haituoid.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
           <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addInvestEvent/updateMongoEvent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pdf/pdf+.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
-          <folding>
-            <element signature="e#35#51#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1589,21 +1390,87 @@
     </entry>
     <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/bind/python/__init__.py" />
     <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/bind/python/PDFlib/PDFlib.py" />
-    <entry file="file://$PROJECT_DIR$/pdf/pdflibqwa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-          <folding>
-            <element signature="e#181#205#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/PDFlib/PDFlib.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="9" column="46" lean-forward="false" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf/pdflibqwa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdf/pdf+.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="81" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data3/merge_in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addInvestEvent/addEvent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-388">
+          <caret line="73" column="59" lean-forward="true" selection-start-line="73" selection-start-column="59" selection-end-line="73" selection-end-column="59" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addInvestEvent/updateMongoEvent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="24" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="479" column="0" lean-forward="false" selection-start-line="479" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webdriver/driver2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4710">
+          <caret line="331" column="49" lean-forward="false" selection-start-line="331" selection-start-column="49" selection-end-line="331" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addInvestEvent/失败表">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addInvestEvent/IT桔子机构对照表4501-6939.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="2028" column="29" lean-forward="true" selection-start-line="2028" selection-start-column="29" selection-end-line="2028" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="216" column="13" lean-forward="true" selection-start-line="216" selection-start-column="13" selection-end-line="216" selection-end-column="13" />
+          <folding>
+            <element signature="e#16#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

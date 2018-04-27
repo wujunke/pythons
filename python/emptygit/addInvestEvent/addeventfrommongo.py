@@ -145,7 +145,8 @@ def getAndSaveEvent(itjuzi_id, haituo_id):
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         }
-        response = session.post(base_url + 'org/investevent/', data=json.dumps(data), headers=headers).content
+        response = session.post(base_url + 'org/investevent/', data=json.dumps(data), headers=headers)
+        response = response.content
         response = json.loads(response)
         if response['code'] != 1000:
             print '新增投资事件失败--%s' % data['comshortname'] + str(response)
@@ -181,10 +182,29 @@ def addOrg(orgname):
     response = session.post(base_url + 'org/', data=json.dumps(data), headers=headers).content
     response = json.loads(response)
     if response['code'] != 1000:
-        print '新增机构失败--%s' % orgname + str(response)
-        return None
+        return getOrgWithName(orgfullname=orgname)
     else:
         return response['result']['id']
+
+def getOrgWithName(orgfullname):
+    headers = {
+        'token': token,
+        'source': '1',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+    }
+    response = session.get(base_url + 'org/?orgfullname=%s'%orgfullname, headers=headers).content
+    response = json.loads(response)
+    if response['code'] != 1000:
+        print '新增机构失败--%s' % orgfullname
+        return None
+    else:
+        if len(response['result']['data']) == 1:
+            return response['result']['data'][0]['id']
+        else:
+            print '新增机构失败--%s' % orgfullname
+            return None
+
 #记录名称id对对应关系
 def saveInfo(itjuzi_name, haituo_id):
     f = open('org', 'a')
@@ -197,12 +217,12 @@ def saveInfo(itjuzi_name, haituo_id):
     f.close()
 
 
-tables = excel_table_byindex('/Users/investarget/Desktop/IT桔子机构对照表3101-4500.xlsx')
+tables = excel_table_byindex('/Users/investarget/Desktop/IT桔子机构对照表4501-6939.xlsx')
 # tables = excel_table_byindex('/Users/investarget/Desktop/IT桔子机构对照表1-835.xlsx')
 for row in tables:
     itjuzi_id = row.get('itjuzi_id', None)
-    if itjuzi_id in (3101,3512,3721,3954,4173,4264):
-    # if itjuzi_id >= 4473:
+    if itjuzi_id in (4712,5156):
+    # if itjuzi_id >= 6868:
         haituo_id = row.get('haituo_id', None)
         if itjuzi_id:
             if not haituo_id:
