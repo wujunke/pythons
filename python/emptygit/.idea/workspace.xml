@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55a664ab-9369-42f2-9bc8-e8b4ffed9699" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/others/123.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/others/1234.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/others/222.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/others/333-out.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/others/333.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/others/742-out.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/others/742-water.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/others/742.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saveExcel/jes_project1.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saveExcel/jes_project2.xls" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/saveExcel/users.xls" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py" afterPath="$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addInvestEvent/org" afterPath="$PROJECT_DIR$/addInvestEvent/org" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addInvestEvent/失败表" afterPath="$PROJECT_DIR$/addInvestEvent/失败表" />
     </list>
     <ignored path="emptygit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,7 +51,7 @@
     <SUITE FILE_PATH="coverage/emptygit$002.coverage" NAME="002 Coverage Results" MODIFIED="1476004532108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/emptygit$005.coverage" NAME="005 Coverage Results" MODIFIED="1474870138327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/emptygit$jiexi.coverage" NAME="jiexi Coverage Results" MODIFIED="1515653781745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
-    <SUITE FILE_PATH="coverage/emptygit$driver2.coverage" NAME="driver2 Coverage Results" MODIFIED="1524540288790" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
+    <SUITE FILE_PATH="coverage/emptygit$driver2.coverage" NAME="driver2 Coverage Results" MODIFIED="1524900246759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
     <SUITE FILE_PATH="coverage/emptygit$itjuzi3.coverage" NAME="itjuzi3 Coverage Results" MODIFIED="1524050892107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data2" />
     <SUITE FILE_PATH="coverage/emptygit$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1474967797391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testpy" />
     <SUITE FILE_PATH="coverage/emptygit$catchcontact.coverage" NAME="catchcontact Coverage Results" MODIFIED="1510890014751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
@@ -90,24 +75,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="driver2.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="driver2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webdriver/driver2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4710">
-              <caret line="331" column="49" lean-forward="false" selection-start-line="331" selection-start-column="49" selection-end-line="331" selection-end-column="49" />
+            <state relative-caret-position="151">
+              <caret line="185" column="29" lean-forward="false" selection-start-line="185" selection-start-column="29" selection-end-line="185" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addeventfrommongo.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py">
+      <file leaf-file-name="itjuzi_config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data2/itjuzi_config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="216" column="13" lean-forward="true" selection-start-line="216" selection-start-column="13" selection-end-line="216" selection-end-column="13" />
-              <folding>
-                <element signature="e#16#27#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -222,8 +205,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="187" />
-    <option name="y" value="69" />
+    <option name="x" value="240" />
+    <option name="y" value="23" />
     <option name="width" value="1505" />
     <option name="height" value="911" />
   </component>
@@ -243,7 +226,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,7 +234,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="emptygit" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.12 virtualenv at ~/wxNLP-env &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="site-packages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -262,11 +252,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="emptygit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="addInvestEvent" />
+              <option name="myItemId" value="&lt; Python 2.7.12 virtualenv at ~/wxNLP-env &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emptygit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emptygit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -282,6 +282,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -310,7 +311,7 @@
       <recent name="$PROJECT_DIR$/采集数据" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.addeventfrommongo">
+  <component name="RunManager" selected="Python.driver2">
     <configuration default="false" name="driver2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -979,9 +980,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.addeventfrommongo" />
-        <item index="1" class="java.lang.String" itemvalue="Python.pdflibqwa" />
-        <item index="2" class="java.lang.String" itemvalue="Python.driver2" />
+        <item index="0" class="java.lang.String" itemvalue="Python.driver2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.addeventfrommongo" />
+        <item index="2" class="java.lang.String" itemvalue="Python.pdflibqwa" />
         <item index="3" class="java.lang.String" itemvalue="Python.jes" />
         <item index="4" class="java.lang.String" itemvalue="Python.sara" />
       </list>
@@ -1016,7 +1017,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="187" y="69" width="1505" height="911" extended-state="0" />
+    <frame x="240" y="23" width="1505" height="911" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18591934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1026,8 +1027,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24910778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13898306" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32616082" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14285715" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32600734" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1238,13 +1239,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addInvestEvent/org">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13743">
-          <caret line="639" column="62" lean-forward="true" selection-start-line="639" selection-start-column="62" selection-end-line="639" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data3/company_out">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1300,13 +1294,6 @@
         <state relative-caret-position="320">
           <caret line="160" column="38" lean-forward="true" selection-start-line="160" selection-start-column="38" selection-end-line="160" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data2/itjuzi_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="30" lean-forward="true" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1440,19 +1427,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webdriver/driver2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4710">
-          <caret line="331" column="49" lean-forward="false" selection-start-line="331" selection-start-column="49" selection-end-line="331" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addInvestEvent/失败表">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1460,17 +1438,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="2028" column="29" lean-forward="true" selection-start-line="2028" selection-start-column="29" selection-end-line="2028" selection-end-column="29" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addInvestEvent/org">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9780">
+          <caret line="652" column="63" lean-forward="true" selection-start-line="652" selection-start-column="63" selection-end-line="652" selection-end-column="63" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="216" column="13" lean-forward="true" selection-start-line="216" selection-start-column="13" selection-end-line="216" selection-end-column="13" />
-          <folding>
-            <element signature="e#16#27#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="177">
+          <caret line="205" column="23" lean-forward="true" selection-start-line="205" selection-start-column="23" selection-end-line="205" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data2/itjuzi_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webdriver/driver2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="185" column="29" lean-forward="false" selection-start-line="185" selection-start-column="29" selection-end-line="185" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>

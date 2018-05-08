@@ -96,6 +96,10 @@ class TulingWXBot(WXBot):
                         reply += u"对不起，只认字，其他杂七杂八的我都不认识，,,Ծ‸Ծ,,"
                     self.send_msg_by_uid(reply, msg['user']['id'])
 
+    def schedule(self):
+        print self.member_list
+        self.send_msg_by_uid('test','@@b71f0ddfe8de699624703b5c3ca33f8884ffb44aa955f505a03d0632ffb13062')
+
 
 def main():
     bot = TulingWXBot()
