@@ -1073,13 +1073,17 @@ class WXBot:
                 'BaseRequest': self.base_request,
                 'Msg': {
                     'Type': 6,
-                    'Content': ("<appmsg appid='wxeb7ec651dd0aefa9' sdkver=''><title>%s</title><des></des><action></action><type>6</type><content></content><url></url><lowurl></lowurl><appattach><totallen>%s</totallen><attachid>%s</attachid><fileext>%s</fileext></appattach><extinfo></extinfo></appmsg>" % (os.path.basename(fpath).encode('utf-8'), str(os.path.getsize(fpath)), mid, fpath.split('.')[-1])).encode('utf8'),
+                    'Content': str("<appmsg appid='wxeb7ec651dd0aefa9' sdkver=''><title>%s</title><des></des><action></action><type>6</type><content></content><url></url><lowurl></lowurl><appattach><totallen>%s</totallen><attachid>%s</attachid><fileext>%s</fileext></appattach><extinfo></extinfo></appmsg>" % (os.path.basename(fpath).encode('utf-8') , str(os.path.getsize(fpath)), mid, fpath.split('.')[-1])),
                     'FromUserName': self.my_account['UserName'],
                     'ToUserName': uid,
                     'LocalID': msg_id,
                     'ClientMsgId': msg_id, }, }
         try:
-            r = self.session.post(url, data=json.dumps(data))
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36',
+                'Content-Type': 'application/json;charset=UTF-8', }
+            r = self.session.post(url, headers=headers,
+                            data=json.dumps(data, ensure_ascii=False).encode('utf8'))
             res = json.loads(r.text)
             if res['BaseResponse']['Ret'] == 0:
                 return True

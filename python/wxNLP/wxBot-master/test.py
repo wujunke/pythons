@@ -3,27 +3,13 @@
 #
 
 from wxbot import *
+import sys
+reload(sys)
+sys.setdefaultencoding('gb2312')
 
+fpath = '/Users/investarget/Desktop/django_server/pdffile/中文.pdf'
 
-class MyWXBot(WXBot):
-    def handle_msg_all(self, msg):
-        if msg['msg_type_id'] == 4 and msg['content']['type'] == 0:
-            self.send_msg_by_uid(u'hi', msg['user']['id'])
-            #self.send_img_msg_by_uid("img/1.png", msg['user']['id'])
-            #self.send_file_msg_by_uid("img/1.png", msg['user']['id'])
-'''
-    def schedule(self):
-        self.send_msg(u'张三', u'测试')
-        time.sleep(1)
-'''
-
-
-def main():
-    bot = MyWXBot()
-    bot.DEBUG = True
-    bot.conf['qr'] = 'png'
-    bot.run()
-
-
-if __name__ == '__main__':
-    main()
+path1 =  os.path.basename(fpath)
+path2 =  str(os.path.getsize(fpath))
+path3 =  fpath.split('.')[-1]
+print path1,path2,path3

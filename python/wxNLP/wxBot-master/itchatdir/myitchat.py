@@ -11,20 +11,20 @@ from itchat.content import TEXT
 #             msg.actualNickName, msg.text))
 
 itchat.auto_login()
-# itchat.run()
+
 
 
 
 
 while True:
-    room = itchat.search_chatrooms(name=u'特工')
-    print room
+    room = itchat.search_chatrooms(name=u'别墅1')
+    # print room
 
     roomusername = room[0]['UserName']
 
 
     try:
-        itchat.send_file('/Users/investarget/Desktop/猕猴桃.pdf', toUserName=roomusername)
+        itchat.send_file(u'/Users/investarget/Desktop/django_server/pdffile/中文.pdf', toUserName=roomusername)
         print("success")
     except:
         print("fail")

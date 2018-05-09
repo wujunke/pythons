@@ -7,6 +7,9 @@ from pymongo import WriteConcern
 
 from wxbot import *
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 client = pymongo.MongoClient('mongodb://192.168.1.251:27017/')
 db = client.wxnlp
@@ -73,18 +76,18 @@ class MyWXBot(WXBot):
         print len(filelist)
         for i in range(0, 1):
             filepath = os.path.join(rootdir, filelist[i])
-            print filepath
+            # print filepath
             if os.path.isfile(filepath):
-                # for group in self.group_list:
-                #   groupname = group['UserName']
-                groupnames = [u'特工', u'别墅1',u'别墅2']
-                for groupname in groupnames:
-                    if self.send_file_msg_by_uid('/Users/investarget/Desktop/django_server/pdffile/123456.pdf', self.get_user_id(groupname)):
-                        print '发送成功'
-                    else:
-                        print '发送失败'
-                    time.sleep(30)
-                os.remove(filepath)
+                for group in self.group_list:
+                    groupname = group['UserName']
+                # groupnames = [u'别墅1']
+                # for groupname in groupnames:
+                #     if self.send_file_msg_by_uid('/Users/investarget/Desktop/django_server/pdffile/多维海拓：澄凝项目Teaser.pdf', self.get_user_id(groupname)):
+                #         print '发送成功'
+                #     else:
+                #         print '发送失败'
+                #     time.sleep(60)
+                # os.remove(filepath)
 
 def main():
     bot = MyWXBot()
