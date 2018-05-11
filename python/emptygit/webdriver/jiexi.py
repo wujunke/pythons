@@ -3,7 +3,7 @@ import json
 
 from bs4 import BeautifulSoup
 
-html = open('test.html','r').read()
+html = open('itjuzi2.html','r').read()
 
 def parseHtml(html):
     soup = BeautifulSoup(html, 'html.parser')
@@ -16,6 +16,9 @@ def parseHtml(html):
     if name:
         com_name = name.text.replace(u'\t', u'')
         com_name = com_name.split('\n')[1]
+
+    industryType = soup.find('a', class_='one-level-tag').text if soup.find('a', class_='one-level-tag') else ''
+
     # 联系方式
     ll = ['mobile', 'email', 'detailaddress']
     response = {}
@@ -97,9 +100,51 @@ def parseHtml(html):
                             infodic[theadlist[i]] = tdlist[i].text.replace('\n','').replace('\t','') if tdlist[i].text else None
                         infolist.append(infodic)
                 response[tabhref] = infolist
+
+
+    # 投资信息
+
+
+    # 融资信息
+    investents = soup.find(id='invest-portfolio')
+    eventtable = investents.find('table')
+    eventtrlist = eventtable.find_all('tr')
+    eventlist = []
+    for eventtr in eventtrlist:
+        date = eventtr.find(class_='date').text
+        round = eventtr.find(class_='round').text
+        money = eventtr.find(class_='finades').text
+
+        link = eventtr.find(class_='finades').a['href']
+        type = link.split('/')[-2]
+        event_id = link.split('/')[-1]
+        data = {
+            'date': date,
+            'round': round,
+            'money': money,
+        }
+        if type == 'merger':
+            data['investormerge'] = 2
+            data['merger_id'] = event_id
+            data['merger_with'] = eventtr.find('a', class_='line1 c-gray').text if eventtr.find('a', class_='line1 c-gray') else ''
+        else:
+            data['investormerge'] = 1
+            data['invse_id'] = event_id
+            line1s = eventtr.find_all('a', class_='line1')
+            invsest_with = []
+            for line1 in line1s:
+                url = line1['href']
+                invst_name = line1.text
+                invsest_with.append({'url':url, 'invst_name':invst_name})
+            data['invsest_with'] = invsest_with
+        eventlist.append(data)
+    response['events'] = eventlist
+
+    response['industryType'] = industryType
+
     return response, com_name
 
 res = parseHtml(html)
-print res
+# print res
 
 

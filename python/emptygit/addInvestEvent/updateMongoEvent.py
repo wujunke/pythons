@@ -56,7 +56,7 @@ orglist = []
 
 def getOrgIdByOrgname(orgname):
     orgid = None
-    if orgname and orgname != '未透露':
+    if orgname and orgname != u'未透露':
         for org in orglist:
             if org['com_name'] == orgname:
                 orgid = org['com_id']

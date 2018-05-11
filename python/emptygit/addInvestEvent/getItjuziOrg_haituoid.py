@@ -4,6 +4,8 @@ import random
 
 
 import datetime
+import urllib
+
 import requests
 import time
 from bs4 import BeautifulSoup
@@ -45,11 +47,21 @@ def saveInfo(itjuzi_id, itjuzi_name, haituo_id):
     if haituo_id:
         f = open('name_id_comparetable', 'a')
         content = {
-            'itjuzi_id': itjuzi_id,
-            'itjuzi_name':itjuzi_name,
+            'itjuzi_id': int(itjuzi_id),
+            'itjuzi_name':itjuzi_name.decode('utf-8'),
             'haituo_id':int(haituo_id),
         }
-        f.writelines(json.dumps(content))
+        f.writelines(json.dumps(content,ensure_ascii=False))
+        f.writelines('\n')
+        f.close()
+    else:
+        f = open('name_id_comparetable', 'a')
+        content = {
+            'itjuzi_id': int(itjuzi_id),
+            'itjuzi_name': itjuzi_name.decode('utf-8'),
+            'haituo_id': '暂无（）',
+        }
+        f.writelines(json.dumps(content, ensure_ascii=False))
         f.writelines('\n')
         f.close()
 
@@ -71,19 +83,23 @@ def getHaituoidWithItjuziName(itjuzi_name):
         'Accept': 'application/json',
     }
     if itjuzi_name:
-        response = requests.get(base_url + 'org/?orgfullname=%s' % itjuzi_name,
+        response = requests.get(base_url + 'org/?orgfullname=%s' % urllib.quote(itjuzi_name.decode(sys.stdin.encoding).encode('utf-8')),
                                headers=headers).content
         response = json.loads(response)
         if response['code'] != 1000:
             print '未找到对应id--%s' % itjuzi_name + str(response)
         else:
-            res_id = response['result'][0]['id']
+            reslist = response['result']['data']
+            if len(reslist) > 0:
+                res_id = reslist[0]['id']
+            else:
+                print '未找到对应id--%s' % itjuzi_name + str(response)
     else:
         print '机构名为空--%s' % itjuzi_name
     return res_id
 
 
-tables = excel_table_byindex('/Users/investarget/Desktop/IT桔子机构对照表1501-3100.xlsx')
+tables = excel_table_byindex('/Users/investarget/Desktop/IT桔子机构对照表4501-6939.xlsx')
 for row in tables:
     itjuzi_name = row['itjuzi_name']
     itjuzi_id = row['itjuzi_id']

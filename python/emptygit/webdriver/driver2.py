@@ -53,6 +53,51 @@ def parseHtml(html):
                     response['email'] = info.text.replace('\n','').replace('\t','')
                 if info.find('i',class_='fa icon icon-address-o'):
                     response['detailaddress'] = info.text.replace('\n','').replace('\t','')
+
+        #投资信息
+
+
+        #融资信息
+        investents = soup.find(id='invest-portfolio')
+        eventtable = investents.find('table')
+        eventtrlist = eventtable.find_all('tr')
+        eventlist = []
+        for eventtr in eventtrlist:
+            if eventtr.find(class_='date'):
+                date = eventtr.find(class_='date').text
+                round = eventtr.find(class_='round').text
+                money = eventtr.find(class_='finades').text
+
+                link = eventtr.find(class_='finades').a['href']
+                type = link.split('/')[-2]
+                event_id = link.split('/')[-1]
+                data = {
+                    'date': date,
+                    'round': round,
+                    'money': money,
+                }
+                if type == 'merger':
+                    data['investormerge'] = 2
+                    data['merger_id'] = event_id
+                    data['merger_with'] = eventtr.find('a', class_='line1 c-gray').text if eventtr.find('a',
+                                                                                                        class_='line1 c-gray') else ''
+                else:
+                    data['investormerge'] = 1
+                    data['invse_id'] = event_id
+                    line1s = eventtr.find_all('a', class_='line1')
+                    invsest_with = []
+                    for line1 in line1s:
+                        url = line1.get('href', None)
+                        invst_name = line1.text
+                        invsest_with.append({'url': url, 'invst_name': invst_name})
+                    data['invsest_with'] = invsest_with
+                eventlist.append(data)
+        response['events'] = eventlist
+
+        industryType = soup.find('a', class_='one-level-tag').text if soup.find('a', class_='one-level-tag') else ''
+        response['industryType'] = industryType
+
+
         # 团队信息
         members = []
         membersul = soup.find('ul', class_='list-unstyled team-list limited-itemnum')
@@ -229,7 +274,67 @@ def get_companglist(page_index):
 
 
 
+def saveEventToMongo(events, com_id):
+    for event in events:
+        event['com_id'] = com_id
+        res = session.post(base_url + 'mongolog/event', data=json.dumps(event),
+                            headers={'Content-Type': 'application/json', 'token': token}).content
+        res = json.loads(res)
+        if res['code'] == 1000:
+            print '新增invse--' + str(res['result'].get('invse_id', None))
+        elif res['code'] == 8001:
+            print '重复invest'
+        else:
+            print '错误event数据--%s'%repr(event)
+            print res
 
+orglist = []
+with open("/Users/investarget/pythons/python/emptygit/addInvestEvent/name_id_comparetable","r") as f:
+    lines = f.readlines()
+    for line in lines:
+        orglist.append(json.loads(line.replace('\n','')))
+
+
+
+def getOrgIdByOrgname(orgname):
+    orgid = None
+    if orgname and orgname != u'未透露':
+        for org in orglist:
+            if org['itjuzi_name'] == orgname:
+                orgid = org['haituo_id']
+    return orgid
+
+
+def saveEventToMySqlOrg(events, com_id, com_name, industryType):
+    for event in events:
+        orglist = []
+        if event['investormerge'] == 1:
+            for invst_dic in event['invsest_with']:
+                orglist.append(invst_dic['invst_name'])
+        else:
+            orglist.append(event['merger_with'])
+        for orgname in orglist:
+            orgid = getOrgIdByOrgname(orgname)
+            if orgid:
+                data = {
+                    'org': orgid,
+                    'comshortname': com_name,
+                    'com_id': com_id,
+                    'industrytype': industryType,
+                    'investDate': str(event['date'] ) + 'T12:00:00' if event['date']  else None,
+                    'investType': event['round'],
+                    'investSize': event['money'],
+                }
+                res = session.post(base_url + 'org/investevent/', data=json.dumps(data),
+                                    headers={'Content-Type': 'application/json', 'token': token}).content
+                res = json.loads(res)
+                if res['code'] == 1000:
+                    print '新增org_invest--' + str(res['result'].get('id', None))
+                elif res['code'] == 5007:
+                    print '重复org_invest'
+                else:
+                    print '错误org_invest数据--%s'%repr(res)
+                    print res
 
 
 
@@ -277,6 +382,8 @@ def getpage(driver,com_id,wait):
             news = resdic['news']
             saveCompanyNewsToMongo(news, resdic['com_id'], com_name)
             saveCompanyIndustyInfoToMongo(resdic)
+            saveEventToMongo(resdic['events'], resdic['com_id'])
+            saveEventToMySqlOrg(resdic['events'], resdic['com_id'], com_name, resdic['industryType'])
             dic = {}
             dic['com_id'] = int(resdic.get('com_id'))
             dic['tags'] = resdic.get('tags', [])
