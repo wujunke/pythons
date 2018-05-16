@@ -1,7 +1,7 @@
 #coding=utf-8
 
 # it桔子Cookie（抓取使用）
-Cookie = 'acw_tc=AQAAAP71FQ7ZFw0AX3iptEW6ur1bGOWY; gr_user_id=bd6dc2eb-58b6-44f0-ae3f-394d4a9d66b6; Hm_lvt_1c587ad486cdb6b962e94fc2002edf89=1523587457,1523844344,1523931008,1524048671; Hm_lpvt_1c587ad486cdb6b962e94fc2002edf89=1524048716; MEIQIA_EXTRA_TRACK_ID=0zsxMGF1VQND1EHLYrVanekuTyE; identity=18616837957%40test.com; remember_code=Ogbr5PvteO; unique_token=439977; paidtype=vip; _ga=GA1.2.720552382.1524048671; _gid=GA1.2.967022043.1524048671; gr_session_id_eee5a46c52000d401f969f4535bdaa78=9aa43d8d-c609-4b31-af00-d9bb9ade52c4; gr_cs1_9aa43d8d-c609-4b31-af00-d9bb9ade52c4=user_id%3A439977; acw_sc__=5ad725d95206e090c0b24c584a2f8e97873e8947; session=495a71a727fc98c56362d3da91a10bcd2bcf2695'
+Cookie = 'acw_tc=AQAAAEhOBzyv+AcAAtNyDWYgyOV9JZ/e; _ga=GA1.2.1047965745.1526279819; _gid=GA1.2.1794278510.1526279819; _gat=1; gr_user_id=51551c4e-2ea3-4827-8021-6aae9bde09b7; Hm_lvt_1c587ad486cdb6b962e94fc2002edf89=1524217343,1524894738,1526018743,1526279820; Hm_lpvt_1c587ad486cdb6b962e94fc2002edf89=1526279820; gr_session_id_eee5a46c52000d401f969f4535bdaa78=f562ee5e-f02c-474d-a7eb-69539cb84e98_true; MEIQIA_EXTRA_TRACK_ID=0zsxMGF1VQND1EHLYrVanekuTyE; acw_sc__=5af92e9ae416a515caeb9f3d82f1e0b72e77ebe5; identity=18616837957%40test.com; remember_code=9h4GEi6JJp; unique_token=439977; paidtype=vip; session=b5c22110317a87bb81d164313d0734dfc9f79c55'
 # api的token（插入使用）
 # token = '9fea5e61e4a86110972d22fd54cd7092d5ff5deeb4977d00'
 # 39服务器
@@ -23,7 +23,7 @@ page_size = 15  #这是it桔子的页面大小，不要改动，判断是否重�
 # http:
 iplist = ['140.205.222.3:80']
 # https:'123.152.36.89:2682','123.152.66.19:2682', '123.152.36.149:2682'，'123.152.37.213:2682','123.152.67.108:2682','123.152.37.124:2682','58.243.30.186:4676'
-iplist2 = ['180.109.39.222:4813']
+iplist2 = ['114.215.95.188:3128']
 
 
 temp_path_base = '/Users/investarget/Desktop/python/emptygit/data3/'
