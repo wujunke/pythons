@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
     while(Is_Over):
         #temp用于记录是否是当日的代理IP,如果不是记录其位置
-        temp=-1
+        temp = -1
 
         url1=url.format(num=_num)
         html=GPI.GetHtmlpage(url1)
@@ -102,7 +102,7 @@ if __name__ == "__main__":
                 Is_Over=False
                 break
         #如果temp=-1，就全部进行写入
-        if temp==-1:
+        if temp == -1:
             for i in range(len(result)):
                 for j in range(len(result[i])):
                     print(str(result[i][j]))
@@ -117,4 +117,4 @@ if __name__ == "__main__":
         time.sleep(16)
     #
     print("写入完成")
-    book.save('https.xls')
+    book.save('http.xls')
