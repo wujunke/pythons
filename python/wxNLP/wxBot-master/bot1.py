@@ -14,14 +14,17 @@ sys.setdefaultencoding('utf-8')
 client = pymongo.MongoClient('mongodb://192.168.1.251:27017/')
 db = client.wxnlp
 WXCollection = db.wxchatdata
-base_url = 'http://192.168.1.251/'
+
+
+base_url = 'http://192.168.1.251:8080/'
+token = '9fea5e61e4a86110972d22fd54cd7092d5ff5deeb4977d00'
 
 class MyWXBot(WXBot):
 
 
     def __init__(self):
         self.des_list = []
-        super(MyWXBot, self).__init__()
+        WXBot.__init__(self)
 
 
 
@@ -39,33 +42,38 @@ class MyWXBot(WXBot):
             # 3 -> 群聊类型消息
             # 2 -> File Helper
             msg_content = msg.get('content')
-            fromuser = msg_content.get('user', dict()).get('name', 'unknown_user'),
+            fromgroup = msg.get('user', dict()).get('name', 'unknown_group')
+            fromuser = msg_content.get('user', dict()).get('name', 'unknown_user')
             content = msg_content.get('data', 'unknown_content')
-            if fromuser in [u'特工',]:
+            if fromgroup in [u'特工',]:
                 try:
                     if msg_content.get('type') == 0:
                         if u'机构：' in content:
                             if u'姓名：' in content:
-                                self.des_list.append({
-                                    'username': '',
-                                    'orgname': '',
-                                    'user_id': '',
-                                    'fromuser': fromuser,
-                                    'time': int(time.time()),
-                                })
+                                username = content.replace('姓名：','').split()[-1]
+                                orgname = content.replace('机构：','').split()[0]
+                                user_id = self.get_user_id_by_orgAndUser(orgname,username)
+                                if user_id:
+                                    self.des_list.append({
+                                        'user_id': user_id,
+                                        'fromuser': fromuser,
+                                        'time': int(time.time()),
+                                    })
                     if msg_content.get('type') == 3:
                         msg_id = msg.get('msg_id')
                         img_path = os.path.join(self.temp_pwd, 'img_' + msg_id + '.jpg')
                         for des_user in self.des_list:
-                            if fromuser == des_user['fromuer']:
+                            if fromuser == des_user['fromuser']:
                                 if des_user['time'] < int(time.time()) + 300:
                                     key = self.upload_image(img_path)
                                     self.saveimgtouser(userid=des_user['user_id'], bucket_key=key, bucket='image')
+                                    if os.path.exists(img_path):
+                                        os.remove(img_path)
                                 else:
                                     self.des_list.remove(des_user)
                                 break
                 except Exception:
-                    pass
+                    print traceback.format_exc()
 
             if msg_content.get('type') == 0:
                 # 0 -> Text
@@ -90,30 +98,45 @@ class MyWXBot(WXBot):
                 }
                 WXCollection.insert(payload)
 
+    def get_user_id_by_orgAndUser(self, orgname, username):
+        user_id = None
+        url = base_url + 'user/?usernameC=%s&search=%s' % (username, orgname)
+        headers = {
+            'token': token,
+        }
+        r = requests.get(url, headers=headers).content
+        res = json.loads(r).get('result', dict()).get('data', list())
+        if len(res) > 0:
+            user = res[0]
+            if user.get('id', None):
+                user_id = user['id']
+        return user_id
+
     def upload_image(self, img_path):
         url = base_url + 'service/qiniubigupload?topdf=0&bucket=image'
         files = {'images': open(img_path, 'rb')}
         headers = {
-            'token':'',
+            'token':token,
         }
         r = requests.post(url, files=files, headers=headers).content
         key = json.loads(r).get('result',dict()).get('key', None)
         return key
 
     def saveimgtouser(self, userid, bucket_key, bucket):
-        url = base_url
+        url = base_url + 'user/atta/'
         headers = {
-            'token': '',
+            'Content-Type': 'application/json',
+            'token': token,
         }
         data = {
             'user': userid,
             'bucket': bucket,
             'key': bucket_key,
-            'filename': '微信图片',
+            'filename': u'微信图片',
         }
         r = requests.post(url, data=json.dumps(data),headers=headers).content
-        key = json.loads(r).get('result', dict())
-        return key
+        result = json.loads(r).get('result', dict())
+        return result
 
 
 

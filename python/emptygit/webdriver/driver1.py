@@ -370,11 +370,8 @@ def getpage(driver,com_id,wait):
                 elif com_name in (u'www.itjuzi.com', u'502 Bad Gateway',u'403'):
                     print '空页面--%s' % com_id
                     print '现在的时间是：%s' % datetime.datetime.now()
-                    print '等待%s分钟后重试' % wait
-                    time.sleep(60 * wait)
-                    wait = wait + 5
-                    if wait >= 60:
-                        wait = 60
+                    print '等待%s秒后重试' % wait
+                    time.sleep(wait)
                     getpage(driver, com_id, wait)
                 else:
                     print 'com_id:%s' % str(com_id)
@@ -382,7 +379,7 @@ def getpage(driver,com_id,wait):
             else:
                 print '空页面--%s' % com_id
                 print '现在时间：%s' % datetime.datetime.now()
-                print '等待%s分钟后重试'%wait
+                print '等待%s秒后重试'%wait
                 time.sleep(60 * wait)
                 wait = wait + 5
                 if wait >= 60:
@@ -390,6 +387,7 @@ def getpage(driver,com_id,wait):
                 getpage(driver,com_id,wait)
     except TimeoutException:
         print '打开页面超时，跳过公司：id--%s'%com_id
+        # return True
 
 # desired_capabilities = dict(DesiredCapabilities.PHANTOMJS)
 # desired_capabilities["phantomjs.page.settings.userAgent"] = 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.3 Safari/537.36'
@@ -397,7 +395,7 @@ def getpage(driver,com_id,wait):
 # driver = webdriver.PhantomJS('/Users/investarget/wxNLP-env/selenium/webdriver/phantomjs-2.1.1-macosx/bin/phantomjs', desired_capabilities=desired_capabilities,service_args=['--ssl-protocol=any','--ignore-ssl-errors=true'])
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://180.173.149.158:9797')
+chrome_options.add_argument('--proxy-server=http://123.134.87.136:61234')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 
 # driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', )
@@ -419,7 +417,7 @@ driver.find_element_by_id('login_btn').click()
 
 
 
-page_index = 375
+page_index = 3388
 while page_index <= 10000:
     projlist = get_companglist(page_index)
 
@@ -429,10 +427,53 @@ while page_index <= 10000:
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
-            getpage(driver, com_id, 2)
+            getpage(driver, com_id, 10)
 
 
 driver.quit()
+
+
+# def startdriver(page_index, proxy_ip):
+#     chrome_options = webdriver.ChromeOptions()
+#     chrome_options.add_argument('--proxy-server=http://%s' % proxy_ip)
+#     driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
+#
+#     # driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', )
+#
+#     driver.set_window_size('1280', '800')
+#     print '正在打开网站...'
+#     driver.get("https://www.itjuzi.com/user/login")
+#     # driver.get('https://www.itjuzi.com/user/login?redirect=index.php?m=bbs?phpSessId=983d31fb953dc8a76973e6ec6a44cdfff234fd6c%C3%83%C2%83%C3%82%C2%83%C3%83%C2%82%C3%82%C2%83%C3%83%C2%83%C3%82%C2%82%C3%83%C2%82%C3%82%C2%83%C3%83%C2%83%C3%82%C2%83%C3%83%C2%82%C3%82%C2%82%C3%83%C2%83%C3%82%C2%82%C3%83%C2%82%C3%82%C2%A3%C3%83%C2%83%C3%82%C2%83%C3%83%C2%82%C3%82%C2%83%C3%83%C2%83%C3%82%C2%82%C3%83%C2%82%C3%82%C2%82%C3%83%C2%83%C3%82%C2%83%C3%83%C2%82%C3%82%C2%82%C3%83%C2%83%C3%82%C2%82%C3%83%C2%82%C3%82%C2%80%C3%83%C2%83%C3%82%C2%83%C3%83%C2%82%C3%82%C2%83%C3%83%C2%83%C3%82%C2%82%C3%83%C2%82%C3%82%C2%82%C3%83%C2%83%C3%82%C2%83%C3%83%C2%82%C3%82%C2%82%C3%83%C2%83%C3%82%C2%82%C3%83%C2%82%C3%82%C2%81?phpSessId=10876e213c50e234d56347a680d1391fc18168e6?phpSessId=e0722e635a688a9fe548ec78d5f40756b9e435c5?phpSessId=ac390ac897bfe517b50b2b014f75f5f4370b359a?phpSessId=dcbe021bdd12f6743f9c9ca3b49bc551529fb22b?phpSessId=94bf36bed7eaa3fc1deb805f6e8b71b0d3344672?phpSessId=b081aba40b934e50d83acd786e3b2626cf51afc2')
+#     time.sleep(5)
+#     print '正在输入账号...'
+#     account = driver.find_element_by_xpath('//*[@id="create_account_email"]')
+#     account.click()
+#     account.send_keys("18616837957", )
+#     print '正在输入密码...'
+#     paswd = driver.find_element_by_xpath('//*[@id="create_account_password"]')
+#     paswd.send_keys("x81y0122", )
+#     print '正在登录...'
+#     driver.find_element_by_id('login_btn').click()
+#     res = False
+#     while page_index <= 10000:
+#         projlist = get_companglist(page_index)
+#
+#         print '当前页码：page_index = %s' % str(page_index)
+#         print datetime.datetime.now()
+#         page_index += 1
+#         if projlist:
+#             for proj in projlist:
+#                 com_id = proj['com_id']
+#                 res = getpage(driver, com_id, 2)
+#                 if res:
+#                     driver.quit()
+#                     return page_index - 1
+#
+#
+# page_index = 1050
+# for ip in proxy_iplist:
+#     page_index = startdriver(page_index, ip)
+
 
 
 

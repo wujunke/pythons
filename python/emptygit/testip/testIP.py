@@ -54,7 +54,7 @@ def excel_table_byname(file,colnameindex=0,by_name=u'Sheet1'):
 
 def getIPs():
     ips = []
-    tables = excel_table_byindex('http.xls')
+    tables = excel_table_byindex('18-05-28.xls')
     for row in tables:
         ip = row[u'IP地址']+ u':' + row[u'端口']
         ips.append(ip)
@@ -62,14 +62,14 @@ def getIPs():
 
 
 def testIP(ip):
-    url = 'https://www.itjuzi.com/user/login'
-    header = \
-        {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36"
-        }
+    url = 'https://www.itjuzi.com/company/1'
+    headers = {
+
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
+    }
     pox = {'https':'https://%s' % str(ip)}
     try:
-        res = requests.get(url, headers=header, proxies=pox, timeout=3).content
+        res = requests.get(url, headers=headers, proxies=pox, timeout=3).content
         soup = BeautifulSoup(res, 'html.parser')
     except Exception:
         print traceback.format_exc()
@@ -77,7 +77,7 @@ def testIP(ip):
         title = soup.title
         if title:
             title = title.text
-        if title in ['用户登录 | IT桔子', u'用户登录 | IT桔子']:
+        if title in ['用户登录 | IT桔子', u'用户登录 | IT桔子', '美丽说,北京美丽时空网络科技有限公司,一个女性时尚社区和社会化电商平台 - IT桔子', u'美丽说,北京美丽时空网络科技有限公司,一个女性时尚社区和社会化电商平台 - IT桔子']:
             print 'ip-  %s  -可用' % str(ip)
         else:
             print 'ip-  %s  -不可用' % str(ip)

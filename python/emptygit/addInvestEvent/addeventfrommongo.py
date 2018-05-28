@@ -51,9 +51,9 @@ def rand_proxie2():
 
 
 
-driver = webdriver.Chrome('/usr/local/bin/chromedriver', )
-
-# driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', )
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--proxy-server=http://60.186.252.14:1246')
+driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 
 
 

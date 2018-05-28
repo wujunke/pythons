@@ -19,6 +19,8 @@ import os
 import datetime
 import shutil
 
+import requests
+
 
 def deleteExpireDir(rootpath):
     #删除过期的文件夹/文件
@@ -49,9 +51,13 @@ line = '{"智店项目": "本周项目自动推送：全国首家智能便利店
 
 
 
-ds = json.loads(line)
-print ds[unicode("智店项目", "utf-8")]
-
-groupnames = [u'特工', u'多维海拓投资人交流11群·大健康', u'多维海拓投资人交流1群', u'多维海拓投资人交流10群', u'多维海拓投资人交流9群',
-                                u'多维海拓投资人交流3群', u'多维海拓投资人交流4群', u'多维海拓投资人交流12群·AR·VR', u'多维海拓投资人交流5群']
+# ds = json.loads(line)
+# print ds[unicode("智店项目", "utf-8")]
+#
+# groupnames = [u'特工', u'多维海拓投资人交流11群·大健康', u'多维海拓投资人交流1群', u'多维海拓投资人交流10群', u'多维海拓投资人交流9群',
+#                                 u'多维海拓投资人交流3群', u'多维海拓投资人交流4群', u'多维海拓投资人交流12群·AR·VR', u'多维海拓投资人交流5群']
 # deleteExpireDir('/Users/investarget/Desktop/django_server/pdffile')
+
+aa = 'aaa        d        sss'
+vv = aa.split()
+print vv
