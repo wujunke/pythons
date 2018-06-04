@@ -1,9 +1,8 @@
 #coding=utf-8
-import requests
-import time
-from selenium import webdriver
 from bs4 import BeautifulSoup
 
+
+html = open('gongshang.html','r').read()
 
 def parseHtml(html):
     soup = BeautifulSoup(html, 'html.parser')
@@ -64,47 +63,4 @@ def parseHtml(html):
 
 
 
-
-
-
-
-
-
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://123.139.56.238:9999')
-driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
-
-
-driver.set_window_size('1280','800')
-print '正在打开网站...'
-driver.get("https://passport.36kr.com/pages/?ok_url=https%3A%2F%2Frong.36kr.com%2F#/login")
-time.sleep(5)
-print '正在输入账号...'
-account = driver.find_element_by_id('kr-shield-username')
-account.click()
-account.send_keys("18637760716",)
-print '正在输入密码...'
-paswd = driver.find_element_by_id('kr-shield-password')
-paswd.send_keys("123921013le",)
-print '正在登录...'
-driver.find_element_by_id('kr-shield-submit').click()
-
-
-js='window.open("https://rong.36kr.com/commercial/37552");'
-driver.execute_script(js)
-
-handles = driver.window_handles # 获取当前窗口句柄集合（列表类型）
-driver.switch_to.window(handles[1])
-
-html = driver.page_source
-
 res = parseHtml(html)
-
-
-
-
-driver.close()
-driver.switch_to.window(handles[0])
-
-
-driver.quit()

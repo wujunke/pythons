@@ -67,7 +67,6 @@ if __name__ == "__main__":
 
     Is_Over=True
 
-
     request = requests.session()
     request.headers = header
     #实例化对象

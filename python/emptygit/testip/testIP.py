@@ -1,6 +1,8 @@
 #coding=utf-8
 import traceback
 import  xdrlib ,sys
+
+import datetime
 from bs4 import BeautifulSoup
 import requests
 import xlrd
@@ -54,7 +56,9 @@ def excel_table_byname(file,colnameindex=0,by_name=u'Sheet1'):
 
 def getIPs():
     ips = []
-    tables = excel_table_byindex('18-05-28.xls')
+    currentTime = datetime.datetime.now().strftime("%Y-%m-%d")[2:]
+    filename = currentTime + '.xls'
+    tables = excel_table_byindex(filename)
     for row in tables:
         ip = row[u'IP地址']+ u':' + row[u'端口']
         ips.append(ip)
@@ -62,7 +66,8 @@ def getIPs():
 
 
 def testIP(ip):
-    url = 'https://www.itjuzi.com/company/1'
+    url = 'https://www.itjuzi.com/user/login'
+    # url= 'https://www.itjuzi.com/investment/info/search?id=1'
     headers = {
 
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
@@ -71,9 +76,12 @@ def testIP(ip):
     try:
         res = requests.get(url, headers=headers, proxies=pox, timeout=3).content
         soup = BeautifulSoup(res, 'html.parser')
+        # res = json.loads(res)
     except Exception:
         print traceback.format_exc()
     else:
+        # if res['code'] in ['200', u'200', 200]:
+        #     print 'ip-  %s  -可用' % str(ip)
         title = soup.title
         if title:
             title = title.text

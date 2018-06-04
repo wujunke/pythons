@@ -378,16 +378,13 @@ def getpage(driver,com_id,wait):
                     print com_name
             else:
                 print '空页面--%s' % com_id
-                print '现在时间：%s' % datetime.datetime.now()
-                print '等待%s秒后重试'%wait
-                time.sleep(60 * wait)
-                wait = wait + 5
-                if wait >= 60:
-                    wait = 60
-                getpage(driver,com_id,wait)
+                # print '现在时间：%s' % datetime.datetime.now()
+                # print '等待%s秒后重试'%wait
+                # time.sleep(wait)
+                # getpage(driver,com_id,wait)
     except TimeoutException:
-        print '打开页面超时，跳过公司：id--%s'%com_id
-        # return True
+        print '打开页面超时，公司：id--%s'%com_id
+        getpage(driver, com_id, wait)
 
 # desired_capabilities = dict(DesiredCapabilities.PHANTOMJS)
 # desired_capabilities["phantomjs.page.settings.userAgent"] = 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.3 Safari/537.36'
@@ -395,7 +392,7 @@ def getpage(driver,com_id,wait):
 # driver = webdriver.PhantomJS('/Users/investarget/wxNLP-env/selenium/webdriver/phantomjs-2.1.1-macosx/bin/phantomjs', desired_capabilities=desired_capabilities,service_args=['--ssl-protocol=any','--ignore-ssl-errors=true'])
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://123.134.87.136:61234')
+chrome_options.add_argument('--proxy-server=http://218.14.115.211:3128')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 
 # driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', )
@@ -417,7 +414,7 @@ driver.find_element_by_id('login_btn').click()
 
 
 
-page_index = 3388
+page_index = 4057
 while page_index <= 10000:
     projlist = get_companglist(page_index)
 

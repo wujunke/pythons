@@ -58,6 +58,13 @@ line = '{"智店项目": "本周项目自动推送：全国首家智能便利店
 #                                 u'多维海拓投资人交流3群', u'多维海拓投资人交流4群', u'多维海拓投资人交流12群·AR·VR', u'多维海拓投资人交流5群']
 # deleteExpireDir('/Users/investarget/Desktop/django_server/pdffile')
 
-aa = 'aaa        d        sss'
-vv = aa.split()
-print vv
+# aa = 'aaa        d        sss'
+# vv = aa.split()
+# print vv
+
+base_url = 'http://192.168.1.251:8080/'
+token = '9fea5e61e4a86110972d22fd54cd7092d5ff5deeb4977d00'
+
+
+aas = 'ss'
+vv = aas + None

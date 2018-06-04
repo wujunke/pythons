@@ -40,8 +40,8 @@
       <file leaf-file-name="addneworg.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/excel/addneworg.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="459" column="33" lean-forward="false" selection-start-line="459" selection-start-column="33" selection-end-line="459" selection-end-column="33" />
+            <state relative-caret-position="684">
+              <caret line="539" column="19" lean-forward="true" selection-start-line="539" selection-start-column="19" selection-end-line="539" selection-end-column="19" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -141,7 +141,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -165,6 +164,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="数据迁移3.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="oldsysdata2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -202,6 +205,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -558,9 +562,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="93" y="23" width="1633" height="975" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17221873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17221873" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18038969" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -951,8 +955,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/excel/addneworg.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="459" column="33" lean-forward="false" selection-start-line="459" selection-start-column="33" selection-end-line="459" selection-end-column="33" />
+        <state relative-caret-position="684">
+          <caret line="539" column="19" lean-forward="true" selection-start-line="539" selection-start-column="19" selection-end-line="539" selection-end-column="19" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>

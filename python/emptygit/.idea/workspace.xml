@@ -4,14 +4,16 @@
     <list default="true" id="55a664ab-9369-42f2-9bc8-e8b4ffed9699" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addInvestEvent/addEvent.py" afterPath="$PROJECT_DIR$/addInvestEvent/addEvent.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py" afterPath="$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/addInvestEvent/name_id_comparetable" afterPath="$PROJECT_DIR$/addInvestEvent/name_id_comparetable" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testip/getIP.py" afterPath="$PROJECT_DIR$/testip/getIP.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testip/testIP.py" afterPath="$PROJECT_DIR$/testip/testIP.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webdriver/driver1.py" afterPath="$PROJECT_DIR$/webdriver/driver1.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webdriver/driver2.py" afterPath="$PROJECT_DIR$/webdriver/driver2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/xiniu/xiniu.py" afterPath="$PROJECT_DIR$/xiniu/xiniu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wxNLP/wxBot-master/bot.py" afterPath="$PROJECT_DIR$/../wxNLP/wxBot-master/bot.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wxNLP/wxBot-master/bot1.py" afterPath="$PROJECT_DIR$/../wxNLP/wxBot-master/bot1.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wxNLP/wxBot-master/test.py" afterPath="$PROJECT_DIR$/../wxNLP/wxBot-master/test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../数据迁移3.0/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../数据迁移3.0/.idea/workspace.xml" />
     </list>
     <ignored path="emptygit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,27 +37,28 @@
     <SUITE FILE_PATH="coverage/emptygit$jes.coverage" NAME="jes Coverage Results" MODIFIED="1524481372025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saveExcel" />
     <SUITE FILE_PATH="coverage/emptygit$itjuzidetail.coverage" NAME="itjuzidetail Coverage Results" MODIFIED="1514458150157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data2" />
     <SUITE FILE_PATH="coverage/emptygit$itjuzi2.coverage" NAME="itjuzi2 Coverage Results" MODIFIED="1514447156785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data2" />
-    <SUITE FILE_PATH="coverage/emptygit$driver1.coverage" NAME="driver1 Coverage Results" MODIFIED="1527501885881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
+    <SUITE FILE_PATH="coverage/emptygit$driver1.coverage" NAME="driver1 Coverage Results" MODIFIED="1528077519532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
     <SUITE FILE_PATH="coverage/emptygit$getItjuziOrg.coverage" NAME="getItjuziOrg Coverage Results" MODIFIED="1522036089322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/addInvestEvent" />
     <SUITE FILE_PATH="coverage/emptygit$baidu.coverage" NAME="baidu Coverage Results" MODIFIED="1480388896747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/emptygit$pandastest.coverage" NAME="pandastest Coverage Results" MODIFIED="1522234239875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/learntest" />
-    <SUITE FILE_PATH="coverage/emptygit$getIP.coverage" NAME="getIP Coverage Results" MODIFIED="1527501809380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testip" />
+    <SUITE FILE_PATH="coverage/emptygit$getIP.coverage" NAME="getIP Coverage Results" MODIFIED="1528077405470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testip" />
     <SUITE FILE_PATH="coverage/emptygit$pdf_.coverage" NAME="pdf+ Coverage Results" MODIFIED="1514366265249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf" />
     <SUITE FILE_PATH="coverage/emptygit$pdflibqwa.coverage" NAME="pdflibqwa Coverage Results" MODIFIED="1524724506201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pdf" />
     <SUITE FILE_PATH="coverage/emptygit$test4__1_.coverage" NAME="test4 (1) Coverage Results" MODIFIED="1525943697412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
     <SUITE FILE_PATH="coverage/emptygit$qrcode_.coverage" NAME="qrcode+ Coverage Results" MODIFIED="1508730682737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/qrcode" />
     <SUITE FILE_PATH="coverage/emptygit$spider2.coverage" NAME="spider2 Coverage Results" MODIFIED="1509096112994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pachong" />
+    <SUITE FILE_PATH="coverage/emptygit$test.coverage" NAME="test Coverage Results" MODIFIED="1527761975361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saveExcel" />
     <SUITE FILE_PATH="coverage/emptygit$005.coverage" NAME="005 Coverage Results" MODIFIED="1474870138327" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/emptygit$driver2.coverage" NAME="driver2 Coverage Results" MODIFIED="1527495554607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
+    <SUITE FILE_PATH="coverage/emptygit$driver2.coverage" NAME="driver2 Coverage Results" MODIFIED="1527838928357" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
     <SUITE FILE_PATH="coverage/emptygit$test1.coverage" NAME="test1 Coverage Results" MODIFIED="1474967797391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testpy" />
     <SUITE FILE_PATH="coverage/emptygit$sike.coverage" NAME="sike Coverage Results" MODIFIED="1493958666192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/emptygit$testIP.coverage" NAME="testIP Coverage Results" MODIFIED="1527501871027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testip" />
-    <SUITE FILE_PATH="coverage/emptygit$addEvent.coverage" NAME="addEvent Coverage Results" MODIFIED="1527157578332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/addInvestEvent" />
+    <SUITE FILE_PATH="coverage/emptygit$testIP.coverage" NAME="testIP Coverage Results" MODIFIED="1528077463726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/testip" />
+    <SUITE FILE_PATH="coverage/emptygit$addEvent.coverage" NAME="addEvent Coverage Results" MODIFIED="1527850774771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/addInvestEvent" />
     <SUITE FILE_PATH="coverage/emptygit$readhtml.coverage" NAME="readhtml Coverage Results" MODIFIED="1513323502530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data2" />
     <SUITE FILE_PATH="coverage/emptygit$test2.coverage" NAME="test2 Coverage Results" MODIFIED="1476337899178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/机器学习" />
-    <SUITE FILE_PATH="coverage/emptygit$savejingzhundata.coverage" NAME="savejingzhundata Coverage Results" MODIFIED="1527491565084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xiniu" />
+    <SUITE FILE_PATH="coverage/emptygit$savejingzhundata.coverage" NAME="savejingzhundata Coverage Results" MODIFIED="1527753188927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xiniu" />
     <SUITE FILE_PATH="coverage/emptygit$user_trader.coverage" NAME="user_trader Coverage Results" MODIFIED="1509448213904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/采集数据" />
-    <SUITE FILE_PATH="coverage/emptygit$xiniu.coverage" NAME="xiniu Coverage Results" MODIFIED="1515064825666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xiniu" />
+    <SUITE FILE_PATH="coverage/emptygit$xiniu.coverage" NAME="xiniu Coverage Results" MODIFIED="1527823552801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xiniu" />
     <SUITE FILE_PATH="coverage/emptygit$linkedin.coverage" NAME="linkedin Coverage Results" MODIFIED="1474181276128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/emptygit$getItjuziOrg_haituoid.coverage" NAME="getItjuziOrg_haituoid Coverage Results" MODIFIED="1525861367243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/addInvestEvent" />
     <SUITE FILE_PATH="coverage/emptygit$org_users.coverage" NAME="org_users Coverage Results" MODIFIED="1521783628231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saveExcel" />
@@ -69,7 +72,7 @@
     <SUITE FILE_PATH="coverage/emptygit$003.coverage" NAME="003 Coverage Results" MODIFIED="1480387513831" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/emptygit$addwatermark.coverage" NAME="addwatermark Coverage Results" MODIFIED="1514442267038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/emptygit$002.coverage" NAME="002 Coverage Results" MODIFIED="1476004532108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/emptygit$jiexi.coverage" NAME="jiexi Coverage Results" MODIFIED="1525939925059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
+    <SUITE FILE_PATH="coverage/emptygit$jiexi.coverage" NAME="jiexi Coverage Results" MODIFIED="1528084567488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/xiniu" />
     <SUITE FILE_PATH="coverage/emptygit$itjuzi3.coverage" NAME="itjuzi3 Coverage Results" MODIFIED="1524050892107" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data2" />
     <SUITE FILE_PATH="coverage/emptygit$catchcontact.coverage" NAME="catchcontact Coverage Results" MODIFIED="1510890014751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/emptygit$test4.coverage" NAME="test4 Coverage Results" MODIFIED="1479200817866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/机器学习" />
@@ -94,8 +97,8 @@
       <file leaf-file-name="driver1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webdriver/driver1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="397" column="71" lean-forward="false" selection-start-line="397" selection-start-column="71" selection-end-line="397" selection-end-column="71" />
+            <state relative-caret-position="31">
+              <caret line="394" column="70" lean-forward="false" selection-start-line="394" selection-start-column="70" selection-end-line="394" selection-end-column="70" />
               <folding>
                 <element signature="e#14#25#0" expanded="true" />
               </folding>
@@ -103,21 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jingzhun2" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xiniu/jingzhun2">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="getIP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testip/getIP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+            <state relative-caret-position="82">
+              <caret line="64" column="12" lean-forward="false" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
               <folding>
                 <element signature="e#14#29#0" expanded="true" />
               </folding>
@@ -128,8 +121,8 @@
       <file leaf-file-name="testIP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testip/testIP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="64" column="43" lean-forward="false" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
+            <state relative-caret-position="260">
+              <caret line="81" column="9" lean-forward="false" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
               <folding>
                 <element signature="e#14#30#0" expanded="true" />
               </folding>
@@ -137,13 +130,66 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="savejingzhundata.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/xiniu/savejingzhundata.py">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/saveExcel/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="435">
+              <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
               <folding>
-                <element signature="e#14#25#0" expanded="true" />
+                <element signature="e#501#512#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xiniu.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xiniu/xiniu.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="49">
+              <caret line="89" column="53" lean-forward="true" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
+              <folding>
+                <element signature="e#14#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jingzhun.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/xiniu/jingzhun.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="51" column="26" lean-forward="true" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jiexi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xiniu/jiexi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="61" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gongshang.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xiniu/gongshang.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="141" column="61" lean-forward="false" selection-start-line="141" selection-start-column="37" selection-end-line="141" selection-end-column="61" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#div#0;n#pane-trigger#0;n#div#0;n#div#0;n#div#5;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#38931#38935#0" expanded="true" />
+                <element signature="e#65370#65374#1" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#uc-page#0;n#pane-body#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,20 +207,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>href=&quot;/company</find>
-      <find>蘑菇街</find>
-      <find>h2</find>
-      <find>href=&quot;/company/</find>
-      <find>page_index</find>
-      <find>time.sleep</find>
-      <find>工商</find>
-      <find>cookiejar</find>
-      <find>2018-05-17</find>
-      <find>202.38.92.100</find>
-      <find>1179</find>
-      <find>1989</find>
-      <find>3950</find>
-      <find>6577</find>
       <find>未找到</find>
       <find>轮</find>
       <find>phase</find>
@@ -185,12 +217,26 @@
       <find>华清科盛</find>
       <find>funding</find>
       <find>&quot;funding&quot;: false</find>
-      <find>-可</find>
       <find>&quot;funding&quot;: true</find>
       <find>蚂蚁金服</find>
-      <find>&quot;name&quot;: &quot;蚂蚁金服&quot;</find>
+      <find>refresh</find>
       <find>不存在</find>
+      <find>当前页码：page_index = 363</find>
+      <find>当前页码：page_index = 36</find>
+      <find>&quot;name&quot;: &quot;蚂蚁金服&quot;</find>
+      <find>&quot;36氪报道&quot;,</find>
+      <find>-可</find>
+      <find>新增</find>
+      <find>proxies</find>
+      <find>71</find>
+      <find>苏州清研汽车产业创业投资企业</find>
       <find>-可用</find>
+      <find>main</find>
+      <find>partner-info</find>
+      <find>employ-info</find>
+      <find>record-info</find>
+      <find>base-info</find>
+      <find>record.changeDate != '-'</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -199,10 +245,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/webdriver/driver.py" />
-        <option value="$PROJECT_DIR$/xiniu/xiniu.py" />
-        <option value="$PROJECT_DIR$/webdriver/geckodriver.log" />
-        <option value="$PROJECT_DIR$/webdriver/ghostdriver.log" />
         <option value="$PROJECT_DIR$/webdriver/二合一" />
         <option value="$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/common/service.py" />
         <option value="$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/firefox/webdriver.py" />
@@ -241,15 +283,19 @@
         <option value="$PROJECT_DIR$/data2/test_itjuzi.py" />
         <option value="$PROJECT_DIR$/data2/test_itjuzi2.html" />
         <option value="$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py" />
-        <option value="$PROJECT_DIR$/addInvestEvent/name_id_comparetable" />
-        <option value="$PROJECT_DIR$/testip/getIP.py" />
-        <option value="$PROJECT_DIR$/addInvestEvent/addEvent.py" />
         <option value="$PROJECT_DIR$/xiniu/jingzhun" />
-        <option value="$PROJECT_DIR$/testip/testIP.py" />
         <option value="$PROJECT_DIR$/xiniu/jingzhun.py" />
-        <option value="$PROJECT_DIR$/webdriver/driver2.py" />
+        <option value="$PROJECT_DIR$/saveExcel/test.py" />
         <option value="$PROJECT_DIR$/xiniu/savejingzhundata.py" />
+        <option value="$PROJECT_DIR$/webdriver/driver2.py" />
+        <option value="$PROJECT_DIR$/addInvestEvent/name_id_comparetable" />
+        <option value="$PROJECT_DIR$/addInvestEvent/addEvent.py" />
+        <option value="$PROJECT_DIR$/testip/getIP.py" />
+        <option value="$PROJECT_DIR$/testip/testIP.py" />
         <option value="$PROJECT_DIR$/webdriver/driver1.py" />
+        <option value="$PROJECT_DIR$/xiniu/gongshang.html" />
+        <option value="$PROJECT_DIR$/xiniu/jiexi.py" />
+        <option value="$PROJECT_DIR$/xiniu/xiniu.py" />
       </list>
     </option>
   </component>
@@ -260,8 +306,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="423" />
-    <option name="y" value="48" />
+    <option name="x" value="407" />
+    <option name="y" value="28" />
     <option name="width" value="1505" />
     <option name="height" value="952" />
   </component>
@@ -291,6 +337,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -355,6 +402,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="pachong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emptygit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emptygit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="data2" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -375,7 +436,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -404,7 +464,7 @@
       <recent name="$PROJECT_DIR$/采集数据" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.testIP">
+  <component name="RunManager" selected="Python.jiexi">
     <configuration default="false" name="driver1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -419,24 +479,6 @@
       <module name="emptygit" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/webdriver/driver1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="getIP" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testip" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="emptygit" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testip/getIP.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -459,7 +501,43 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="savejingzhundata" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="addEvent" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/addInvestEvent" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="emptygit" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/addInvestEvent/addEvent.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="getIP" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/testip" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="emptygit" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testip/getIP.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="jiexi" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -472,25 +550,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="emptygit" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/xiniu/savejingzhundata.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="driver2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/Library/Frameworks/Python.framework/Versions/2.7/bin/python2.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/webdriver" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="emptygit" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/webdriver/driver2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/xiniu/jiexi.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -1066,18 +1126,18 @@
       <item index="16" class="java.lang.String" itemvalue="Python.baidu" />
       <item index="17" class="java.lang.String" itemvalue="Python.001" />
       <item index="18" class="java.lang.String" itemvalue="Python.driver1" />
-      <item index="19" class="java.lang.String" itemvalue="Python.getIP" />
-      <item index="20" class="java.lang.String" itemvalue="Python.testIP" />
-      <item index="21" class="java.lang.String" itemvalue="Python.savejingzhundata" />
-      <item index="22" class="java.lang.String" itemvalue="Python.driver2" />
+      <item index="19" class="java.lang.String" itemvalue="Python.testIP" />
+      <item index="20" class="java.lang.String" itemvalue="Python.addEvent" />
+      <item index="21" class="java.lang.String" itemvalue="Python.getIP" />
+      <item index="22" class="java.lang.String" itemvalue="Python.jiexi" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.driver1" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testIP" />
-        <item index="2" class="java.lang.String" itemvalue="Python.getIP" />
-        <item index="3" class="java.lang.String" itemvalue="Python.driver2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.savejingzhundata" />
+        <item index="0" class="java.lang.String" itemvalue="Python.jiexi" />
+        <item index="1" class="java.lang.String" itemvalue="Python.driver1" />
+        <item index="2" class="java.lang.String" itemvalue="Python.testIP" />
+        <item index="3" class="java.lang.String" itemvalue="Python.getIP" />
+        <item index="4" class="java.lang.String" itemvalue="Python.addEvent" />
       </list>
     </recent_temporary>
   </component>
@@ -1098,6 +1158,14 @@
       <option name="presentableId" value="Default" />
       <updated>1473645439667</updated>
     </task>
+    <task id="LOCAL-00001" summary="sss">
+      <created>1527502987411</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1527502987411</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1110,27 +1178,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="423" y="48" width="1505" height="952" extended-state="6" />
-    <editor active="false" />
+    <frame x="407" y="28" width="1505" height="952" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18591934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28255814" sideWeight="0.23581682" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23163842" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3593023" sideWeight="0.23991798" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2883721" sideWeight="0.8543897" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24910778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2523256" sideWeight="0.7799043" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1469583" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3255814" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18591934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23103213" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267442" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24910778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2872093" sideWeight="0.76418316" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45697674" sideWeight="0.760082" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912987" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1152,6 +1220,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sss" />
+    <option name="LAST_COMMIT_MESSAGE" value="sss" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -1159,16 +1231,6 @@
           <url>file://$PROJECT_DIR$/data2/readhtml.py</url>
           <line>151</line>
           <option name="timeStamp" value="243" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/xiniu/xiniu.py</url>
-          <line>191</line>
-          <option name="timeStamp" value="331" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/xiniu/xiniu.py</url>
-          <line>198</line>
-          <option name="timeStamp" value="332" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/saveExcel/org_users.py</url>
@@ -1216,96 +1278,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="571" />
+      <option name="time" value="620" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2016.3/python_stubs/-2120267529/itertools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5835">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2016.3/python_stubs/-2120267529/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="414" column="4" lean-forward="false" selection-start-line="414" selection-start-column="4" selection-end-line="414" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ml/test4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="26" column="20" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webdriver/jiexi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2130">
-          <caret line="142" column="39" lean-forward="false" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
-          <folding>
-            <element signature="e#14#25#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/bs4/element.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15075">
-          <caret line="1010" column="0" lean-forward="false" selection-start-line="1010" selection-start-column="0" selection-end-line="1010" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/support/expected_conditions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="34" column="41" lean-forward="true" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/chrome/options.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="144" column="12" lean-forward="false" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/remote/errorhandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/chrome/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="32" column="17" lean-forward="false" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webdriver/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-375">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addInvestEvent/updateMongoEvent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1353,7 +1330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="130" column="4" lean-forward="false" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1361,7 +1337,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1431,53 +1406,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data2/itjuzi_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="28" column="60" lean-forward="true" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xiniu/xiniu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2250">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addInvestEvent/name_id_comparetable">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4936">
-          <caret line="6455" column="62" lean-forward="true" selection-start-line="6455" selection-start-column="62" selection-end-line="6455" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xiniu/jingzhun.txt" />
-    <entry file="file://$PROJECT_DIR$/data2/itjuzi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="1581" column="29" lean-forward="true" selection-start-line="1581" selection-start-column="29" selection-end-line="1581" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addInvestEvent/IT桔子机构对照表835-1500.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1485,32 +1414,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/addInvestEvent/addEvent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-675">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="61" column="17" lean-forward="true" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addInvestEvent/getItjuziOrg_haituoid.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="62" column="9" lean-forward="false" selection-start-line="57" selection-start-column="8" selection-end-line="65" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/requests/sessions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="611" column="0" lean-forward="false" selection-start-line="611" selection-start-column="0" selection-end-line="611" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1533,7 +1440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="107" column="1038" lean-forward="true" selection-start-line="107" selection-start-column="1038" selection-end-line="107" selection-end-column="1038" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1545,34 +1451,143 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xiniu/jingzhun2">
+    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/chrome/webdriver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="143">
+          <caret line="43" column="61" lean-forward="false" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ml/test1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xiniu/jingzhun.py">
+    <entry file="file://$PROJECT_DIR$/xiniu/jingzhun2">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="21" selection-end-column="1" />
+        <state relative-caret-position="315">
+          <caret line="21" column="1054" lean-forward="false" selection-start-line="21" selection-start-column="1047" selection-end-line="21" selection-end-column="1054" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data2/itjuzi_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="1261" column="4" lean-forward="false" selection-start-line="1261" selection-start-column="4" selection-end-line="1261" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2016.3/python_stubs/-2120267529/datetime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="191" column="30" lean-forward="true" selection-start-line="191" selection-start-column="30" selection-end-line="191" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addInvestEvent/addeventfrommongo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2335">
+          <caret line="61" column="17" lean-forward="true" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data2/itjuzi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-805">
+          <caret line="305" column="28" lean-forward="false" selection-start-line="305" selection-start-column="28" selection-end-line="305" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/selenium/webdriver/remote/webdriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="495" column="8" lean-forward="false" selection-start-line="495" selection-start-column="8" selection-end-line="495" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/decoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="381" column="0" lean-forward="false" selection-start-line="381" selection-start-column="0" selection-end-line="381" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="1595" column="0" lean-forward="false" selection-start-line="1595" selection-start-column="0" selection-end-line="1595" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xiniu/savejingzhundata.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="249" column="52" lean-forward="true" selection-start-line="249" selection-start-column="52" selection-end-line="249" selection-end-column="52" />
+          <folding>
+            <element signature="e#14#25#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addInvestEvent/name_id_comparetable">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="65" column="44" lean-forward="false" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/wxNLP-env/lib/python2.7/site-packages/requests/sessions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="435" column="75" lean-forward="true" selection-start-line="435" selection-start-column="75" selection-end-line="435" selection-end-column="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webdriver/driver2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="399" column="69" lean-forward="false" selection-start-line="399" selection-start-column="69" selection-end-line="399" selection-end-column="69" />
+        <state relative-caret-position="111">
+          <caret line="307" column="33" lean-forward="false" selection-start-line="307" selection-start-column="33" selection-end-line="307" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addInvestEvent/addEvent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saveExcel/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding>
+            <element signature="e#501#512#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testip/getIP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        <state relative-caret-position="82">
+          <caret line="64" column="12" lean-forward="false" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
           <folding>
             <element signature="e#14#29#0" expanded="true" />
           </folding>
@@ -1581,31 +1596,94 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testip/testIP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="64" column="43" lean-forward="false" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
+        <state relative-caret-position="260">
+          <caret line="81" column="9" lean-forward="false" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
           <folding>
             <element signature="e#14#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webdriver/driver1.py">
+    <entry file="file://$PROJECT_DIR$/pachong/spider1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pachong/spider2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
+          <folding>
+            <element signature="e#42#71#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webdriver/jiexi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
-          <caret line="397" column="71" lean-forward="false" selection-start-line="397" selection-start-column="71" selection-end-line="397" selection-end-column="71" />
+          <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xiniu/savejingzhundata.py">
+    <entry file="file://$PROJECT_DIR$/xiniu/gongshang.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="124">
+          <caret line="141" column="61" lean-forward="false" selection-start-line="141" selection-start-column="37" selection-end-line="141" selection-end-column="61" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#0;n#div#0;n#pane-trigger#0;n#div#0;n#div#0;n#div#5;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#38931#38935#0" expanded="true" />
+            <element signature="e#65370#65374#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#uc-page#0;n#pane-body#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webdriver/driver1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="394" column="70" lean-forward="false" selection-start-line="394" selection-start-column="70" selection-end-line="394" selection-end-column="70" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xiniu/jiexi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="61" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xiniu/xiniu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="89" column="53" lean-forward="true" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
+          <folding>
+            <element signature="e#14#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xiniu/jingzhun.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="51" column="26" lean-forward="true" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

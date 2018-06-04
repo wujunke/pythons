@@ -98,7 +98,7 @@ class TulingWXBot(WXBot):
 
     def schedule(self):
         print self.member_list
-        self.send_msg_by_uid('test','@@b71f0ddfe8de699624703b5c3ca33f8884ffb44aa955f505a03d0632ffb13062')
+
 
 
 def main():
