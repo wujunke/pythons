@@ -47,7 +47,7 @@ def checkDirCtimeExpire(path, expire=1):
         return False
 
 
-line = '{"智店项目": "本周项目自动推送：全国首家智能便利店技术/运营提供商，拟交易规模：$10000000 USD"}'
+# line = '{"智店项目": "本周项目自动推送：全国首家智能便利店技术/运营提供商，拟交易规模：$10000000 USD"}'
 
 
 
@@ -66,5 +66,9 @@ base_url = 'http://192.168.1.251:8080/'
 token = '9fea5e61e4a86110972d22fd54cd7092d5ff5deeb4977d00'
 
 
-aas = 'ss'
-vv = aas + None
+# f = open(self.linkpdf_path, 'r+')
+# flist = f.readlines()
+# h1 = flist[1]
+# flist[1] = h1 % (str(datetime.datetime.now())[:10]).replace('-','/')
+# f = open(self.linkpdf_path, 'w+')
+# f.writelines(flist)

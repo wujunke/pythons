@@ -4,7 +4,7 @@
 import datetime
 import pymongo
 from pymongo import WriteConcern
-
+import fileinput
 from wxbot import *
 
 import sys
@@ -26,7 +26,7 @@ class MyWXBot(WXBot):
         self.des_list = []
         self.card_list = []
         self.link_list = []
-        self.linkpdf_path = ''
+        self.linkpdf_path = '/Users/investarget/Desktop/django_server/link.html'
         WXBot.__init__(self)
 
 
@@ -150,28 +150,28 @@ class MyWXBot(WXBot):
                 except Exception:
                     print traceback.format_exc()
 
-            if msg_content.get('type') == 0:
-                # 0 -> Text
-                # 1 -> Location
-                # 3 -> Image
-                # 4 -> Voice
-                # 5 -> Recommend
-                # 6 -> Animation
-                # 7 -> Share
-                # 8 -> Video
-                # 9 -> VideoCall
-                # 10 -> Redraw
-                # 11 -> Empty
-                # 99 -> Unknown
-                msg_from = msg.get('user')
-                payload = {
-                    'name': msg_content.get('user', dict()).get('name', 'unknown_user'),
-                    'content': content,
-                    'group_name': msg_from.get('name', 'unknown_group'),
-                    'createtime': datetime.datetime.now(),
-                    'isShow': False,
-                }
-                WXCollection.insert(payload)
+            # if msg_content.get('type') == 0:
+            #     # 0 -> Text
+            #     # 1 -> Location
+            #     # 3 -> Image
+            #     # 4 -> Voice
+            #     # 5 -> Recommend
+            #     # 6 -> Animation
+            #     # 7 -> Share
+            #     # 8 -> Video
+            #     # 9 -> VideoCall
+            #     # 10 -> Redraw
+            #     # 11 -> Empty
+            #     # 99 -> Unknown
+            #     msg_from = msg.get('user')
+            #     payload = {
+            #         'name': msg_content.get('user', dict()).get('name', 'unknown_user'),
+            #         'content': content,
+            #         'group_name': msg_from.get('name', 'unknown_group'),
+            #         'createtime': datetime.datetime.now(),
+            #         'isShow': False,
+            #     }
+            #     WXCollection.insert(payload)
             elif msg_content.get('type') == 3 and fromgroup in [u'特工']:
                 msg_from = msg.get('user')
                 msg_id = msg.get('msg_id')
@@ -193,11 +193,12 @@ class MyWXBot(WXBot):
         if not os.path.exists(self.linkpdf_path):
             f = open(self.linkpdf_path, 'a')
             f.writelines('<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />')
+            f.writelines('<h1 style="text-align:center">海拓一周好文分享%s-*上传日期*</h1>' % (str(datetime.datetime.now())[:10]).replace('-','/'))
             f.close()
         f = open(self.linkpdf_path, 'a')
         content = ('<a href=%s>%s</a><br>'
                    '描述： %s<br>'
-                   '发送人： %s' % (link_url, link_title, link_desc, share_user)).encode('utf-8')
+                   '分享人： %s' % (link_url, link_title, link_desc, share_user)).encode('utf-8')
         f.writelines(content)
         f.writelines('<br><br>')
         f.close()
@@ -205,10 +206,10 @@ class MyWXBot(WXBot):
 
     def save_file_to_dataroom(self, filekey, filename):
         data = {
-            'dataroom': 214,
-            'parent': 123,
+            'dataroom': 1396,   #251 上id是1396，39上是214
+            'parent': 67196,
             'orderNO': 15,
-            'filename': filename,
+            'filename': '微信分享' + filename[:10],
             'key': filekey,
             'bucket': 'file',
             'isFile': True,
@@ -432,11 +433,14 @@ class MyWXBot(WXBot):
                 self.link_list.remove(dic)
                 break
 
-        # linkfile_path = '/Users/investarget/Desktop/django_server/link.html'
+
         if os.path.exists(self.linkpdf_path):
             timeStamp = os.path.getctime(self.linkpdf_path)
             datetimeStruct = datetime.datetime.fromtimestamp(timeStamp)
-            if datetimeStruct < (datetime.datetime.now() - datetime.timedelta(hours=24 * 7)):
+            if datetimeStruct < (datetime.datetime.now() - datetime.timedelta(seconds=60)):
+                for lineone in fileinput.input(self.linkpdf_path, inplace=1):
+                    lineone = lineone.replace('*上传日期*', (str(datetime.datetime.now())[:10]).replace('-', '/'))
+                    print lineone
                 key = self.upload_file(self.linkpdf_path)
                 if key:
                     filename = str(datetimeStruct)

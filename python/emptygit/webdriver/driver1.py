@@ -392,7 +392,7 @@ def getpage(driver,com_id,wait):
 # driver = webdriver.PhantomJS('/Users/investarget/wxNLP-env/selenium/webdriver/phantomjs-2.1.1-macosx/bin/phantomjs', desired_capabilities=desired_capabilities,service_args=['--ssl-protocol=any','--ignore-ssl-errors=true'])
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://218.14.115.211:3128')
+chrome_options.add_argument('--proxy-server=http://112.115.57.20:3128')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 
 # driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', )
@@ -414,7 +414,7 @@ driver.find_element_by_id('login_btn').click()
 
 
 
-page_index = 4057
+page_index = 4864
 while page_index <= 10000:
     projlist = get_companglist(page_index)
 
@@ -424,6 +424,7 @@ while page_index <= 10000:
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
+            # com_id = 29543
             getpage(driver, com_id, 10)
 
 

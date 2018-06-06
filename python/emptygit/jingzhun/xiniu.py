@@ -90,21 +90,32 @@ print '正在登录...'
 driver.find_element_by_id('kr-shield-submit').click()
 
 
-js='window.open("https://rong.36kr.com/commercial/37552");'
-driver.execute_script(js)
-
-handles = driver.window_handles # 获取当前窗口句柄集合（列表类型）
-driver.switch_to.window(handles[1])
-
-html = driver.page_source
-
-res = parseHtml(html)
 
 
+def getGongShang(driver, jingzhun_id):
+
+    js='window.open("https://rong.36kr.com/commercial/37552");'
+    driver.execute_script(js)
+
+    handles = driver.window_handles # 获取当前窗口句柄集合（列表类型）
+    driver.switch_to.window(handles[1])
+
+    html = driver.page_source
+
+    res = parseHtml(html)
+    driver.close()
+    driver.switch_to.window(handles[0])
+    return res
 
 
-driver.close()
-driver.switch_to.window(handles[0])
+
+
+
+
+
+
+
+
 
 
 driver.quit()

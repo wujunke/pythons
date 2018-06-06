@@ -36,7 +36,7 @@ iplist = [
           ]
 
 projlist = []
-with open("/Users/investarget/pythons/python/emptygit/xiniu/jingzhun","r") as f:
+with open("/Users/investarget/pythons/python/emptygit/jingzhun/jingzhun2","r") as f:
     lines = f.readlines()
     for line in lines:
         projlist.append(json.loads(line.replace('\n','')))
