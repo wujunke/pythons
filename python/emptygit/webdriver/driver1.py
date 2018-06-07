@@ -414,7 +414,7 @@ driver.find_element_by_id('login_btn').click()
 
 
 
-page_index = 4864
+page_index = 5411
 while page_index <= 10000:
     projlist = get_companglist(page_index)
 
@@ -424,7 +424,7 @@ while page_index <= 10000:
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
-            # com_id = 29543
+            # com_id = 17481
             getpage(driver, com_id, 10)
 
 

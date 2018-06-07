@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55a664ab-9369-42f2-9bc8-e8b4ffed9699" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/xiniu/gongshang.html" afterPath="$PROJECT_DIR$/jingzhun/gongshang.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/xiniu/jiexi.py" afterPath="$PROJECT_DIR$/jingzhun/jiexi.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/xiniu/jingzhun" afterPath="$PROJECT_DIR$/jingzhun/jingzhun" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/xiniu/jingzhun.py" afterPath="$PROJECT_DIR$/jingzhun/jingzhun.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/xiniu/jingzhun2" afterPath="$PROJECT_DIR$/jingzhun/jingzhun2" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/xiniu/savejingzhundata.py" afterPath="$PROJECT_DIR$/jingzhun/savejingzhundata.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/xiniu/xiniu.py" afterPath="$PROJECT_DIR$/jingzhun/xiniu.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webdriver/driver1.py" afterPath="$PROJECT_DIR$/webdriver/driver1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wxNLP/wxBot-master/bot1.py" afterPath="$PROJECT_DIR$/../wxNLP/wxBot-master/bot1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../wxNLP/wxBot-master/test.py" afterPath="$PROJECT_DIR$/../wxNLP/wxBot-master/test.py" />
     </list>
     <ignored path="emptygit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,7 +27,7 @@
     <SUITE FILE_PATH="coverage/emptygit$jes.coverage" NAME="jes Coverage Results" MODIFIED="1524481372025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/saveExcel" />
     <SUITE FILE_PATH="coverage/emptygit$itjuzidetail.coverage" NAME="itjuzidetail Coverage Results" MODIFIED="1514458150157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data2" />
     <SUITE FILE_PATH="coverage/emptygit$itjuzi2.coverage" NAME="itjuzi2 Coverage Results" MODIFIED="1514447156785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data2" />
-    <SUITE FILE_PATH="coverage/emptygit$driver1.coverage" NAME="driver1 Coverage Results" MODIFIED="1528249281843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
+    <SUITE FILE_PATH="coverage/emptygit$driver1.coverage" NAME="driver1 Coverage Results" MODIFIED="1528341051820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/webdriver" />
     <SUITE FILE_PATH="coverage/emptygit$getItjuziOrg.coverage" NAME="getItjuziOrg Coverage Results" MODIFIED="1522036089322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/addInvestEvent" />
     <SUITE FILE_PATH="coverage/emptygit$baidu.coverage" NAME="baidu Coverage Results" MODIFIED="1480388896747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/emptygit$pandastest.coverage" NAME="pandastest Coverage Results" MODIFIED="1522234239875" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/learntest" />
@@ -93,11 +84,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="driver1.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="driver1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webdriver/driver1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="428" column="0" lean-forward="true" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
+            <state relative-caret-position="165">
+              <caret line="416" column="17" lean-forward="false" selection-start-line="416" selection-start-column="17" selection-end-line="416" selection-end-column="17" />
               <folding>
                 <element signature="e#14#25#0" expanded="true" />
               </folding>
@@ -108,7 +99,7 @@
       <file leaf-file-name="getIP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testip/getIP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-314">
+            <state relative-caret-position="870">
               <caret line="64" column="12" lean-forward="false" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
               <folding>
                 <element signature="e#14#29#0" expanded="true" />
@@ -120,7 +111,7 @@
       <file leaf-file-name="testIP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testip/testIP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="1110">
               <caret line="81" column="9" lean-forward="false" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
               <folding>
                 <element signature="e#14#30#0" expanded="true" />
@@ -132,8 +123,8 @@
       <file leaf-file-name="xiniu.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jingzhun/xiniu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+            <state relative-caret-position="1590">
+              <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
               <folding>
                 <element signature="e#14#29#0" expanded="true" />
               </folding>
@@ -141,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getAndSaveSearchCompany.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="getAndSaveSearchCompany.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jingzhun/getAndSaveSearchCompany.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="276" column="51" lean-forward="true" selection-start-line="276" selection-start-column="51" selection-end-line="276" selection-end-column="51" />
+            <state relative-caret-position="3870">
+              <caret line="265" column="46" lean-forward="false" selection-start-line="265" selection-start-column="46" selection-end-line="265" selection-end-column="46" />
               <folding>
                 <element signature="e#14#25#0" expanded="true" />
               </folding>
@@ -156,7 +147,7 @@
       <file leaf-file-name="gongshang.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jingzhun/gongshang.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3701">
+            <state relative-caret-position="2115">
               <caret line="141" column="61" lean-forward="false" selection-start-line="141" selection-start-column="37" selection-end-line="141" selection-end-column="61" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -186,8 +177,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>轮</find>
-      <find>phase</find>
       <find>shopshop</find>
       <find>NONE</find>
       <find>58同城</find>
@@ -216,6 +205,8 @@
       <find>&quot;funding&quot;: false,</find>
       <find>-可用</find>
       <find>新增</find>
+      <find>新增invse</find>
+      <find>新增invse--none</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -271,10 +262,10 @@
         <option value="$PROJECT_DIR$/xiniu/gongshang.html" />
         <option value="$PROJECT_DIR$/xiniu/jiexi.py" />
         <option value="$PROJECT_DIR$/xiniu/xiniu.py" />
-        <option value="$PROJECT_DIR$/webdriver/driver1.py" />
         <option value="$PROJECT_DIR$/jingzhun/savejingzhundata.py" />
         <option value="$PROJECT_DIR$/jingzhun/getAndSaveSearchCompany.py" />
         <option value="$PROJECT_DIR$/jingzhun/xiniu.py" />
+        <option value="$PROJECT_DIR$/webdriver/driver1.py" />
       </list>
     </option>
   </component>
@@ -285,7 +276,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="727" />
+    <option name="x" value="315" />
     <option name="y" value="57" />
     <option name="width" value="1505" />
     <option name="height" value="952" />
@@ -306,6 +297,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <PATH>
@@ -316,7 +308,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -443,7 +434,7 @@
       <recent name="$PROJECT_DIR$/采集数据" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.testIP">
+  <component name="RunManager" selected="Python.driver1">
     <configuration default="false" name="driver1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1157,27 +1148,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="727" y="57" width="1505" height="952" extended-state="0" />
-    <editor active="false" />
+    <frame x="315" y="57" width="1505" height="952" extended-state="0" />
+    <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18591934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3593023" sideWeight="0.23991798" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.06903623" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32906976" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2523256" sideWeight="0.7799043" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24910778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1469583" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3255814" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18591934" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23103213" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267442" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24910778" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44651163" sideWeight="0.760082" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31860465" sideWeight="0.760082" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267442" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912987" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1257,7 +1248,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="621" />
+      <option name="time" value="625" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1287,7 +1278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="271" column="4" lean-forward="false" selection-start-line="271" selection-start-column="4" selection-end-line="271" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1295,7 +1285,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="130" column="4" lean-forward="false" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1303,7 +1292,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1325,9 +1313,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#23#53#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1399,7 +1384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="328" column="170" lean-forward="false" selection-start-line="328" selection-start-column="157" selection-end-line="328" selection-end-column="170" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1415,7 +1399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="43" column="61" lean-forward="false" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1423,7 +1406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1438,7 +1420,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="1261" column="4" lean-forward="false" selection-start-line="1261" selection-start-column="4" selection-end-line="1261" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1446,7 +1427,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
           <caret line="191" column="30" lean-forward="true" selection-start-line="191" selection-start-column="30" selection-end-line="191" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1454,7 +1434,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2335">
           <caret line="61" column="17" lean-forward="true" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1470,7 +1449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
           <caret line="495" column="8" lean-forward="false" selection-start-line="495" selection-start-column="8" selection-end-line="495" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1478,7 +1456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="319">
           <caret line="381" column="0" lean-forward="false" selection-start-line="381" selection-start-column="0" selection-end-line="381" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1486,7 +1463,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="1595" column="0" lean-forward="false" selection-start-line="1595" selection-start-column="0" selection-end-line="1595" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1501,7 +1477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="435" column="75" lean-forward="true" selection-start-line="435" selection-start-column="75" selection-end-line="435" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1509,7 +1484,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="111">
           <caret line="307" column="33" lean-forward="false" selection-start-line="307" selection-start-column="33" selection-end-line="307" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1517,7 +1491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="58" column="47" lean-forward="true" selection-start-line="58" selection-start-column="47" selection-end-line="58" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1525,7 +1498,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="26" column="33" lean-forward="false" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1533,9 +1505,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="29" />
-          <folding>
-            <element signature="e#42#71#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1544,14 +1513,14 @@
         <state relative-caret-position="75">
           <caret line="5" column="38" lean-forward="true" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
           <folding>
-            <element signature="e#14#25#0" expanded="true" />
+            <element signature="e#14#25#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jingzhun/gongshang.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3701">
+        <state relative-caret-position="2115">
           <caret line="141" column="61" lean-forward="false" selection-start-line="141" selection-start-column="37" selection-end-line="141" selection-end-column="61" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1572,15 +1541,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-          <folding>
-            <element signature="e#501#512#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testip/testIP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="1110">
           <caret line="81" column="9" lean-forward="false" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
           <folding>
             <element signature="e#14#30#0" expanded="true" />
@@ -1592,26 +1558,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testip/getIP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-314">
+        <state relative-caret-position="870">
           <caret line="64" column="12" lean-forward="false" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="12" />
           <folding>
             <element signature="e#14#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webdriver/driver1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="428" column="0" lean-forward="true" selection-start-line="428" selection-start-column="0" selection-end-line="428" selection-end-column="0" />
-          <folding>
-            <element signature="e#14#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1620,7 +1575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="110" column="687" lean-forward="false" selection-start-line="110" selection-start-column="670" selection-end-line="110" selection-end-column="687" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1628,7 +1582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="14" column="1263" lean-forward="false" selection-start-line="14" selection-start-column="1246" selection-end-line="14" selection-end-column="1263" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1636,9 +1589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="38" column="72" lean-forward="false" selection-start-line="38" selection-start-column="72" selection-end-line="38" selection-end-column="72" />
-          <folding>
-            <element signature="e#14#25#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1646,7 +1596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="3366" column="8" lean-forward="false" selection-start-line="3366" selection-start-column="8" selection-end-line="3366" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1654,14 +1603,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-480">
           <caret line="13" column="44" lean-forward="true" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jingzhun/xiniu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="1590">
+          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding>
             <element signature="e#14#29#0" expanded="true" />
           </folding>
@@ -1670,8 +1618,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/jingzhun/getAndSaveSearchCompany.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="276" column="51" lean-forward="true" selection-start-line="276" selection-start-column="51" selection-end-line="276" selection-end-column="51" />
+        <state relative-caret-position="3870">
+          <caret line="265" column="46" lean-forward="false" selection-start-line="265" selection-start-column="46" selection-end-line="265" selection-end-column="46" />
+          <folding>
+            <element signature="e#14#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webdriver/driver1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="416" column="17" lean-forward="false" selection-start-line="416" selection-start-column="17" selection-end-line="416" selection-end-column="17" />
           <folding>
             <element signature="e#14#25#0" expanded="true" />
           </folding>
