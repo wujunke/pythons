@@ -414,7 +414,11 @@ driver.find_element_by_id('login_btn').click()
 
 
 
+<<<<<<< HEAD
 page_index = 4230
+=======
+page_index = 5411
+>>>>>>> origin/master
 while page_index <= 10000:
     projlist = get_companglist(page_index)
 
