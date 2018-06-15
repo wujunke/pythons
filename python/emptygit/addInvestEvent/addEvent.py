@@ -14,13 +14,13 @@ import xlwt, xlrd
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
-sys.setrecursionlimit(10000000)
+# sys.setrecursionlimit(10000000)
 session = requests.Session()
-session.trust_env = False
+# session.trust_env = False
 
 
-proxy_ip = '221.217.54.76:9000'
-start_id = 3289
+proxy_ip = '112.87.80.244:6915'
+start_id = 6912
 
 
 def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):

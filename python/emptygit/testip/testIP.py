@@ -66,8 +66,8 @@ def getIPs():
 
 
 def testIP(ip):
-    url = 'https://www.itjuzi.com/user/login'
-    # url= 'https://www.itjuzi.com/investment/info/search?id=1'
+    # url = 'https://www.itjuzi.com/user/login'
+    url= 'https://www.itjuzi.com/investment/info/search?id=1'
     headers = {
 
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
@@ -75,18 +75,18 @@ def testIP(ip):
     pox = {'https':'https://%s' % str(ip)}
     try:
         res = requests.get(url, headers=headers, proxies=pox, timeout=3).content
-        soup = BeautifulSoup(res, 'html.parser')
-        # res = json.loads(res)
+        # soup = BeautifulSoup(res, 'html.parser')
+        res = json.loads(res)
     except Exception:
         print traceback.format_exc()
     else:
-        # if res['code'] in ['200', u'200', 200]:
-        #     print 'ip-  %s  -可用' % str(ip)
-        title = soup.title
-        if title:
-            title = title.text
-        if title in ['用户登录 | IT桔子', u'用户登录 | IT桔子', '美丽说,北京美丽时空网络科技有限公司,一个女性时尚社区和社会化电商平台 - IT桔子', u'美丽说,北京美丽时空网络科技有限公司,一个女性时尚社区和社会化电商平台 - IT桔子']:
+        if res['code'] in ['200', u'200', 200]:
             print 'ip-  %s  -可用' % str(ip)
+        # title = soup.title
+        # if title:
+        #     title = title.text
+        # if title in ['用户登录 | IT桔子', u'用户登录 | IT桔子', '美丽说,北京美丽时空网络科技有限公司,一个女性时尚社区和社会化电商平台 - IT桔子', u'美丽说,北京美丽时空网络科技有限公司,一个女性时尚社区和社会化电商平台 - IT桔子']:
+        #     print 'ip-  %s  -可用' % str(ip)
         else:
             print 'ip-  %s  -不可用' % str(ip)
 

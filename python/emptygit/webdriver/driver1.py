@@ -262,7 +262,7 @@ def updateCompanyToMongo(info):
 
 def get_companglist(page_index):
     projlist = None
-    res = session.get(base_url + 'mongolog/proj?page_size=10&sort=true&page_index=%s' % page_index, headers={'Content-Type': 'application/json', 'token': token})
+    res = session.get(base_url + 'mongolog/proj?page_size=10&sort=com_id&page_index=%s' % page_index, headers={'Content-Type': 'application/json', 'token': token})
     if res.status_code == 200:
         res = json.loads(res.content)
         if res['code'] == 1000:
@@ -414,7 +414,7 @@ driver.find_element_by_id('login_btn').click()
 
 
 
-page_index = 4864
+page_index = 4230
 while page_index <= 10000:
     projlist = get_companglist(page_index)
 
@@ -424,7 +424,7 @@ while page_index <= 10000:
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
-            # com_id = 29543
+            # com_id = 17481
             getpage(driver, com_id, 10)
 
 

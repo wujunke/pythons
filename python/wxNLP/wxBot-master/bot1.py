@@ -56,12 +56,17 @@ class MyWXBot(WXBot):
                                 username = content.replace('姓名：','').split()[-1]
                                 orgname = content.replace('机构：','').split()[0]
                                 user_id = self.get_user_id_by_orgAndUser(orgname,username)
+                                for user_des in self.des_list:
+                                    if user_des['fromuser'] == fromuser:
+                                        self.des_list.remove(user_des)
+                                        break
                                 if user_id:
                                     self.des_list.append({
                                         'user_id': user_id,
                                         'fromuser': fromuser,
                                         'time': int(time.time()),
                                     })
+
                         elif content == u'名片':
                             self.card_list.append({
                                         'fromuser': fromuser,
@@ -435,8 +440,12 @@ class MyWXBot(WXBot):
 
 
         if os.path.exists(self.linkpdf_path):
-            timeStamp = os.path.getctime(self.linkpdf_path)
-            datetimeStruct = datetime.datetime.fromtimestamp(timeStamp)
+            from bs4 import BeautifulSoup
+            fp = open(self.linkpdf_path, mode='r').read()
+            soup = BeautifulSoup(fp, 'html.parser')
+            title = soup.find('h1').text
+            detester = title.replace('海拓一周好文分享', '').replace('-*上传日期*', '').replace('/', '-').replace('\n','')
+            datetimeStruct = datetime.datetime.strptime(detester, '%Y-%m-%d')
             if datetimeStruct < (datetime.datetime.now() - datetime.timedelta(seconds=60)):
                 for lineone in fileinput.input(self.linkpdf_path, inplace=1):
                     lineone = lineone.replace('*上传日期*', (str(datetime.datetime.now())[:10]).replace('-', '/'))

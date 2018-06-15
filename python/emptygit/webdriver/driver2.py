@@ -350,7 +350,7 @@ def getpage(driver,com_id,wait):
             saveCompanyNewsToMongo(news, resdic['com_id'], com_name)
             saveCompanyIndustyInfoToMongo(resdic)
             saveEventToMongo(resdic['events'], resdic['com_id'])
-            saveEventToMySqlOrg(resdic['events'], resdic['com_id'], com_name, resdic['industryType'])
+            # saveEventToMySqlOrg(resdic['events'], resdic['com_id'], com_name, resdic['industryType'])
             dic = {}
             dic['com_id'] = int(resdic.get('com_id'))
             dic['tags'] = resdic.get('tags', [])
@@ -391,7 +391,7 @@ def getpage(driver,com_id,wait):
 # driver = webdriver.PhantomJS('/Users/investarget/wxNLP-env/selenium/webdriver/phantomjs-2.1.1-macosx/bin/phantomjs', desired_capabilities=desired_capabilities,service_args=['--ssl-protocol=any','--ignore-ssl-errors=true'])
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://123.139.56.238:9999')
+chrome_options.add_argument('--proxy-server=http://112.115.57.20:3128')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 
 # driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', )
@@ -423,6 +423,7 @@ while page_index <= 200:
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
+            # com_id = 32123470
             getpage(driver, com_id, 10)
 
 

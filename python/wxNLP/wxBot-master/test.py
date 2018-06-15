@@ -22,6 +22,8 @@ import shutil
 import requests
 
 
+
+
 def deleteExpireDir(rootpath):
     #删除过期的文件夹/文件
     if (os.path.exists(rootpath)):
