@@ -10,30 +10,33 @@ from requests.exceptions import ConnectionError
 from bs4 import BeautifulSoup
 import sys
 
+
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 
 
 # 存储地址
 base_url = 'https://api.investarget.com/'
+
 #it桔子Cookie
-Cookie =  ''
+Cookie =  'acw_tc=AQAAAAcaelkdyggAXQ2or++LwDKVoGo9; gr_user_id=a64916ec-575e-4962-a58c-f1e27b27b457; _gat=1; MEIQIA_EXTRA_TRACK_ID=162hb7jpnp3GiecPKB5GJJ8lACe; identity=18616837957%40test.com; remember_code=dmjJwbKdFS; unique_token=439977; paidtype=vip; _ga=GA1.2.1545006483.1529044671; _gid=GA1.2.419480130.1529044671; gr_session_id_eee5a46c52000d401f969f4535bdaa78=123d9b67-738a-431a-8699-75f1af66a76a_true; Hm_lvt_1c587ad486cdb6b962e94fc2002edf89=1529044671; Hm_lpvt_1c587ad486cdb6b962e94fc2002edf89=1529044685; session=49b5143893120232d53a614b60ec911b8322092b'
 #API新增token
-token = ''
+token = '0011b9120f76196890f1bb33326128ef125a95d359dc2ecf'
 #线程sleep间隔
 find_rate = 36000
 #http代理
 iplist1 = ['140.205.222.3:80']
-#https代理
-iplist2 = ['114.215.95.188:3128']
+
 
 
 
 def rand_proxie_http():
-    return {'http':'http://%s' % iplist1[random.randint(0, len(iplist1)) - 1],}
-
-def rand_proxie_https():
-    return {'https':'https://%s' % iplist2[random.randint(0, len(iplist2)) - 1],}
+    ip_port = iplist1[random.randint(0, len(iplist1)) - 1]
+    return {
+            # 'http':'http://%s' % ip_port,
+            'https': 'https://%s' % '123.152.37.195:2682',
+            }
 
 def rand_sleeptime():
     return random.randint(0, 5)
@@ -95,7 +98,8 @@ def getHtml(url, cookie):
             headers['Cookie'] = cookie
             s = requests.Session()
             print datetime.now()
-            html = s.get(url, headers=headers, proxies=rand_proxie_http() ).content
+            proxy = rand_proxie_http()
+            html = s.get(url, headers=headers, proxies=proxy).content
             print datetime.now()
         except ConnectionError:
             print 'Timeout, try again'
@@ -136,13 +140,12 @@ class insetManager():
 
     def saveCompanyInfoToMongo(self, com_list):
         for dic in com_list:
-            time.sleep(rand_sleeptime())
             com_detail, com_fullname = self.getCompanyDetail(dic['com_id'])
             if com_fullname:
                 if (u'未找到' in com_fullname or u'403' in com_fullname or u'www.itjuzi.com' in com_fullname):
                     pass
                 else:
-                    dic['com_name'] = com_fullname
+                    dic['com_name'] = com_fullname.split('(')[0]
             if com_detail:
                 dic['tags'] = com_detail.get('tags', [])
                 dic['com_web'] = com_detail.get('com_web', None)
@@ -153,6 +156,7 @@ class insetManager():
                 self.saveEventToMongo(com_detail['events'], dic['com_id'])
                 self.saveCompanyNewsToMongo(news, dic['com_id'], dic.get('com_name'))
                 self.saveCompanyIndustyInfoToMongo(com_detail)
+            dic['com_name'] = dic['com_name'] + '...'
             dic['com_id'] = int(dic['com_id'])
             res = requests.post(base_url + 'mongolog/proj', data=json.dumps(dic),
                                 headers={'Content-Type': 'application/json', 'token': self.token}).content
@@ -163,6 +167,7 @@ class insetManager():
             elif res['code'] == 8001:
                 pass
             else:
+                print '错误event数据--%s' % repr(dic)
                 print res
 
     def saveEventToMongo(self, events, com_id):
@@ -216,10 +221,11 @@ class insetManager():
             try:
                 pox = rand_proxie_http()
                 headers2__company['Cookie'] = self.cookie
-                r = requests.get(url_company_detail + '%s' % com_id, headers=headers2__company, proxies=pox)
+                s = requests.Session()
+                r = s.get(url_company_detail + '%s' % com_id, headers=headers2__company, proxies=pox)
                 html = r.content
             except ConnectionError:
-                print 'Com timeout, try again'
+                print 'Com_detail timeout, try again'
                 num -= 1
             else:
                 print 'com_ok'
@@ -227,7 +233,7 @@ class insetManager():
                 break
         else:
             # 3次都失败
-            print 'Com try 3 times, But all failed'
+            print 'Com_detail try 3 times, But all failed'
             raise InvestError('连接失败，Try 3 times, But all failed')
         try:
             # print html
@@ -420,8 +426,9 @@ class Catch_Thread(threading.Thread):
 
 
 
-Catch_Thread(url_com,  Cookie,  token, '国内公司', 3 , startpage=1 ,endpage=100).start()
-Catch_Thread(url_com_out,  Cookie, token, '国外公司', 3, startpage=1 ,endpage=30).start()
+# Catch_Thread(Cookie, token, url_com, '国内公司', 3 , startpage=104 , endpage=110).start()
+Catch_Thread(Cookie, token, url_com_out, '国外公司', 3, startpage=7 ,endpage=10).start()
+
 
 
 

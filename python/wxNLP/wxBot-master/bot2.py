@@ -19,6 +19,22 @@ WXCollection = db.wxchatdata
 base_url = 'http://192.168.1.251:8080/'
 token = '9fea5e61e4a86110972d22fd54cd7092d5ff5deeb4977d00'
 
+
+trader_list = {
+    '周炫Fabian': 100000002,
+    '贺斯渡 Serena': 100005379,
+    '裔传麒Vans': 100017321,
+    'Eric周': 100017320,
+    'Joy': 100009226,
+    'Lois': 100005504,
+    '蔡云东方 Erik': 100017193,
+    '尹乐鸣': 100010424,
+    'chenyi': 100014845,
+    '叶师傅': 100007593,
+    '樊杨阳': 100000005,
+    '王菲': 100000004,
+}
+
 class MyWXBot(WXBot):
 
 
@@ -89,14 +105,16 @@ class MyWXBot(WXBot):
                     elif msg_content.get('type') == 3:
                         msg_id = msg.get('msg_id')
                         img_path = os.path.join(self.temp_pwd, 'img_' + msg_id + '.jpg')
-                        key = None
+                        is_card = False
                         for card_user in self.card_list:
                             if fromuser == card_user['fromuser']:
+                                is_card = True
                                 res = self.ccupload_image(img_path)
                                 userdata = self.parseCCUploadResult(res)
                                 if userdata:
                                     user_id = self.get_user_id_by_account(userdata.get('mobile'))
                                     if user_id:
+                                        self.addUserTrader(user_id, fromuser)
                                         key = self.upload_image(img_path)
                                         data = {
                                             'userlist':[user_id],
@@ -126,6 +144,8 @@ class MyWXBot(WXBot):
                                             }
                                             resu = self.createuser(data)
                                             if resu.get('code') == 1000:
+                                                user_id = resu.get('result').get('id')
+                                                self.addUserTrader(user_id, fromuser)
                                                 self.send_msg_by_uid('%s，该投资人不在平台上，已增加到平台' % fromuser, self.get_user_id(fromgroup))
                                             else:
                                                 self.send_msg_by_uid('%s，该投资人不在平台上，新增失败，error--%s' % (fromuser, repr(resu)),
@@ -138,14 +158,14 @@ class MyWXBot(WXBot):
                                     os.remove(img_path)
                                 self.card_list.remove(card_user)
                                 break
-                        if not key:
+                        if not is_card:
                             self.attach_dic[fromuser] = []
                             self.attach_dic.get(fromuser).append({
                                         'img_path': img_path,
                                         'fromuser': fromuser,
                                         'time': int(time.time()),
                                     })
-                            self.send_msg_by_uid('%s，保存附件请回复附件所属投资人的机构及姓名，中间以空格分隔，如\'多维海拓  summer\'，如不保存则回复 \'不保存\'' % fromuser, self.get_user_id(fromgroup))
+                            self.send_msg_by_uid('%s，保存至附件请回复所属投资人的机构及姓名，中间以空格分隔，如\'多维海拓  summer\'，如不保存则回复 \'不保存\'' % fromuser, self.get_user_id(fromgroup))
                     elif msg_content.get('type') == 7:
                         self.link_list.append({
                                         'link_url': content.get('url', None),
@@ -158,28 +178,6 @@ class MyWXBot(WXBot):
                 except Exception:
                     print traceback.format_exc()
 
-            # if msg_content.get('type') == 0:
-            #     # 0 -> Text
-            #     # 1 -> Location
-            #     # 3 -> Image
-            #     # 4 -> Voice
-            #     # 5 -> Recommend
-            #     # 6 -> Animation
-            #     # 7 -> Share
-            #     # 8 -> Video
-            #     # 9 -> VideoCall
-            #     # 10 -> Redraw
-            #     # 11 -> Empty
-            #     # 99 -> Unknown
-            #     msg_from = msg.get('user')
-            #     payload = {
-            #         'name': msg_content.get('user', dict()).get('name', 'unknown_user'),
-            #         'content': content,
-            #         'group_name': msg_from.get('name', 'unknown_group'),
-            #         'createtime': datetime.datetime.now(),
-            #         'isShow': False,
-            #     }
-            #     WXCollection.insert(payload)
             elif msg_content.get('type') == 3 and fromgroup in [u'特工']:
                 msg_from = msg.get('user')
                 msg_id = msg.get('msg_id')
@@ -233,6 +231,28 @@ class MyWXBot(WXBot):
         if result['code'] == 1000:
             return result['result']['id']
         return None
+
+
+    def addUserTrader(self, user_id, trader_user_name):
+        trader_id = trader_list.get(trader_user_name)
+        if trader_id:
+            data = {
+                'investoruser': user_id,
+                'traderuser': trader_id,
+                'relationtype': True,
+                'familiar': 'file',
+            }
+            url = base_url + 'user/relationship/'
+            headers = {
+                'Content-Type': 'application/json',
+                'token': token,
+                'source': '1',
+            }
+            r = requests.post(url, data=json.dumps(data), headers=headers).content
+            result = json.loads(r)
+            if result['code'] == 1000 or result['code'] == 2012:
+                return True
+        return False
 
 
     def get_user_id_by_orgAndUser(self, orgname, username):

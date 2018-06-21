@@ -19,8 +19,8 @@ session = requests.Session()
 # session.trust_env = False
 
 
-proxy_ip = '112.87.80.244:6915'
-start_id = 6912
+proxy_ip = '218.60.8.98:3129'
+start_id = 3530
 
 
 def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
@@ -38,7 +38,7 @@ def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
     # }
     page = page if page else 1
     events = events if events else []
-    # 发现这个接口不用登录也可以调用，不过每个ip大概十分钟就被屏蔽了，需要更换代理
+    # 发现这个接口不用登录也可以调用，不过每个ip几分钟就被屏蔽了，需要更换代理
     url = 'https://www.itjuzi.com/investment/info/search?id=%s&page=%s&scope=all&state=all&feature=all&sort=time' % (itjuziOrgId, page)
     try:
         driver.get(url)
@@ -63,7 +63,7 @@ def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
         if pages:
             if pages['totalPages'] > pages['currentPage']:
                 page += 1
-                if page < 4:
+                if page < 2:
                     events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events)
     return events
 

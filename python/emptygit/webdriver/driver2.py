@@ -391,15 +391,16 @@ def getpage(driver,com_id,wait):
 # driver = webdriver.PhantomJS('/Users/investarget/wxNLP-env/selenium/webdriver/phantomjs-2.1.1-macosx/bin/phantomjs', desired_capabilities=desired_capabilities,service_args=['--ssl-protocol=any','--ignore-ssl-errors=true'])
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://112.115.57.20:3128')
+prefs={
+     'profile.default_content_setting_values': {
+        'images': 2,   #禁用图片
+        # 'javascript':2   #禁用JS
+    }
+}
+chrome_options.add_experimental_option('prefs',prefs)
+chrome_options.add_argument('--proxy-server=http://116.213.98.6:8080')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
-
-# driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver', )
-
-
-
 driver.set_window_size('1280','800')
-
 print '正在打开网站...'
 driver.get("https://www.itjuzi.com/user/login")
 time.sleep(5)
