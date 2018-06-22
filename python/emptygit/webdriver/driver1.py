@@ -382,7 +382,7 @@ def getpage(driver,com_id,wait):
         getpage(driver, com_id, wait)
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://101.236.43.253:8866')
+chrome_options.add_argument('--proxy-server=http://211.161.103.247:9999')
 prefs={
      'profile.default_content_setting_values': {
         'images': 2,   #禁用图片
@@ -402,7 +402,7 @@ print '正在登录...'
 driver.find_element_by_id('login_btn').click()
 
 
-page_index = 1573
+page_index = 2300
 
 while page_index <= 10000:
     projlist = get_companglist(page_index)

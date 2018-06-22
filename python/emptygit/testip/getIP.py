@@ -63,7 +63,7 @@ if __name__ == "__main__":
     #为opener添加head
 
     #需要爬取的地址
-    url="http://www.xicidaili.com/wn/{num}/"
+    url="http://www.xicidaili.com/wt/{num}/"
 
     Is_Over=True
 
@@ -117,4 +117,5 @@ if __name__ == "__main__":
     #
     print("写入完成")
     filename = currentTime + '.xls'
-    book.save(filename)
+    # book.save(filename)
+    book.save('aaaa.xls')

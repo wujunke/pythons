@@ -33,6 +33,7 @@ trader_list = {
     '叶师傅': 100007593,
     '樊杨阳': 100000005,
     '王菲': 100000004,
+    '小游侠':21231
 }
 
 class MyWXBot(WXBot):
@@ -114,7 +115,8 @@ class MyWXBot(WXBot):
                                 if userdata:
                                     user_id = self.get_user_id_by_account(userdata.get('mobile'))
                                     if user_id:
-                                        self.addUserTrader(user_id, fromuser)
+                                        res = self.addUserTrader(user_id, fromuser)
+                                        print res
                                         key = self.upload_image(img_path)
                                         data = {
                                             'userlist':[user_id],
@@ -145,7 +147,8 @@ class MyWXBot(WXBot):
                                             resu = self.createuser(data)
                                             if resu.get('code') == 1000:
                                                 user_id = resu.get('result').get('id')
-                                                self.addUserTrader(user_id, fromuser)
+                                                res = self.addUserTrader(user_id, fromuser)
+                                                print res
                                                 self.send_msg_by_uid('%s，该投资人不在平台上，已增加到平台' % fromuser, self.get_user_id(fromgroup))
                                             else:
                                                 self.send_msg_by_uid('%s，该投资人不在平台上，新增失败，error--%s' % (fromuser, repr(resu)),
@@ -235,12 +238,13 @@ class MyWXBot(WXBot):
 
     def addUserTrader(self, user_id, trader_user_name):
         trader_id = trader_list.get(trader_user_name)
+        # trader_id = 102
         if trader_id:
             data = {
                 'investoruser': user_id,
                 'traderuser': trader_id,
                 'relationtype': True,
-                'familiar': 'file',
+                # 'familiar': 99,
             }
             url = base_url + 'user/relationship/'
             headers = {

@@ -133,7 +133,7 @@ def getAndSaveEvent(itjuzi_id, haituo_id):
         data = {
             'org': haituo_id,
             'comshortname': event['invest_name'],
-            'com_id': event['id'],
+            'com_id': event['com_id'],
             'industrytype': event['invest_scope'],
             'investDate': str(event['time']) + 'T12:00:00' if event['time'] else None,
             'investType': event['invest_round'],

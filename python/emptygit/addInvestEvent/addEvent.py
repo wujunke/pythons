@@ -19,8 +19,9 @@ session = requests.Session()
 # session.trust_env = False
 
 
-proxy_ip = '218.60.8.98:3129'
-start_id = 3530
+proxy_ip = '115.150.208.114:3276'
+start_id = 2221
+# start_id = 5966
 
 
 def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
@@ -63,7 +64,7 @@ def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
         if pages:
             if pages['totalPages'] > pages['currentPage']:
                 page += 1
-                if page < 2:
+                if page < 3:
                     events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events)
     return events
 
@@ -77,7 +78,7 @@ def getAndSaveEvent(itjuzi_id, haituo_id):
         data = {
             'org': haituo_id,
             'comshortname': event['invest_name'],
-            'com_id': event['id'],
+            'com_id': event['com_id'],
             'industrytype': event['invest_scope'],
             'investDate': str(event['time']) + 'T12:00:00' if event['time'] else None,
             'investType': event['invest_round'],

@@ -31,7 +31,7 @@ iplist = [
 # &createtime=2018-06-12T11:51:00
 def getSearchCompany(page):
     com_list = []
-    res = requests.get(base_url + 'mongolog/proj/search?page_index=%s&createtime=2018-06-07T00:00:00' % page , headers=headers).content
+    res = requests.get(base_url + 'mongolog/proj/search?page_index=%s&createtime=2018-06-12T00:00:00' % page , headers=headers).content
     res = json.loads(res)
     if res['code'] == 1000:
         data = res['result']['data']
@@ -86,14 +86,14 @@ jingzhun_headers = {
     'Accept': 'application/json, text/plain, */*',
     'Accept-Encoding': 'br, gzip, deflate',
     'Accept-Language': 'zh-cn',
-    'X-Tingyun-Id':'Dio1ZtdC5G4;r=53171216',
+    'X-Tingyun-Id':'Dio1ZtdC5G4;r=59479200',
     'Connection': 'keep-alive',
     'DNT': '1',
     'Host': 'rong.36kr.com',
     'Referer': 'https://rong.36kr.com/list/detail&?sortField=HOT_SCORE',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
     'X-Requested-With': 'XMLHttpRequest',
-    'Cookie': 'Z-XSRF-TOKEN=eyJpdiI6InV5QzhUbVwvKzk2U3pPTzRxblE4Y1ZnPT0iLCJ2YWx1ZSI6IlZ5Tlhua1duZ0lVd3RhOEY3cG9FdnZKZWVEYlFzTWFpMlR2TWt4MnFFQzNtbmNNc0Y0VG5ydDV0QkZBTUs4NDZkVFlLS0pidHBxUVRNRGxTMEhFV1JRPT0iLCJtYWMiOiI0YmNlYjYzNDNmMGJkZDdlZDM4MTMwNWQwYTIxY2EwM2UyOGU4NmUwNDY3Y2ZhM2VjMDQxNmQwMDNhODE5ODVkIn0%3D; kr_plus_utype=0; krchoasss=eyJpdiI6InF0V0FWcHhWV1FieGhsc3NZckJxd0E9PSIsInZhbHVlIjoiVjN5ZnYyZk9cL0lWQk5Ic3J5c1c4XC9HRE81Z2NyWGl4QWhzemloNUhsbU1FcEVhSDMxMTlSS0VTa3BKNG5DZ0lGd0JjYWJBaFlBcFA1TENRZEZHZVJFUT09IiwibWFjIjoiYjgzZjg2NmMyMDRkNDA5ZmI3YTY0OWViNDQ5YzY1MjVmMDI3ODJmZTJkMDhiZTE2NmIyODcwNzVkYmRjYTE2ZiJ9; MEIQIA_EXTRA_TRACK_ID=152CCejE5FvZOExdNT5VaiQnC2S; kr_plus_id=817177228; kr_plus_token=8gImCl2vsY7rzhrcwZiTZoemOACX6_57367_3___; _kr_p_se=4fb266ce-d902-4495-892a-a47d8cae28d4; krid_user_id=817177228; krid_user_version=2; download_animation=1; Hm_lpvt_e8ec47088ed7458ec32cde3617b23ee3=1528855758; Hm_lvt_e8ec47088ed7458ec32cde3617b23ee3=1527758597,1528427129,1528685104,1528855758; kr_stat_uuid=y5Rtm25480929; acw_tc=AQAAACsk7GJIBwAARYnnZfcXlbs5PzIg'
+    'Cookie': 'Z-XSRF-TOKEN=eyJpdiI6Im0wU1JnRVdNTWJESCsxUHQ4dGFMYkE9PSIsInZhbHVlIjoiOVdaMDdrNFZyQjcrb29RRjlNSzJvM3l5RFh5cm5wY2ZqSURjYW82ZXN1ZHVFdzVjK2ZNRW5xY3JSbWVNeWo0MmFOYVNQK09XT2ZpMkc2YXc1Z3g1cEE9PSIsIm1hYyI6ImY5ZGY1MTFiYmVlYjY4YWViNDcyMTk3NjAyZDU4MzgzMjBhZWEwMmI4MWFmNGQ4ZDhiYTYzNmMxNGUxYjliNTkifQ%3D%3D; krchoasss=eyJpdiI6IjB3a1MrYm9zcVUwQ1h1aGNJZGNmQmc9PSIsInZhbHVlIjoiSHZZRmwyeGlyUnYzWkJFZ3JKQlg3cjVzUlgrRzM5R0lkR2ZneGRtVGdaVFwvUDUyN0RwcTJ2ekJiTEdvSnlRaWJVaUVaZmlzU3hSUHZzRk1MRnVNTVwvZz09IiwibWFjIjoiMDQ2Y2NmYmM5ZDVmODQ3YzlkY2U3NzFjZTUyMDE2OWYzN2NlMTYwZTgxZDc1MmQ3YTI0MTcxYjk2MTAwNjUxYiJ9; MEIQIA_EXTRA_TRACK_ID=152CCejE5FvZOExdNT5VaiQnC2S; MEIQIA_VISIT_ID=16Mnh89bolXrtOUdsjR2uzf3rud; krid_user_id=817177228; krid_user_version=2; M-XSRF-TOKEN=8809b9570e47a600d14b9019a804da7d20639ecc3c999fea8ebd0445e721df9a; device-uid=086c2c10-75fe-11e8-ad9f-27eb44ae713f; krnewsfrontss=1e785e1cc935aea1c7411de4d1357725; Hm_lpvt_e8ec47088ed7458ec32cde3617b23ee3=1529659455; Hm_lvt_e8ec47088ed7458ec32cde3617b23ee3=1528427129,1528685104,1528855758,1529659455; kr_plus_id=817177228; kr_plus_token=BuoIudOZORDzoAxQdI746P284NH8i2bMb28_____; kr_plus_utype=0; acw_tc=AQAAAEAd6kVxpwkAXXiptOaxTv2wN9vb; _kr_p_se=4fb266ce-d902-4495-892a-a47d8cae28d4; download_animation=1; kr_stat_uuid=y5Rtm25480929'
 }
 
 
@@ -224,16 +224,17 @@ def saveCompanyToMongo(com_data):
 jingzhun_search_url = 'https://rong.36kr.com/n/api/search/company?kw='
 proxy = {'http':'http://118.212.137.135:31288'}
 
-event_id_none_count = 17    #系数 -  none_count = none_id
+event_id_none_count = 18    #系数 -  none_count = none_id
 
 for page in range(1, 100):
 
     projlist = getSearchCompany(page)
     for proj in projlist:
         kw = urllib.quote(proj['com_name'].decode(sys.stdin.encoding).encode('utf8'))
-        search_url = 'https://api.investarget.com/mongolog/proj?com_name=' + proj['com_name']
-        res = requests.get(search_url).content
+        search_url = 'https://api.investarget.com/mongolog/proj/simple?com_name=' + proj['com_name']
+        res = requests.get(search_url, headers=headers).content
         res = json.loads(res)
+        print 'page=%s, search_name=%s'%(page, proj['com_name'])
         if res['code'] == 1000:
             if len(res['result']['data']) == 0:
                 time.sleep(30)
@@ -277,12 +278,12 @@ for page in range(1, 100):
                             'tags': tags,       #公司标签
                             'source':2,  #用2来表示鲸准 ，空或者1表示it桔子
                         }
-                        search_url = 'https://api.investarget.com/mongolog/proj?com_name=' + com['name']
-                        res = requests.get(search_url).content
+                        search_url = 'https://api.investarget.com/mongolog/proj/simple?com_name=' + com['name']
+                        res = requests.get(search_url, headers=headers).content
                         res = json.loads(res)
                         if res['code'] == 1000:
                             if len(res['result']['data']) == 0:
-                                print '不存在--%s' % com['name']
+                                # print '不存在--%s' % com['name']
                                 time.sleep(10)
                                 combase = getCombase(jingzhun_id, kw)
                                 data['com_scale'] = combase.get('scale')
@@ -297,5 +298,6 @@ for page in range(1, 100):
                                 news = getNews(jingzhun_id, kw)
                                 saveCompanyNewsToMongo(news, com['name'])
                             else:
-                                print '存在--%s' % res['result']['data'][0]['com_name']
+                                pass
+                                # print '存在--%s' % res['result']['data'][0]['com_name']
 

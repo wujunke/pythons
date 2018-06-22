@@ -398,7 +398,7 @@ prefs={
     }
 }
 chrome_options.add_experimental_option('prefs',prefs)
-chrome_options.add_argument('--proxy-server=http://116.213.98.6:8080')
+chrome_options.add_argument('--proxy-server=http://211.161.103.247:9999')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 driver.set_window_size('1280','800')
 print '正在打开网站...'
