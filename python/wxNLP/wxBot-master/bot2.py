@@ -157,9 +157,7 @@ class MyWXBot(WXBot):
                                             self.send_msg_by_uid('%s，该投资人不在平台上，未识别出投资人姓名，无法新增' % fromuser, self.get_user_id(fromgroup))
                                 else:
                                     self.send_msg_by_uid('%s，该名片识别失败' % fromuser, self.get_user_id(fromgroup))
-                                if os.path.exists(img_path):
-                                    os.remove(img_path)
-                                self.card_list.remove(card_user)
+                                # self.card_list.remove(card_user)
                                 break
                         if not is_card:
                             self.attach_dic[fromuser] = []
@@ -458,7 +456,7 @@ class MyWXBot(WXBot):
                 break
         for dic in self.card_list:
             if dic['time'] < expiredate:
-                self.link_list.remove(dic)
+                self.card_list.remove(dic)
                 break
         for key, value in self.attach_dic.items():
             if len(value) > 1:

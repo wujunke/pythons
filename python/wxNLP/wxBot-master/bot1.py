@@ -431,11 +431,11 @@ class MyWXBot(WXBot):
                 break
         for dic in self.card_list:
             if dic['time'] < expiredate:
-                self.link_list.remove(dic)
+                self.card_list.remove(dic)
                 break
         for dic in self.des_list:
             if dic['time'] < expiredate:
-                self.link_list.remove(dic)
+                self.des_list.remove(dic)
                 break
 
 

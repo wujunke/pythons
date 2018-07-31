@@ -58,7 +58,7 @@ def getIPs():
     ips = []
     currentTime = datetime.datetime.now().strftime("%Y-%m-%d")[2:]
     filename = currentTime + '.xls'
-    # filename = '18-06-21.xls'
+    # filename = '18-07-05.xls'
     tables = excel_table_byindex(filename)
     for row in tables:
         ip = row[u'IP地址']+ u':' + row[u'端口']
@@ -79,7 +79,7 @@ def testIP(ip):
         soup = BeautifulSoup(res, 'html.parser')
         # res = json.loads(res)
     except Exception:
-        print traceback.format_exc()
+        pass
     else:
         # if res['code'] in ['200', u'200', 200]:
         #     print 'ip-  %s  -可用' % str(ip)

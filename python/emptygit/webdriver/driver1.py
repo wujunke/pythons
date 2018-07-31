@@ -13,15 +13,11 @@ from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from data2.itjuzi_config import base_url, token,  iplist
 
-
+#会话不使用代理，用于更新/插入数据
 session = requests.Session()
 session.trust_env = False
 
-def rand_proxie():
-    return {'http':'http://%s' % iplist[random.randint(0, len(iplist)) - 1],}
-
-
-
+#解析driver页面信息
 def parseHtml(html):
     soup = BeautifulSoup(html, 'html.parser')
     if soup.title:
@@ -165,13 +161,14 @@ def parseHtml(html):
                                     except IndexError:
                                         print '数组越界',len(theadlist),len(tdlist)
                                         pass
-                                infolist.append(infodic)
+                                if infodic != {}:
+                                    infolist.append(infodic)
                         response[tabhref] = infolist
         return response, com_name
     else:
         return None, None
 
-
+#保存项目工商信息
 def saveCompanyIndustyInfoToMongo(info):
     try:
         res = session.post(base_url + 'mongolog/projinfo', data=json.dumps(info),
@@ -193,24 +190,15 @@ def saveCompanyIndustyInfoToMongo(info):
             print '错误数据indus_info----' + 'com_id=%s' % info['com_id']
             print res
 
-
+#保存项目新闻信息列表
 def saveCompanyNewsToMongo(newslist,com_id=None,com_name=None):
     for news in newslist:
         if news.get('linkurl'):
             news['com_id'] = com_id if isinstance(com_id, int) else int(com_id)
             news['com_name'] = com_name
             saverequest(url=(base_url + 'mongolog/projnews'), data=news, headers={'Content-Type': 'application/json', 'token': token})
-            # res = requests.post(base_url + 'mongolog/projnews', data=json.dumps(news),
-            #                     headers={'Content-Type': 'application/json', 'token': token}).content
-            # res = json.loads(res)
-            # if res['code'] == 1000:
-            #     pass
-            # elif res['code'] == 8001:
-            #     pass
-            # else:
-            #     print '错误数据news----' + 'com_id=%s' % news['com_id']
-            #     print res
 
+#保存项目新闻信息
 def saverequest(url, data , headers):
     try:
         res = session.post(url, data=json.dumps(data),headers=headers).content
@@ -232,7 +220,7 @@ def saverequest(url, data , headers):
             print res
 
 
-
+#更新项目信息
 def updateCompanyToMongo(info):
     try:
         res = session.post(base_url + 'mongolog/proj', data=json.dumps(info), headers={'Content-Type': 'application/json', 'token': token}).content
@@ -254,7 +242,7 @@ def updateCompanyToMongo(info):
             print res
 
 
-
+#获取项目列表（从服务器mongo数据库获取）
 def get_companglist(page_index):
     projlist = None
     res = session.get(base_url + 'mongolog/proj?page_size=10&sort=com_id&page_index=%s' % page_index, headers={'Content-Type': 'application/json', 'token': token})
@@ -268,7 +256,7 @@ def get_companglist(page_index):
     return projlist
 
 
-
+#保存项目投融资历史
 def saveEventToMongo(events, com_id):
     for event in events:
         event['com_id'] = com_id
@@ -283,60 +271,11 @@ def saveEventToMongo(events, com_id):
             print '错误event数据--%s'%repr(event)
             print res
 
-orglist = []
-with open("/Users/investarget/pythons/python/emptygit/addInvestEvent/name_id_comparetable","r") as f:
-    lines = f.readlines()
-    for line in lines:
-        orglist.append(json.loads(line.replace('\n','')))
-
-
-
-def getOrgIdByOrgname(orgname):
-    orgid = None
-    if orgname and orgname != u'未透露':
-        for org in orglist:
-            if org['itjuzi_name'] == orgname:
-                orgid = org['haituo_id']
-    return orgid
-
-
-def saveEventToMySqlOrg(events, com_id, com_name, industryType):
-    for event in events:
-        orglist = []
-        if event['investormerge'] == 1:
-            for invst_dic in event['invsest_with']:
-                orglist.append(invst_dic['invst_name'])
-        else:
-            orglist.append(event['merger_with'])
-        for orgname in orglist:
-            orgid = getOrgIdByOrgname(orgname)
-            if orgid:
-                data = {
-                    'org': orgid,
-                    'comshortname': com_name,
-                    'com_id': com_id,
-                    'industrytype': industryType,
-                    'investDate': str(event['date'] ) + 'T12:00:00' if event['date']  else None,
-                    'investType': event['round'],
-                    'investSize': event['money'],
-                }
-                res = session.post(base_url + 'org/investevent/', data=json.dumps(data),
-                                    headers={'Content-Type': 'application/json', 'token': token}).content
-                res = json.loads(res)
-                if res['code'] == 1000:
-                    print '新增org_invest--' + str(res['result'].get('id', None))
-                elif res['code'] == 5007:
-                    print '重复org_invest'
-                else:
-                    print '错误org_invest数据--%s'%repr(res)
-                    print res
-
-
-
+#打开页面，获取html，解析，保存
 def getpage(driver,com_id,wait):
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
-        time.sleep(random.randint(3, 5))
+        time.sleep(1)
         page = driver.page_source
         resdic, com_name = parseHtml(page)
         if resdic:
@@ -346,7 +285,6 @@ def getpage(driver,com_id,wait):
             saveCompanyNewsToMongo(news, resdic['com_id'], com_name)
             saveCompanyIndustyInfoToMongo(resdic)
             saveEventToMongo(resdic['events'], resdic['com_id'])
-            # saveEventToMySqlOrg(resdic['events'], resdic['com_id'], com_name, resdic['industryType'])
             # dic = {}
             # dic['com_id'] = int(resdic.get('com_id'))
             # dic['tags'] = resdic.get('tags', [])
@@ -356,7 +294,6 @@ def getpage(driver,com_id,wait):
             # dic['detailaddress'] = resdic.get('detailaddress', None)
             # dic['com_name'] = com_name
             # updateCompanyToMongo(dic)
-            # time.sleep(random.randint(3, 5))
         else:
             if com_name:
                 if com_name in (u'找不到您访问的页面',):
@@ -373,22 +310,16 @@ def getpage(driver,com_id,wait):
                     print com_name
             else:
                 print '空页面--%s' % com_id
-                # print '现在时间：%s' % datetime.datetime.now()
-                # print '等待%s秒后重试'%wait
-                # time.sleep(wait)
-                # getpage(driver,com_id,wait)
     except TimeoutException:
         print '打开页面超时，公司：id--%s'%com_id
         getpage(driver, com_id, wait)
 
+
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://211.161.103.247:9999')
-prefs={
-     'profile.default_content_setting_values': {
+chrome_options.add_argument('--proxy-server=http://118.31.220.3:8080')
+prefs={'profile.default_content_setting_values': {
         'images': 2,   #禁用图片
-        # 'javascript':2   #禁用JS
-    }
-}
+    }}
 chrome_options.add_experimental_option('prefs',prefs)
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 driver.set_window_size('1280','800')
@@ -401,19 +332,16 @@ driver.find_element_by_xpath('//*[@id="create_account_password"]').send_keys("x8
 print '正在登录...'
 driver.find_element_by_id('login_btn').click()
 
-
-page_index = 2300
-
-while page_index <= 10000:
+page_index = 8942
+while page_index <= 12000:
     projlist = get_companglist(page_index)
-
     print '当前页码：page_index = %s' % str(page_index)
     print datetime.datetime.now()
     page_index += 1
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
-            # com_id = 32845590
+            # com_id = 1556
             getpage(driver, com_id, 10)
 
 

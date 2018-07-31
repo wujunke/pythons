@@ -5,8 +5,10 @@ import requests
 
 
 # base_url = 'http://192.168.1.251:8080/'
-base_url = 'http://192.168.1.201:8000/'
-token = '9fea5e61e4a86110972d22fd54cd7092d5ff5deeb4977d00'
+base_url = 'https://api.investarget.com/'
+# base_url = 'http://192.168.1.201:8000/'
+
+token = '0011b9120f76196890f1bb33326128ef125a95d359dc2ecf'
 
 
 headers = {

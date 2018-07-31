@@ -1,26 +1,27 @@
 #coding=utf-8
-
-
 import json
-import random
 import requests
-import time
-
 from datetime import datetime
+import time
 from selenium import webdriver
-
-from data2.itjuzi_config import base_url, token, iplist, iplist2
-import xlwt, xlrd
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
-# sys.setrecursionlimit(10000000)
+
 session = requests.Session()
 # session.trust_env = False
+# http://webapi.http.zhimacangku.com/getip?num=1&type=1&pro=&city=0&yys=0&port=11&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions=
+# http://webapi.http.zhimacangku.com/getip?num=1&type=1&pro=&city=0&yys=0&port=11&time=1&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions=
 
+base_url = 'https://api.investarget.com/'
+# base_url = 'http://192.168.1.201:8000/'
 
-proxy_ip = '115.150.208.114:3276'
-start_id = 2221
+token = '0011b9120f76196890f1bb33326128ef125a95d359dc2ecf'
+
+proxy_ip = '125.86.167.148:4697'
+
+start_id = 6748
+
 # start_id = 5966
 
 
@@ -64,7 +65,7 @@ def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
         if pages:
             if pages['totalPages'] > pages['currentPage']:
                 page += 1
-                if page < 3:
+                if page < 2:
                     events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events)
     return events
 

@@ -2,9 +2,9 @@
 from bs4 import BeautifulSoup
 
 
-html = open('gongshang.html','r').read()
+# html = open('gongshang.html','r').read()
 
-def parseHtml(html):
+def parseGongShangHtml(html):
     soup = BeautifulSoup(html, 'html.parser')
     source = soup.find('div', class_='main')
     base_info_element = source.find('div', class_='base-info')
@@ -63,4 +63,17 @@ def parseHtml(html):
 
 
 
-res = parseHtml(html)
+# res = parseGongShangHtml(html)
+
+
+searchHtml = open('search_result.html','r').read()
+
+def parseSearchResultHtml(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    table = soup.find('table')
+    tbody = table.find('tbody')
+    return table
+
+
+
+res = parseSearchResultHtml(searchHtml)

@@ -170,7 +170,8 @@ def parseHtml(html):
                                     except IndexError:
                                         print '数组越界',len(theadlist),len(tdlist)
                                         pass
-                                infolist.append(infodic)
+                                if infodic != {}:
+                                    infolist.append(infodic)
                         response[tabhref] = infolist
         return response, com_name
     else:
@@ -398,7 +399,7 @@ prefs={
     }
 }
 chrome_options.add_experimental_option('prefs',prefs)
-chrome_options.add_argument('--proxy-server=http://211.161.103.247:9999')
+chrome_options.add_argument('--proxy-server=http://118.31.220.3:8080')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 driver.set_window_size('1280','800')
 print '正在打开网站...'
