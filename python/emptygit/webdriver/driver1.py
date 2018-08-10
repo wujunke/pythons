@@ -285,15 +285,15 @@ def getpage(driver,com_id,wait):
             saveCompanyNewsToMongo(news, resdic['com_id'], com_name)
             saveCompanyIndustyInfoToMongo(resdic)
             saveEventToMongo(resdic['events'], resdic['com_id'])
-            # dic = {}
-            # dic['com_id'] = int(resdic.get('com_id'))
-            # dic['tags'] = resdic.get('tags', [])
-            # dic['com_web'] = resdic.get('com_web', None)
-            # dic['mobile'] = resdic.get('mobile', None)
-            # dic['email'] = resdic.get('email', None)
-            # dic['detailaddress'] = resdic.get('detailaddress', None)
-            # dic['com_name'] = com_name
-            # updateCompanyToMongo(dic)
+            dic = {}
+            dic['com_id'] = int(resdic.get('com_id'))
+            dic['tags'] = resdic.get('tags', [])
+            dic['com_web'] = resdic.get('com_web', None)
+            dic['mobile'] = resdic.get('mobile', None)
+            dic['email'] = resdic.get('email', None)
+            dic['detailaddress'] = resdic.get('detailaddress', None)
+            dic['com_name'] = com_name
+            updateCompanyToMongo(dic)
         else:
             if com_name:
                 if com_name in (u'找不到您访问的页面',):
@@ -316,7 +316,7 @@ def getpage(driver,com_id,wait):
 
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://118.31.220.3:8080')
+chrome_options.add_argument('--proxy-server=http://124.235.208.252:443')
 prefs={'profile.default_content_setting_values': {
         'images': 2,   #禁用图片
     }}
@@ -332,7 +332,7 @@ driver.find_element_by_xpath('//*[@id="create_account_password"]').send_keys("x8
 print '正在登录...'
 driver.find_element_by_id('login_btn').click()
 
-page_index = 8942
+page_index = 3572
 while page_index <= 12000:
     projlist = get_companglist(page_index)
     print '当前页码：page_index = %s' % str(page_index)

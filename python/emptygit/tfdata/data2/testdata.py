@@ -24,63 +24,57 @@ for proj, tags in taglist.items():
         if i in tags:
             newtags.append(5)
         else:
-            newtags.append(0)
-    proj_tags[proj] = newtags
+            newtags.append(-0.5)
 
-proj_round = {
-    '505': (1+1) / 18.0,
-    '520': (1+1) / 18.0,
-    '521': (8+1) / 18.0,
+    proj_tags[proj] = map(str, newtags)
+    print proj
+    print ','.join(proj_tags[proj])
+
+roundcontrast = {
+    '不明确':0,
+    '尚未获投':1, '种子轮':1, '天使轮':1, 'Pre-A轮':1,
+    'A轮':3, 'A+轮':3, 'Pre-B轮':3, 'B轮':3, 'B+轮':3,
+    'C轮':5, 'C+轮':5, 'D轮':5, 'D+轮':5,
+    'E轮':7, 'F轮-上市前':7, '新三板':7, '战略投资':7,
+    '已上市':9, '已被收购':9, '并购':9
 }
 
-proj_patent = {
-    '505': 1,
-    '520': 0,
-    '521': 0,
-}
-
-
-proj_money = {
-    '505': 0,
-    '520': 0,
-    '521': 0.62,
-}
-
-proj_top = {
-    '505': 0,
-    '520': 0,
-    '521': 1,
+transroundcontrast = {
+    '天使轮':2, 'Pre-A轮':2,
+    'A轮':2, 'A+轮':2, 'B轮':4, 'B+轮':4,
+    'C轮':4, 'C+轮':4, 'D轮':6, 'D+轮':6,
+    'E轮':6, 'F轮-上市前':6, '新三板':8, '战略投资':8,
 }
 
 
-proj_fund = {
-    '505': 0,
-    '520': 0,
-    '521': 0,
+haituoroundcontrast = {
+    '不明确':0,
+    '尚未获投':1, '种子轮':1, '天使轮':1, 'Pre-A轮':1,
+    'A轮':3, 'A+轮':3, 'Pre-B轮':3, 'B轮':3, 'B+轮':3,
+    'C轮':5, 'C+轮':5, 'D轮':5, 'D+轮':5,
+    'E轮':7, 'F轮-上市前':7, '新三板':7, '战略投资':7,
+    '已上市':9, '已被收购':9, '并购':9
 }
 
-BDlist = []
-BDlistfile = open('tmporg2.csv', 'r')
-BDlistlines = BDlistfile.readlines()
-for l in BDlistlines:
-    BDlist.append(l.replace('\n', '').split(','))
-BDlistfile.close()
+haituotransroundcontrast = {
+    '天使轮':2, 'Pre-A轮':2,
+    'A轮':2, 'A+轮':2, 'B轮':4, 'B+轮':4,
+    'C轮':4, 'C+轮':4, 'D轮':6, 'D+轮':6,
+    'E轮':6, 'F轮-上市前':6, '新三板':8, '战略投资':8,
+}
 
 
 
-def savedata(data):
-    with open('orgbd.csv', 'a') as f:
-        f.write(','.join(data))
-        f.write('\n')
+lines = [
 
-for bd in BDlist:
-    proj = bd[0]
-    bd.extend(proj_tags[str(proj)])
-    bd.append(proj_round[str(proj)])
-    bd.append(proj_patent[str(proj)])
-    bd.append(proj_money[str(proj)])
-    bd.append(proj_top[str(proj)])
-    bd.append(proj_fund[str(proj)])
-    bd = map(str, bd)
-    savedata(bd)
-
+]
+for line in lines:
+    roundstr = ''
+    roundlist = [0 for x in range(10)]
+    index1 = roundcontrast.get(roundstr, 0)
+    index2 = transroundcontrast.get(roundstr, None)
+    if index1:
+        roundlist[index1] = 1
+    if index2:
+        roundlist[index2] = 1
+    print ','.join( map(str, roundlist))

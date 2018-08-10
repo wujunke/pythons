@@ -18,11 +18,11 @@ base_url = 'https://api.investarget.com/'
 
 token = '0011b9120f76196890f1bb33326128ef125a95d359dc2ecf'
 
-proxy_ip = '125.86.167.148:4697'
+proxy_ip = '101.37.79.125:3128'
 
-start_id = 6748
+start_id = 6944
 
-# start_id = 5966
+# start_id = 356
 
 
 def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
@@ -40,7 +40,7 @@ def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
     # }
     page = page if page else 1
     events = events if events else []
-    # 发现这个接口不用登录也可以调用，不过每个ip几分钟就被屏蔽了，需要更换代理
+    # 发现这个接口不用登录也可以调用
     url = 'https://www.itjuzi.com/investment/info/search?id=%s&page=%s&scope=all&state=all&feature=all&sort=time' % (itjuziOrgId, page)
     try:
         driver.get(url)

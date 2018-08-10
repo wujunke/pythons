@@ -341,7 +341,7 @@ def saveEventToMySqlOrg(events, com_id, com_name, industryType):
 def getpage(driver,com_id,wait):
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
-        time.sleep(random.randint(5, 8))
+        time.sleep(1)
         page = driver.page_source
         resdic, com_name = parseHtml(page)
         if resdic:
@@ -399,7 +399,7 @@ prefs={
     }
 }
 chrome_options.add_experimental_option('prefs',prefs)
-chrome_options.add_argument('--proxy-server=http://118.31.220.3:8080')
+chrome_options.add_argument('--proxy-server=http://180.101.205.253:8888')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 driver.set_window_size('1280','800')
 print '正在打开网站...'
