@@ -13,28 +13,46 @@ session = requests.Session()
 # http://webapi.http.zhimacangku.com/getip?num=1&type=1&pro=&city=0&yys=0&port=11&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions=
 # http://webapi.http.zhimacangku.com/getip?num=1&type=1&pro=&city=0&yys=0&port=11&time=1&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions=
 
+
+autoGetProxy = False
+
 base_url = 'https://api.investarget.com/'
 # base_url = 'http://192.168.1.201:8000/'
 
 token = '0011b9120f76196890f1bb33326128ef125a95d359dc2ecf'
 
-proxy_ip = '101.37.79.125:3128'
+proxy_url = 'http://webapi.http.zhimacangku.com/getip?' \
+    'num=1&type=1&pro=&city=0&yys=0&port=1&pack=16580&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions='
 
 start_id = 6944
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://%s' % proxy_ip)
-driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
-driver.set_window_size('1280','800')
 
 
+def getDriver(proxy):
+    try:
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--proxy-server=http://%s' % proxy)
+        driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
+        driver.set_window_size('1280','800')
+    except Exception:
+        print('chrome 呼起失败')
 
-def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
+def getProxy(url):
+    res = requests.get(url).content.replace('\r\n', '')
+    if len(res.split('.')) == 4:
+        return res
+    else:
+        print('IP获取失败--%s' % res)
+        raise Exception
+
+driver = getDriver(getProxy(proxy_url))
+
+def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None, losetime=None):
     global driver
     print(datetime.now())
     page = page if page else 1
     events = events if events else []
-    # 发现这个接口不用登录也可以调用
+    # 这个接口不用登录也可以调用
     url = 'https://www.itjuzi.com/investment/info/search?id=%s&page=%s&scope=all&state=all&feature=all&sort=time' % (itjuziOrgId, page)
     try:
         driver.get(url)
@@ -43,14 +61,18 @@ def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
             '</body></html>', '')
         res = json.loads(data)
     except ValueError:
+        losetime += 1
         print('获取失败--%s-%s' % (itjuziOrgId, page))
-        events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events)
+        if losetime > 10 and autoGetProxy:
+            driver.quit()
+            driver = getDriver(getProxy(proxy_url))
+        events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events, losetime)
     except requests.exceptions.ConnectionError:
         print('代理连接失败--%s-%s' % (itjuziOrgId, page))
-        events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events)
+        events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events, losetime)
     except requests.exceptions.ReadTimeout:
         print('请求超时--%s-%s' % (itjuziOrgId, page))
-        events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events)
+        events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events, losetime)
     else:
         print('成功--%s-%s' % (itjuziOrgId, page))
         if isinstance(res['data'], list):
@@ -60,14 +82,14 @@ def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
             if pages['totalPages'] > pages['currentPage']:
                 page += 1
                 if page < 2:
-                    events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events)
+                    events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events, losetime)
     return events
 
 
 
 
 def getAndSaveEvent(itjuzi_id, haituo_id):
-    events = getAllEventWith_ItjuziOrgId(itjuzi_id)
+    events = getAllEventWith_ItjuziOrgId(itjuzi_id, losetime=0)
     print('%s--抓取完成'%itjuzi_id)
     for event in events:
         data = {

@@ -29,9 +29,11 @@ def parseHtml(html):
         if a_s:
             com_web = a_s.parent['href']
         name = soup.find('h1', class_='seo-important-title', )
+        # full_name = ''
         if name:
             com_name = name.text.replace(u'\t', u'')
             com_name = com_name.split('\n')[1]
+            # full_name = name['data-fullname']
         # 联系方式
         ll = ['mobile', 'email', 'detailaddress']
         response = {}
@@ -316,7 +318,7 @@ def getpage(driver,com_id,wait):
 
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://124.235.208.252:443')
+chrome_options.add_argument('--proxy-server=http://180.101.205.253:8888')
 prefs={'profile.default_content_setting_values': {
         'images': 2,   #禁用图片
     }}
@@ -332,7 +334,7 @@ driver.find_element_by_xpath('//*[@id="create_account_password"]').send_keys("x8
 print '正在登录...'
 driver.find_element_by_id('login_btn').click()
 
-page_index = 3572
+page_index = 7487
 while page_index <= 12000:
     projlist = get_companglist(page_index)
     print '当前页码：page_index = %s' % str(page_index)

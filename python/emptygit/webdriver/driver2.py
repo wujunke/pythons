@@ -38,9 +38,11 @@ def parseHtml(html):
         if a_s:
             com_web = a_s.parent['href']
         name = soup.find('h1', class_='seo-important-title', )
+        full_name = None
         if name:
             com_name = name.text.replace(u'\t', u'')
             com_name = com_name.split('\n')[1]
+            full_name = name['data-fullname']
         # 联系方式
         ll = ['mobile', 'email', 'detailaddress']
         response = {}
@@ -173,9 +175,9 @@ def parseHtml(html):
                                 if infodic != {}:
                                     infolist.append(infodic)
                         response[tabhref] = infolist
-        return response, com_name
+        return response, com_name, full_name
     else:
-        return None, None
+        return None, None, None
 
 
 def saveCompanyIndustyInfoToMongo(info):
@@ -343,7 +345,7 @@ def getpage(driver,com_id,wait):
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
         time.sleep(1)
         page = driver.page_source
-        resdic, com_name = parseHtml(page)
+        resdic, com_name, full_name = parseHtml(page)
         if resdic:
             resdic['com_id'] = int(com_id)
             print com_name
@@ -360,6 +362,7 @@ def getpage(driver,com_id,wait):
             dic['email'] = resdic.get('email', None)
             dic['detailaddress'] = resdic.get('detailaddress', None)
             dic['com_name'] = com_name
+            dic['com_full_name'] = full_name
             updateCompanyToMongo(dic)
             # time.sleep(random.randint(3, 5))
         else:
