@@ -12,21 +12,22 @@ import datetime
 # policy = 'b'
 policy = 'c'
 
-basetimestr = '19:06:'
+basetimestr = '11:29:'
+
 
 sleeptime = 0.02  #鼠标反应时间
 
 points = {
-    'customUpPriceIuput': (650, 400 - 22),            # 自定义加价输入框
-    'customUpPriceButton': (800, 400 - 22),           # 自定义加价按钮
-    'offerButton': (800, 505 - 22),                   # 出价按钮
-    'currentPriceImage': (640, 490 - 22, 710, 511 - 22),   # 当前出价图片      moneyshot1.png
-    'lowestPriceImage': (150, 495 - 22, 195, 511 - 22),    # 最低可成交价图片   moneyshot2.png
-    'biggestPriceImage': (275, 526 - 22, 318, 542 - 22),   # 最高可接受价图片   moneyshot3.png
+    'customUpPriceIuput': (650, 375),            # 自定义加价输入框
+    'customUpPriceButton': (800, 375),           # 自定义加价按钮
+    'offerButton': (800, 485),                   # 出价按钮
+    'currentPriceImage': (650, 469, 700, 486),   # 当前出价图片      moneyshot1.png
+    'lowestPriceImage': (151, 474, 193, 489),    # 最低可成交价图片   moneyshot2.png
+    'biggestPriceImage': (273, 506, 316, 522),   # 最高可接受价图片   moneyshot3.png
     'YZMquestion': (),                           # 验证码问题
     'YZMImage': (),                              # 验证码图片
-    'YZMCancelButton': (750, 590 - 22),               # 验证码取消按钮
-    'YZMSureButton': (550, 590 - 22),                 # 验证码确定按钮
+    'YZMCancelButton': (750, 564),               # 验证码取消按钮
+    'YZMSureButton': (550, 564),                 # 验证码确定按钮
 }
 APP_ID = '11546435'
 API_KEY = 'w9646O4Ug0H2XNwXQX0WLcen'
@@ -146,11 +147,11 @@ def policyB():
 
 def policyC():
     policys = {
-            'startTime': '49.0',        # 第一次出价时间
-            'upPrice': '700',           # 第一次出价加价
-            'checkPrice': '0',          # 验证差价
-            'sureOfferTime': '55.0',    # 验证码确定按钮点击最早时间
-            'latestSureOfferTime': '55.0',    # 验证码确定按钮点击最晚时间
+            'startTime': '49.0',            # 第一次出价时间
+            'upPrice': '900',               # 第一次出价加价
+            'checkPrice': '100',            # 验证差价
+            'sureOfferTime': '53.0',        # 验证码确定按钮点击最早时间
+            'latestSureOfferTime': '55.0',  # 验证码确定按钮点击最晚时间
     }
     checkTimeRight(policys['startTime'])
 
@@ -169,6 +170,7 @@ def policyC():
     moneyshot1 = get_file_content('moneyshot1.png')
     moneyress1 = client.basicGeneral(moneyshot1)
     moneystr1 = moneyress1['words_result'][0]['words']  # 当前出价
+    print(moneystr1)
 
     pg.moveTo(points['offerButton'])     # 出价按钮
     time.sleep(sleeptime)
@@ -186,8 +188,9 @@ def policyC():
         print(moneyress3, str(datetime.datetime.now())[17:21])
         moneystr3 = moneyress3['words_result'][0]['words']  # 最大可接受出价
         if int(moneystr1) - int(moneystr3) <= int(policys['checkPrice']):
+            print('出价到达检查点:  %s' % policys['checkPrice'])
             break
-
+    print('提交出价时间：%s' % str(datetime.datetime.now())[17:21])
     pg.moveTo(points['YZMSureButton'])  # 验证码确定按钮
     time.sleep(sleeptime)
     pg.click()

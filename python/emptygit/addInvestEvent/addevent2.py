@@ -22,9 +22,9 @@ base_url = 'https://api.investarget.com/'
 token = '0011b9120f76196890f1bb33326128ef125a95d359dc2ecf'
 
 proxy_url = 'http://webapi.http.zhimacangku.com/getip?' \
-    'num=1&type=1&pro=&city=0&yys=0&port=1&pack=16580&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions='
+            'num=1&type=1&pro=&city=0&yys=0&port=1&pack=16580&ts=0&ys=0&cs=0&lb=1&sb=0&pb=4&mr=1&regions='
 
-start_id = 6944
+start_id = 1
 
 
 

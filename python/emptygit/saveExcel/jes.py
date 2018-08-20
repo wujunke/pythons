@@ -74,7 +74,7 @@ def saveToFile(res):
         phone = row['info']['mobile'] if row['info']['mobile'] else ''
         email = row['info']['email'] if row['info']['email'] else ''
         address = row['info']['detailaddress'] if row['info']['detailaddress'] else ''
-        events = row['event'] if  row['event'] else []
+        events = row['event'] if row['event'] else []
         eve = []
         for event in events:
             if event['investormerge'] == 1:
@@ -87,7 +87,7 @@ def saveToFile(res):
                 eve.append('时间：%s   投资方：%s   轮次：%s   投资金额：%s'%(event['date'], invs, event['round'], event['money']))
             else:
                 eve.append('时间：%s   并购方：%s   轮次：%s   并购金额：%s'%(event['date'], event['merger_with'], event['round'], event['money']))
-        evestr = '\n'.join(eve) if len(eve) > 0 else '暂无'
+        evestr = '\r\n'.join(eve) if len(eve) > 0 else '暂无'
 
         ws.write(hang, lie + 0, str(orgname))
         ws.write(hang, lie + 1, str(desc))
@@ -107,7 +107,7 @@ def saveToFile(res):
         # f.writelines('\n')
         # f.close()
         hang = hang + 1
-    wb.save('jes_project2.xls')
+    wb.save('doc2.xls')
 
 
 
@@ -125,11 +125,11 @@ headers = {
         'Content-Type':'application/json',
         'Accept':'application/json',
     }
-url = 'https://api.investarget.com/mongolog/proj?page_size=50&com_name=&com_sub_cat_name=%E8%82%A1%E7%A5%A8%2C%E5%80%9F%E8%B4%B7%2C%E6%94%AF%E4%BB%98%2C%E4%BF%9D%E9%99%A9%2C%E7%90%86%E8%B4%A2%2C%E6%8A%95%E8%9E%8D%E8%B5%84%2C%E8%99%9A%E6%8B%9F%E8%B4%A7%E5%B8%81%2C%E9%87%91%E8%9E%8D%E4%BF%A1%E6%81%AF%E5%8C%96%2C%E9%87%91%E8%9E%8D%E7%BB%BC%E5%90%88%E6%9C%8D%E5%8A%A1%2C%E5%A4%96%E6%B1%87%E6%9C%9F%E8%B4%A7%E8%B4%B5%E9%87%91%E5%B1%9E%2C%E5%85%B6%E4%BB%96%E9%87%91%E8%9E%8D%2C%E4%BF%A1%E7%94%A8%E5%8F%8A%E5%BE%81%E4%BF%A1%2C%E6%B6%88%E8%B4%B9%E9%87%91%E8%9E%8D%2C%E5%BD%A9%E7%A5%A8&com_born_date=&com_addr=%E5%8C%97%E4%BA%AC%2C%E4%B8%8A%E6%B5%B7%2C%E6%B5%99%E6%B1%9F%2C%E5%B9%BF%E4%B8%9C%2C%E6%B1%9F%E8%8B%8F%2C%E7%A6%8F%E5%BB%BA%2C%E6%B9%96%E5%8C%97%2C%E5%9B%9B%E5%B7%9D%2C%E9%87%8D%E5%BA%86&invse_round_id=Pre-A%E8%BD%AE%2CA%E8%BD%AE%2CA%2B%E8%BD%AE%2CPre-B%E8%BD%AE%2CB%E8%BD%AE%2CB%2B%E8%BD%AE%2CC%E8%BD%AE%2CC%2B%E8%BD%AE%2CD%E8%BD%AE&com_status=&com_fund_needs_name=&lang=cn'
-# 股票,借贷,支付,保险,理财,投融资,虚拟货币,金融信息化,金融综合服务,外汇期货贵金属,其他金融,信用及征信,消费金融,彩票
+url = 'https://api.investarget.com/mongolog/proj?page_size=50&com_name=&com_sub_cat_name=%E5%AF%BB%E5%8C%BB%E8%AF%8A%E7%96%97%2C%E5%8C%BB%E8%8D%AF%E7%94%B5%E5%95%86%2C%E5%8C%BB%E7%94%9F%E6%9C%8D%E5%8A%A1%2C%E5%81%A5%E5%BA%B7%E4%BF%9D%E5%81%A5%2C%E5%8C%BB%E7%96%97%E5%99%A8%E6%A2%B0%E5%8F%8A%E7%A1%AC%E4%BB%B6%2C%E5%8C%BB%E7%96%97%E4%BF%A1%E6%81%AF%E5%8C%96%2C%E4%B8%93%E7%A7%91%E6%9C%8D%E5%8A%A1%2C%E5%85%B6%E4%BB%96%E5%8C%BB%E7%96%97%E6%9C%8D%E5%8A%A1%2C%E5%8C%BB%E7%96%97%E7%BB%BC%E5%90%88%E6%9C%8D%E5%8A%A1%2C%E7%94%9F%E7%89%A9%E6%8A%80%E6%9C%AF%E5%92%8C%E5%88%B6%E8%8D%AF&com_born_date=&com_addr=&invse_round_id=&com_status=&com_fund_needs_name=&lang=cn'
+#
 def getOrg(page_index):
     headers = {
-        'token': '85906a6cf0bb6c1542a43984eb0884bc20e41ed11411a66b',
+        'token': '0011b9120f76196890f1bb33326128ef125a95d359dc2ecf',
         'source': '1',
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -168,7 +168,7 @@ def getOrgEvent(orgid):
 
 orglist = []
 i = 1
-while i <= 24:
+while i <= 137:
     li = getOrg(i)
     orglist.extend(li)
     print 'page = %s' % str(i)

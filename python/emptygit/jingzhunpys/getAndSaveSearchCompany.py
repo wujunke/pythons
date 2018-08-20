@@ -31,7 +31,7 @@ iplist = [
 # &createtime=2018-06-12T11:51:00
 def getSearchCompany(page):
     com_list = []
-    res = requests.get(base_url + 'mongolog/proj/search?page_index=%s&createtime=2018-06-12T00:00:00' % page , headers=headers).content
+    res = requests.get(base_url + 'mongolog/proj/search?page_index=%s&createtime=2018-08-06T00:00:00' % page , headers=headers).content
     res = json.loads(res)
     if res['code'] == 1000:
         data = res['result']['data']
@@ -86,14 +86,14 @@ jingzhun_headers = {
     'Accept': 'application/json, text/plain, */*',
     'Accept-Encoding': 'br, gzip, deflate',
     'Accept-Language': 'zh-cn',
-    'X-Tingyun-Id':'Dio1ZtdC5G4;r=59479200',
+    'X-Tingyun-Id':'Dio1ZtdC5G4;r=97194744',
     'Connection': 'keep-alive',
     'DNT': '1',
     'Host': 'rong.36kr.com',
     'Referer': 'https://rong.36kr.com/list/detail&?sortField=HOT_SCORE',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
     'X-Requested-With': 'XMLHttpRequest',
-    'Cookie': 'Z-XSRF-TOKEN=eyJpdiI6Im0wU1JnRVdNTWJESCsxUHQ4dGFMYkE9PSIsInZhbHVlIjoiOVdaMDdrNFZyQjcrb29RRjlNSzJvM3l5RFh5cm5wY2ZqSURjYW82ZXN1ZHVFdzVjK2ZNRW5xY3JSbWVNeWo0MmFOYVNQK09XT2ZpMkc2YXc1Z3g1cEE9PSIsIm1hYyI6ImY5ZGY1MTFiYmVlYjY4YWViNDcyMTk3NjAyZDU4MzgzMjBhZWEwMmI4MWFmNGQ4ZDhiYTYzNmMxNGUxYjliNTkifQ%3D%3D; krchoasss=eyJpdiI6IjB3a1MrYm9zcVUwQ1h1aGNJZGNmQmc9PSIsInZhbHVlIjoiSHZZRmwyeGlyUnYzWkJFZ3JKQlg3cjVzUlgrRzM5R0lkR2ZneGRtVGdaVFwvUDUyN0RwcTJ2ekJiTEdvSnlRaWJVaUVaZmlzU3hSUHZzRk1MRnVNTVwvZz09IiwibWFjIjoiMDQ2Y2NmYmM5ZDVmODQ3YzlkY2U3NzFjZTUyMDE2OWYzN2NlMTYwZTgxZDc1MmQ3YTI0MTcxYjk2MTAwNjUxYiJ9; MEIQIA_EXTRA_TRACK_ID=152CCejE5FvZOExdNT5VaiQnC2S; MEIQIA_VISIT_ID=16Mnh89bolXrtOUdsjR2uzf3rud; krid_user_id=817177228; krid_user_version=2; M-XSRF-TOKEN=8809b9570e47a600d14b9019a804da7d20639ecc3c999fea8ebd0445e721df9a; device-uid=086c2c10-75fe-11e8-ad9f-27eb44ae713f; krnewsfrontss=1e785e1cc935aea1c7411de4d1357725; Hm_lpvt_e8ec47088ed7458ec32cde3617b23ee3=1529659455; Hm_lvt_e8ec47088ed7458ec32cde3617b23ee3=1528427129,1528685104,1528855758,1529659455; kr_plus_id=817177228; kr_plus_token=BuoIudOZORDzoAxQdI746P284NH8i2bMb28_____; kr_plus_utype=0; acw_tc=AQAAAEAd6kVxpwkAXXiptOaxTv2wN9vb; _kr_p_se=4fb266ce-d902-4495-892a-a47d8cae28d4; download_animation=1; kr_stat_uuid=y5Rtm25480929'
+    'Cookie': 'Z-XSRF-TOKEN=eyJpdiI6IjMrN3BZbW1RUlBXMm16NDNKSktmSWc9PSIsInZhbHVlIjoiU1hhRkdjQTdqSjJsMzBWM09cL0VMRFJPajIrbjdXXC95eUVIc2x2ZVRMdVwvcCtXWDFNVU91c0VTdysraTVnZ0hrUVROTUlvWjB4b2J3c09sanRndE1ybGc9PSIsIm1hYyI6IjU5YTBmNWE4ODc2YWJhZjFlMTIzNzFhNjgyNjdiZDk2N2I0YzZkZGVmN2JhYTljZjIwN2EwZDczZDkxODA3OTQifQ%3D%3D; krchoasss=eyJpdiI6IkhJQVlXaTExb0ZcL2FUWElQODFrR2N3PT0iLCJ2YWx1ZSI6Ill2eFBrbXBPdm9EQ0tKSWdhd1g1SlpcL0NTWWxvYk5wNmFMT21Qd1ZEWWh1VTQ5Q1RpUXFwS1FHUTFnbFV4WEhNR3EwcXdLeENSU2xJWXoySHFYVXRZUT09IiwibWFjIjoiNWRiMjNjY2ExY2MyOTJjNWU3YzM2ZDczM2U5ZWE3YTdlY2NhNTRlOGE5MDdiYWRhMjA4MjIzNjgxMmRkNjkyZiJ9; kr_plus_id=1805651323; kr_plus_token=ChRu3U8IxG5YVHGc_SKHM1OPp_bc2tep38753___; kr_plus_utype=0; _kr_p_se=d125571e-4cef-4d0b-a769-19a20c528edc; krid_user_id=1805651323; krid_user_version=2; download_animation=1; Hm_lpvt_e8ec47088ed7458ec32cde3617b23ee3=1534497047; Hm_lvt_e8ec47088ed7458ec32cde3617b23ee3=1534497047; kr_stat_uuid=CSZsM25574950; acw_tc=AQAAANe1JXyzQgIA3lXWZ6sfU7z3ymmA'
 }
 
 
@@ -221,7 +221,7 @@ def saveCompanyToMongo(com_data):
         print res
 
 
-jingzhun_search_url = 'https://rong.36kr.com/n/api/search/company?kw='
+jingzhun_search_url = 'https://rong.36kr.com/n/api/search/company??asEncryptedTs=-0.9521875261991889&asTs=1534497074078&p=2&kw='
 proxy = {'http':'http://118.212.137.135:31288'}
 
 event_id_none_count = 18    #系数 -  none_count = none_id

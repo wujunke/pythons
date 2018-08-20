@@ -18,9 +18,9 @@ base_url = 'https://api.investarget.com/'
 
 token = '0011b9120f76196890f1bb33326128ef125a95d359dc2ecf'
 
-proxy_ip = '101.37.79.125:3128'
+proxy_ip = '101.132.122.230:3128'
 
-start_id = 6944
+start_id = 6887
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--proxy-server=http://%s' % proxy_ip)
@@ -59,7 +59,7 @@ def getAllEventWith_ItjuziOrgId(itjuziOrgId, page=None, events=None):
         if pages:
             if pages['totalPages'] > pages['currentPage']:
                 page += 1
-                if page < 2:
+                if page < 10:
                     events = getAllEventWith_ItjuziOrgId(itjuziOrgId, page, events)
     return events
 

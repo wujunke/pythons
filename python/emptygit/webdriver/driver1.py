@@ -161,7 +161,7 @@ def parseHtml(html):
                                     try:
                                         infodic[theadlist[i]] = tdlist[i].text.replace('\n','').replace('\t','') if tdlist[i].text else None
                                     except IndexError:
-                                        print '数组越界',len(theadlist),len(tdlist)
+                                        print('数组越界',len(theadlist),len(tdlist))
                                         pass
                                 if infodic != {}:
                                     infolist.append(infodic)
@@ -176,11 +176,11 @@ def saveCompanyIndustyInfoToMongo(info):
         res = session.post(base_url + 'mongolog/projinfo', data=json.dumps(info),
                         headers={'Content-Type': 'application/json', 'token': token}).content
     except requests.exceptions.ProxyError:
-        print '保存工商信息，链接失败，重试'
+        print('保存工商信息，链接失败，重试')
         time.sleep(5)
         saveCompanyIndustyInfoToMongo(info)
     except Exception:
-        print '保存工商信息，链接失败，失败'
+        print('保存工商信息，链接失败，失败')
         pass
     else:
         res = json.loads(res)
@@ -189,8 +189,8 @@ def saveCompanyIndustyInfoToMongo(info):
         elif res['code'] == 8001:
             pass
         else:
-            print '错误数据indus_info----' + 'com_id=%s' % info['com_id']
-            print res
+            print('错误数据indus_info----' + 'com_id=%s' % info['com_id'])
+            print(res)
 
 #保存项目新闻信息列表
 def saveCompanyNewsToMongo(newslist,com_id=None,com_name=None):
@@ -205,12 +205,11 @@ def saverequest(url, data , headers):
     try:
         res = session.post(url, data=json.dumps(data),headers=headers).content
     except requests.exceptions.ProxyError:
-        print '保存新闻信息，链接失败，重试'
+        print('保存新闻信息，链接失败，重试')
         time.sleep(5)
         saverequest(url, data, headers)
     except Exception:
-        print '保存新闻信息，链接失败，失败'
-        pass
+        print('保存新闻信息，链接失败，失败')
     else:
         res = json.loads(res)
         if res['code'] == 1000:
@@ -218,8 +217,8 @@ def saverequest(url, data , headers):
         elif res['code'] == 8001:
             pass
         else:
-            print '错误数据news----' + 'com_id=%s' % data['com_id']
-            print res
+            print('错误数据news----' + 'com_id=%s' % data['com_id'])
+            print(res)
 
 
 #更新项目信息
@@ -227,11 +226,11 @@ def updateCompanyToMongo(info):
     try:
         res = session.post(base_url + 'mongolog/proj', data=json.dumps(info), headers={'Content-Type': 'application/json', 'token': token}).content
     except requests.exceptions.ProxyError:
-        print '更新公司名称，链接失败，重试'
+        print('更新公司名称，链接失败，重试')
         time.sleep(5)
         updateCompanyToMongo(info)
     except Exception:
-        print '更新公司名称，链接失败，跳过'
+        print('更新公司名称，链接失败，跳过')
         pass
     else:
         res = json.loads(res)
@@ -240,8 +239,8 @@ def updateCompanyToMongo(info):
         elif res['code'] == 8001:
             pass
         else:
-            print '错误数据' + 'com_id：%s' % str(info['com_id'])
-            print res
+            print('错误数据' + 'com_id：%s' % str(info['com_id']))
+            print(res)
 
 
 #获取项目列表（从服务器mongo数据库获取）
@@ -253,8 +252,8 @@ def get_companglist(page_index):
         if res['code'] == 1000:
             projlist = res['result']['data']
         else:
-            print '获取全库项目列表有误----' + 'page_index=%s' % page_index
-            print res
+            print('获取全库项目列表有误----' + 'page_index=%s' % page_index)
+            print(res)
     return projlist
 
 
@@ -266,12 +265,12 @@ def saveEventToMongo(events, com_id):
                             headers={'Content-Type': 'application/json', 'token': token}).content
         res = json.loads(res)
         if res['code'] == 1000:
-            print '新增invse--' + str(res['result'].get('invse_id', None))
+            print('新增invse--' + str(res['result'].get('invse_id', res['result'].get('merger_id', None))))
         elif res['code'] == 8001:
-            print '重复invest'
+            print('重复invest')
         else:
-            print '错误event数据--%s'%repr(event)
-            print res
+            print('错误event数据--%s'%repr(event))
+            print(res)
 
 #打开页面，获取html，解析，保存
 def getpage(driver,com_id,wait):
@@ -282,7 +281,7 @@ def getpage(driver,com_id,wait):
         resdic, com_name = parseHtml(page)
         if resdic:
             resdic['com_id'] = int(com_id)
-            print com_name
+            print(com_name)
             news = resdic['news']
             saveCompanyNewsToMongo(news, resdic['com_id'], com_name)
             saveCompanyIndustyInfoToMongo(resdic)
@@ -299,26 +298,26 @@ def getpage(driver,com_id,wait):
         else:
             if com_name:
                 if com_name in (u'找不到您访问的页面',):
-                    print 'com_id:%s 未找到'%str(com_id)
-                    print com_name
+                    print('com_id:%s 未找到'%str(com_id))
+                    print(com_name)
                 elif com_name in (u'www.itjuzi.com', u'502 Bad Gateway',u'403'):
-                    print '空页面--%s' % com_id
-                    print '现在的时间是：%s' % datetime.datetime.now()
-                    print '等待%s秒后重试' % wait
+                    print('空页面--%s' % com_id)
+                    print('现在时间：%s' % datetime.datetime.now())
+                    print('等待%s秒后重试' % wait)
                     time.sleep(wait)
                     getpage(driver, com_id, wait)
                 else:
-                    print 'com_id:%s' % str(com_id)
-                    print com_name
+                    print('com_id:%s' % str(com_id))
+                    print(com_name)
             else:
-                print '空页面--%s' % com_id
+                print('空页面--%s' % com_id)
     except TimeoutException:
-        print '打开页面超时，公司：id--%s'%com_id
+        print('打开页面超时，公司：id--%s'%com_id)
         getpage(driver, com_id, wait)
 
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://180.101.205.253:8888')
+chrome_options.add_argument('--proxy-server=http://223.93.172.248:3128')
 prefs={'profile.default_content_setting_values': {
         'images': 2,   #禁用图片
     }}
@@ -327,18 +326,18 @@ driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_o
 driver.set_window_size('1280','800')
 driver.get("https://www.itjuzi.com/user/login")
 time.sleep(5)
-print '正在输入账号...'
+print('正在输入账号...')
 driver.find_element_by_xpath('//*[@id="create_account_email"]').send_keys("18616837957",)
-print '正在输入密码...'
+print('正在输入密码...')
 driver.find_element_by_xpath('//*[@id="create_account_password"]').send_keys("x81y0122",)
-print '正在登录...'
+print('正在登录...')
 driver.find_element_by_id('login_btn').click()
 
-page_index = 7487
+page_index = 4817
 while page_index <= 12000:
     projlist = get_companglist(page_index)
-    print '当前页码：page_index = %s' % str(page_index)
-    print datetime.datetime.now()
+    print('当前页码：page_index = %s' % str(page_index))
+    print(datetime.datetime.now())
     page_index += 1
     if projlist:
         for proj in projlist:
