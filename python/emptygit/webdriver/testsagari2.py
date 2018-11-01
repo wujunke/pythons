@@ -7,6 +7,16 @@ import pyautogui as pg
 # pip install baidu-aip
 from aip import AipOcr
 import datetime
+from selenium import webdriver
+
+
+
+driver = webdriver.Ie(executable_path='F://Lib/IEDriverServer.exe')
+driver.set_window_position(0, 0)
+driver.set_window_size(950, 950)
+driver.get('http://moni.51hupai.org/')
+
+
 
 # policy = 'a'
 # policy = 'b'
@@ -14,15 +24,9 @@ policy = 'c'
 
 basetimestr = '10:33:'
 
-isRetina = False
 
 sleeptime = 0.02  #鼠标反应时间
 
-#rect : (x1, y1, x2, y2)  retina显示屏截图坐标转换
-def transRect(rect):
-    if isRetina:
-        return (x * 2 for x in rect)
-    return rect
 
 # 浏览器多页面时出现的头部高度   safari为22
 browser_header = 0
@@ -31,9 +35,9 @@ points = {
     'customUpPriceIuput': (645, 340 - browser_header),            # 自定义加价输入框
     'customUpPriceButton': (800, 340 - browser_header),           # 自定义加价按钮
     'offerButton': (800, 505 - browser_header),                   # 出价按钮
-    'currentPriceImage': transRect((640, 490 - browser_header, 710, 511 - browser_header)),   # 当前出价图片      moneyshot1.png
-    'lowestPriceImage': transRect((150, 495 - browser_header, 195, 511 - browser_header)),    # 最低可成交价图片   moneyshot2.png
-    'biggestPriceImage': transRect((275, 526 - browser_header, 318, 542 - browser_header)),   # 最高可接受价图片   moneyshot3.png
+    'currentPriceImage': (640, 490 - browser_header, 710, 511 - browser_header),   # 当前出价图片      moneyshot1.png
+    'lowestPriceImage': (150, 495 - browser_header, 195, 511 - browser_header),    # 最低可成交价图片   moneyshot2.png
+    'biggestPriceImage': (275, 526 - browser_header, 318, 542 - browser_header),   # 最高可接受价图片   moneyshot3.png
     'YZMquestion': (),                                # 验证码问题
     'YZMImage': (),                                   # 验证码图片
     'YZMCancelButton': (750, 590 - browser_header),               # 验证码取消按钮

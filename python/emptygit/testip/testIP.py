@@ -58,10 +58,10 @@ def getIPs():
     ips = []
     currentTime = datetime.datetime.now().strftime("%Y-%m-%d")[2:]
     filename = currentTime + '.xls'
-    # filename = '18-07-05.xls'
+    # filename = '18-10-25.xls'
     tables = excel_table_byindex(filename)
     for row in tables:
-        ip = row[u'IP地址']+ u':' + row[u'端口']
+        ip = row[u'IP地址'] + u':' + row[u'端口']
         ips.append(ip)
     return ips
 

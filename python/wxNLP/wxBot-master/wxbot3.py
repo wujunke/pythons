@@ -433,6 +433,7 @@ class MyWXBot(WXBot):
         return None
     
     def schedule(self):
+
         pass
         # expiredate = int(time.time()) - 300
         # for dic in self.link_list:

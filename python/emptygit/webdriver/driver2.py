@@ -17,166 +17,18 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
 from data2.itjuzi_config import base_url, token,  iplist
+import sys
 
+from webdriver.parseItjuziHtml import parseComDetailHtml, parseComMemberByDriver, parseComFinanceByDriver
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 session = requests.Session()
 session.trust_env = False
 
 def rand_proxie():
     return {'http':'http://%s' % iplist[random.randint(0, len(iplist)) - 1],}
-
-
-
-def parseHtml(html):
-    soup = BeautifulSoup(html, 'html.parser')
-    if soup.title:
-        com_name = soup.title.text
-        if com_name in (u'www.itjuzi.com', u'找不到您访问的页面', u'502 Bad Gateway', u'403'):
-            return None, com_name
-        com_web = None
-        a_s = soup.find('i', class_='fa fa-link t-small', )
-        if a_s:
-            com_web = a_s.parent['href']
-        name = soup.find('h1', class_='seo-important-title', )
-        full_name = None
-        if name:
-            com_name = name.text.replace(u'\t', u'')
-            com_name = com_name.split('\n')[1]
-            full_name = name['data-fullname']
-        # 联系方式
-        ll = ['mobile', 'email', 'detailaddress']
-        response = {}
-        contact_ul = soup.find('ul',class_='list-block aboutus')
-        if contact_ul:
-            for info in contact_ul.find_all('li'):
-                if info.find('i',class_='fa icon icon-phone-o'):
-                    response['mobile'] = info.text.replace('\n','').replace('\t','')
-                if info.find('i',class_='fa icon icon-email-o'):
-                    response['email'] = info.text.replace('\n','').replace('\t','')
-                if info.find('i',class_='fa icon icon-address-o'):
-                    response['detailaddress'] = info.text.replace('\n','').replace('\t','')
-
-        #投资信息
-
-
-        #融资信息
-        investents = soup.find(id='invest-portfolio')
-        eventtable = investents.find('table')
-        eventtrlist = eventtable.find_all('tr')
-        eventlist = []
-        for eventtr in eventtrlist:
-            if eventtr.find(class_='date'):
-                date = eventtr.find(class_='date').text
-                round = eventtr.find(class_='round').text
-                money = eventtr.find(class_='finades').text
-
-                link = eventtr.find(class_='finades').a['href']
-                type = link.split('/')[-2]
-                event_id = link.split('/')[-1]
-                data = {
-                    'date': date,
-                    'round': round,
-                    'money': money,
-                }
-                if type == 'merger':
-                    data['investormerge'] = 2
-                    data['merger_id'] = event_id
-                    data['merger_with'] = eventtr.find('a', class_='line1 c-gray').text if eventtr.find('a',
-                                                                                                        class_='line1 c-gray') else ''
-                else:
-                    data['investormerge'] = 1
-                    data['invse_id'] = event_id
-                    line1s = eventtr.find_all('a', class_='line1')
-                    invsest_with = []
-                    for line1 in line1s:
-                        url = line1.get('href', None)
-                        invst_name = line1.text
-                        invsest_with.append({'url': url, 'invst_name': invst_name})
-                    data['invsest_with'] = invsest_with
-                eventlist.append(data)
-        response['events'] = eventlist
-
-        industryType = soup.find('a', class_='one-level-tag').text if soup.find('a', class_='one-level-tag') else ''
-        response['industryType'] = industryType
-
-
-        # 团队信息
-        members = []
-        membersul = soup.find('ul', class_='list-unstyled team-list limited-itemnum')
-        if membersul:
-            lilist = membersul.find_all('li')
-            for li in lilist:
-                dic = {}
-                dic['姓名'] = li.find('a', class_='person-name').text.replace('\n','').replace('\t','') if li.find('a', class_='person-name') else None
-                dic['职位'] = li.find('div', class_='per-position').text.replace('\n','').replace('\t','') if li.find('div', class_='per-position') else None
-                dic['简介'] = li.find('div', class_='per-des').text.replace('\n','').replace('\t','') if li.find('div', class_='per-des') else None
-                members.append(dic)
-        response['indus_member'] = members
-
-        # 新闻
-        res = soup.find_all('ul', class_='list-unstyled news-list')
-        news = []
-        for ss in res:
-                # print ss.name
-                lilist = ss.find_all('li')
-                for li in lilist:
-                    dic = {}
-                    dic['newsdate'] = li.find('span', class_='news-date').text.replace('\n','').replace('\t','') if li.find('span', class_='news-date') else None
-                    a = li.find('a', class_='line1')
-                    dic['title'] = a.text.replace('\n','').replace('\t','')
-                    dic['linkurl'] = a['href']
-                    dic['newstag'] = li.find('span', class_='news-tag').text.replace('\n','').replace('\t','') if li.find('span', class_='news-tag') else None
-                    news.append(dic)
-        response['news'] = news
-        response['com_web'] = com_web
-
-        # 工商信息
-        # recruit-info
-        recruit_info = soup.find('div',id='recruit-info')
-        if recruit_info:
-            tablistul = recruit_info.find('ul',class_='nav-tabs list-inline stock_titlebar')
-            tablistli = tablistul.find_all('li')
-            for tabli in tablistli:
-                tabhref = tabli.a['href'].replace('#','')
-                if tabhref in ['indus_base',u'indus_base']:   # 基本信息
-                    indus_base = recruit_info.find('div', id=tabhref)
-                    com_full_name = indus_base.find('th').text
-                    infolisttd = indus_base.find_all('td')
-                    infodic = {}
-                    for info in infolisttd:
-                        if info:
-                            if info.find('span', class_='tab_title') and info.find('span', class_='tab_main'):
-                                if info.find('span', class_='tab_title').text:
-                                    infodic[info.find('span', class_='tab_title').text] = info.find('span', class_='tab_main').text.replace('\n','').replace('\t','')
-                    infodic[u'公司名称:'] = com_full_name.replace('\n','').replace('\t','')
-                    response[tabhref] = infodic
-
-                if tabhref in ['indus_shareholder', u'indus_shareholder','indus_foreign_invest', u'indus_foreign_invest', 'indus_busi_info', u'indus_busi_info']:   #  股东信息、企业对外投资信息、工商变更信息
-                    indus_shareholder = recruit_info.find('div', id=tabhref)
-                    thead = indus_shareholder.find('thead')
-                    if thead:
-                        theadthlist = thead.find_all('th')
-                        theadlist = []
-                        for theaditem in theadthlist:
-                            theadlist.append(theaditem.text)
-                        tbody = indus_shareholder.find('tbody')
-                        infolist = []
-                        if tbody:
-                            trlist = tbody.find_all('tr')
-                            for tr in trlist:
-                                infodic = {}
-                                tdlist = tr.find_all('td')
-                                for i in range(0, len(theadlist)):
-                                    try:
-                                        infodic[theadlist[i]] = tdlist[i].text.replace('\n','').replace('\t','') if tdlist[i].text else None
-                                    except IndexError:
-                                        print('数组越界',len(theadlist),len(tdlist))
-                                if infodic != {}:
-                                    infolist.append(infodic)
-                        response[tabhref] = infolist
-        return response, com_name, full_name
-    else:
-        return None, None, None
 
 
 def saveCompanyIndustyInfoToMongo(info):
@@ -267,6 +119,23 @@ def get_companglist(page_index):
 
 def saveEventToMongo(events, com_id):
     for event in events:
+        moneystr = str(event.get('money',''))
+        if '$' in moneystr or '美元' in moneystr:
+            event['currency'] = '美元'
+        elif '￥' in moneystr or '人民币' in moneystr:
+            event['currency'] = '人民币'
+        elif '€' in moneystr or '欧元' in moneystr:
+            event['currency'] = '欧元'
+        elif '£' in moneystr or '英镑' in moneystr:
+            event['currency'] = '英镑'
+        elif '￥' in moneystr or '日元' in moneystr:
+            event['currency'] = '日元'
+        elif '₩' in moneystr or '韩元' in moneystr:
+            event['currency'] = '韩元'
+        elif '₹' in moneystr or '卢比' in moneystr:
+            event['currency'] = '卢比'
+        elif '￥' in moneystr or '港元' in moneystr:
+            event['currency'] = '港元'
         event['com_id'] = com_id
         res = session.post(base_url + 'mongolog/event', data=json.dumps(event),
                             headers={'Content-Type': 'application/json', 'token': token}).content
@@ -331,17 +200,16 @@ def saveEventToMySqlOrg(events, com_id, com_name, industryType):
 def getpage(driver,com_id,wait):
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
-        time.sleep(1)
+        time.sleep(2)
         page = driver.page_source
-        resdic, com_name, full_name = parseHtml(page)
+        resdic, com_name, full_name = parseComDetailHtml(page)
         if resdic:
             resdic['com_id'] = int(com_id)
             print(com_name)
             news = resdic['news']
             saveCompanyNewsToMongo(news, resdic['com_id'], com_name)
-            saveCompanyIndustyInfoToMongo(resdic)
-            saveEventToMongo(resdic['events'], resdic['com_id'])
-            # saveEventToMySqlOrg(resdic['events'], resdic['com_id'], com_name, resdic['industryType'])
+            # saveCompanyIndustyInfoToMongo(resdic)
+            # # saveEventToMySqlOrg(resdic['events'], resdic['com_id'], com_name, resdic['industryType'])
             dic = {}
             dic['com_id'] = int(resdic.get('com_id'))
             dic['tags'] = resdic.get('tags', [])
@@ -352,6 +220,8 @@ def getpage(driver,com_id,wait):
             dic['com_name'] = com_name
             dic['com_full_name'] = full_name
             updateCompanyToMongo(dic)
+            eventlist = parseComFinanceByDriver(driver)
+            saveEventToMongo(eventlist, resdic['com_id'])
             # time.sleep(random.randint(3, 5))
         else:
             if com_name:
@@ -390,24 +260,27 @@ prefs={
     }
 }
 chrome_options.add_experimental_option('prefs',prefs)
-chrome_options.add_argument('--proxy-server=http://101.37.79.125:3128')
+# chrome_options.add_argument('--proxy-server=http://118.31.223.194:3128')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 driver.set_window_size('1280','800')
 print('正在打开网站...')
-driver.get("https://www.itjuzi.com/user/login")
+driver.get("https://www.itjuzi.com/login?url=%2F")
 time.sleep(5)
 print('正在输入账号...')
-account = driver.find_element_by_xpath('//*[@id="create_account_email"]')
+account = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[1]/input')
 account.click()
-account.send_keys("18616837957",)
+# account.send_keys("18616837957",)
+account.send_keys("18964687678",)
 print('正在输入密码...')
-paswd = driver.find_element_by_xpath('//*[@id="create_account_password"]')
-paswd.send_keys("x81y0122",)
+paswd = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[2]/input')
+# paswd.send_keys("x81y0122",)
+paswd.send_keys("123456789")
 print('正在登录...')
-driver.find_element_by_id('login_btn').click()
+driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
+
 
 page_index = 1
-while page_index <= 200:
+while page_index <= 10:
     projlist = get_companglist(1)
 
     print('当前页码：page_index = %s' % str(page_index))
@@ -416,8 +289,9 @@ while page_index <= 200:
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
-            # com_id = 32123470
+            # com_id = 33547046
             getpage(driver, com_id, 10)
+
 
 
 driver.quit()

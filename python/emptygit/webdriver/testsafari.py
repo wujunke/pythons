@@ -14,16 +14,15 @@ policy = 'c'
 
 basetimestr = '11:29:'
 
-
 sleeptime = 0.02  #鼠标反应时间
 
 points = {
     'customUpPriceIuput': (650, 375),            # 自定义加价输入框
     'customUpPriceButton': (800, 375),           # 自定义加价按钮
     'offerButton': (800, 485),                   # 出价按钮
-    'currentPriceImage': (650, 469, 700, 486),   # 当前出价图片      moneyshot1.png
-    'lowestPriceImage': (151, 474, 193, 489),    # 最低可成交价图片   moneyshot2.png
-    'biggestPriceImage': (273, 506, 316, 522),   # 最高可接受价图片   moneyshot3.png
+    'currentPriceImage': (650, 469, 700, 486),   # 当前出价图片      moneyshot1.png  #retina屏分辨率高 截图需要 x2
+    'lowestPriceImage': (151, 474, 193, 489),    # 最低可成交价图片   moneyshot2.png  #retina屏分辨率高 截图需要 x2
+    'biggestPriceImage': (273, 506, 316, 522),   # 最高可接受价图片   moneyshot3.png  #retina屏分辨率高 截图需要 x2
     'YZMquestion': (),                           # 验证码问题
     'YZMImage': (),                              # 验证码图片
     'YZMCancelButton': (750, 564),               # 验证码取消按钮
@@ -147,8 +146,8 @@ def policyB():
 
 def policyC():
     policys = {
-            'startTime': '49.0',            # 第一次出价时间
-            'upPrice': '900',               # 第一次出价加价
+            'startTime': '48.0',            # 第一次出价时间
+            'upPrice': '1000',               # 第一次出价加价
             'checkPrice': '100',            # 验证差价
             'sureOfferTime': '53.0',        # 验证码确定按钮点击最早时间
             'latestSureOfferTime': '55.0',  # 验证码确定按钮点击最晚时间
@@ -191,6 +190,7 @@ def policyC():
             print('出价到达检查点:  %s' % policys['checkPrice'])
             break
     print('提交出价时间：%s' % str(datetime.datetime.now())[17:21])
+
     pg.moveTo(points['YZMSureButton'])  # 验证码确定按钮
     time.sleep(sleeptime)
     pg.click()

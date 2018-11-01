@@ -20,7 +20,7 @@
 {"itjuzi_id": 20, "itjuzi_name": "GGV纪源资本", "haituo_id": 390}
 {"itjuzi_id": 21, "itjuzi_name": "清科创投", "haituo_id": 264}
 {"itjuzi_id": 22, "itjuzi_name": "险峰长青", "haituo_id": 528}
-{"itjuzi_id": 23, "itjuzi_name": "光速中国", "haituo_id": 3492}
+{"itjuzi_id": 23, "itjuzi_name": "光速中国", "haituo_id": 70}
 {"itjuzi_id": 24, "itjuzi_name": "K2基金", "haituo_id": 528}
 {"itjuzi_id": 25, "itjuzi_name": "阿米巴资本", "haituo_id": 645}
 {"itjuzi_id": 26, "itjuzi_name": "挚信资本", "haituo_id": 4340}
@@ -43,7 +43,7 @@
 {"itjuzi_id": 42, "itjuzi_name": "盘古创富VANGOO", "haituo_id": 435}
 {"itjuzi_id": 43, "itjuzi_name": "长友基金", "haituo_id": 29906}
 {"itjuzi_id": 44, "itjuzi_name": "新电投资SingTel Innov8", "haituo_id": 547}
-{"itjuzi_id": 45, "itjuzi_name": "腾讯", "haituo_id": 24417}
+{"itjuzi_id": 45, "itjuzi_name": "腾讯", "haituo_id": 24418}
 {"itjuzi_id": 46, "itjuzi_name": "北京泽一投资", "haituo_id": 3820}
 {"itjuzi_id": 47, "itjuzi_name": "德同资本", "haituo_id": 30}
 {"itjuzi_id": 48, "itjuzi_name": "阿里巴巴", "haituo_id": 644}
@@ -172,7 +172,7 @@
 {"itjuzi_id": 166, "itjuzi_name": "创东方投资", "haituo_id": 23818}
 {"itjuzi_id": 167, "itjuzi_name": "招商局资本", "haituo_id": 6712}
 {"itjuzi_id": 168, "itjuzi_name": "LB投资(LB Investment)", "haituo_id": 3319}
-{"itjuzi_id": 169, "itjuzi_name": "TCL资本", "haituo_id": 3927}
+{"itjuzi_id": 169, "itjuzi_name": "TCL资本", "haituo_id": 33818}
 {"itjuzi_id": 170, "itjuzi_name": "凯雷亚洲基金", "haituo_id": 4865}
 {"itjuzi_id": 171, "itjuzi_name": "搜狐", "haituo_id": 29926}
 {"itjuzi_id": 172, "itjuzi_name": "Temasek淡马锡", "haituo_id": 5060}
@@ -211,7 +211,7 @@
 {"itjuzi_id": 204, "itjuzi_name": "云天使基金", "haituo_id": 4569}
 {"itjuzi_id": 205, "itjuzi_name": "丰厚资本", "haituo_id": 940}
 {"itjuzi_id": 206, "itjuzi_name": "Mr.I互联网创新基地", "haituo_id": 29930}
-{"itjuzi_id": 207, "itjuzi_name": "雷军-顺为创业", "haituo_id": 13839}
+{"itjuzi_id": 207, "itjuzi_name": "雷军-顺为创业", "haituo_id": 414}
 {"itjuzi_id": 208, "itjuzi_name": "贝恩资本BainCapital", "haituo_id": 681}
 {"itjuzi_id": 209, "itjuzi_name": "抱团创投", "haituo_id": 675}
 {"itjuzi_id": 210, "itjuzi_name": "JAIC日本亚洲投资", "haituo_id": 24157}
@@ -236,7 +236,7 @@
 {"itjuzi_id": 228, "itjuzi_name": "雄牛资本", "haituo_id": 578}
 {"itjuzi_id": 229, "itjuzi_name": "中泽嘉盟", "haituo_id": 4475}
 {"itjuzi_id": 230, "itjuzi_name": "海通创意资本", "haituo_id": 86}
-{"itjuzi_id": 231, "itjuzi_name": "华软投资", "haituo_id": 5031}
+{"itjuzi_id": 231, "itjuzi_name": "华软投资", "haituo_id": 4821}
 {"itjuzi_id": 232, "itjuzi_name": "中国文化产业投资基金", "haituo_id": 4440}
 {"itjuzi_id": 233, "itjuzi_name": "高榕资本", "haituo_id": 970}
 {"itjuzi_id": 234, "itjuzi_name": "热酷游戏", "haituo_id": 29931}
@@ -541,7 +541,7 @@
 {"itjuzi_id": 538, "itjuzi_name": "Phenomen Ventures", "haituo_id": 30092}
 {"itjuzi_id": 539, "itjuzi_name": "WestTech Ventures", "haituo_id": 30093}
 {"itjuzi_id": 540, "itjuzi_name": "Spark Nigeria", "haituo_id": 30094}
-{"itjuzi_id": 541, "itjuzi_name": "Tiger Global Management(老虎国外)", "haituo_id": 7961}
+{"itjuzi_id": 541, "itjuzi_name": "Tiger Global Management(老虎国外)", "haituo_id": 24410}
 {"itjuzi_id": 542, "itjuzi_name": "Etsy", "haituo_id": 30095}
 {"itjuzi_id": 543, "itjuzi_name": "Glynn Capital Management", "haituo_id": 30096}
 {"itjuzi_id": 544, "itjuzi_name": "Acton Capital Partners", "haituo_id": 30097}
@@ -703,7 +703,7 @@
 {"itjuzi_id": 705, "itjuzi_name": "Triangle Peak Partners", "haituo_id": 30210}
 {"itjuzi_id": 706, "itjuzi_name": "天使投资人吴泳铭", "haituo_id": 30211}
 {"itjuzi_id": 707, "itjuzi_name": "华录百纳", "haituo_id": 9597}
-{"itjuzi_id": 708, "itjuzi_name": "Coatue Management", "haituo_id": 28616}
+{"itjuzi_id": 708, "itjuzi_name": "Coatue Management", "haituo_id": 965}
 {"itjuzi_id": 709, "itjuzi_name": "Ribbit Capital", "haituo_id": 30212}
 {"itjuzi_id": 710, "itjuzi_name": "Jafco Ventures", "haituo_id": 153}
 {"itjuzi_id": 711, "itjuzi_name": "Ronald Lauder Ventures", "haituo_id": 30213}
@@ -775,7 +775,7 @@
 {"itjuzi_id": 777, "itjuzi_name": "Odyssey Venture Partners", "haituo_id": 30264}
 {"itjuzi_id": 778, "itjuzi_name": "Openfund", "haituo_id": 30265}
 {"itjuzi_id": 779, "itjuzi_name": "天星资本", "haituo_id": 4223}
-{"itjuzi_id": 780, "itjuzi_name": "上海国际创投SIGVC", "haituo_id": 13837}
+{"itjuzi_id": 780, "itjuzi_name": "上海国际创投SIGVC", "haituo_id": 4919}
 {"itjuzi_id": 781, "itjuzi_name": "合鲸资本", "haituo_id": 4974}
 {"itjuzi_id": 782, "itjuzi_name": "中文传媒", "haituo_id": 30266}
 {"itjuzi_id": 783, "itjuzi_name": "Bain Capital Ventures", "haituo_id": 30267}
@@ -1158,7 +1158,7 @@
 {"itjuzi_id": 1162, "itjuzi_name": "RDSeed", "haituo_id": 30527}
 {"itjuzi_id": 1163, "itjuzi_name": "Access Industries", "haituo_id": 30528}
 {"itjuzi_id": 1164, "itjuzi_name": "Lion Wells Capital", "haituo_id": 30529}
-{"itjuzi_id": 1165, "itjuzi_name": "翰潭投资", "haituo_id": 30530}
+{"itjuzi_id": 1165, "itjuzi_name": "翰潭投资", "haituo_id": 7849}
 {"itjuzi_id": 1166, "itjuzi_name": "StarVest Partners", "haituo_id": 30531}
 {"itjuzi_id": 1167, "itjuzi_name": "Activant Capital", "haituo_id": 30532}
 {"itjuzi_id": 1168, "itjuzi_name": "Difference Capital", "haituo_id": 30533}
@@ -1612,8 +1612,8 @@
 {"itjuzi_id": 1622, "itjuzi_name": "合众思壮", "haituo_id": 6166}
 {"itjuzi_id": 1623, "itjuzi_name": "富贵鸟", "haituo_id": 11837}
 {"itjuzi_id": 1624, "itjuzi_name": "熊猫烟花", "haituo_id": 30777}
-{"itjuzi_id": 1625, "itjuzi_name": "微光创投(吴宵光)", "haituo_id": 30778}
-{"itjuzi_id": 1625, "itjuzi_name": "微光创投", "haituo_id": 30778}
+{"itjuzi_id": 1625, "itjuzi_name": "微光创投(吴宵光)", "haituo_id": 3013}
+{"itjuzi_id": 1625, "itjuzi_name": "微光创投", "haituo_id": 3013}
 {"itjuzi_id": 1626, "itjuzi_name": "赛马资本", "haituo_id": 288}
 {"itjuzi_id": 1627, "itjuzi_name": "朗姿股份", "haituo_id": 9542}
 {"itjuzi_id": 1628, "itjuzi_name": "崭越资本", "haituo_id": 4575}
@@ -1647,7 +1647,7 @@
 {"itjuzi_id": 1656, "itjuzi_name": "界石投资", "haituo_id": 171}
 {"itjuzi_id": 1657, "itjuzi_name": "中汇国投", "haituo_id": 30784}
 {"itjuzi_id": 1658, "itjuzi_name": "中兴国投", "haituo_id": 30785}
-{"itjuzi_id": 1659, "itjuzi_name": "麒麟资本Kylin Capital", "haituo_id": 13826}
+{"itjuzi_id": 1659, "itjuzi_name": "麒麟资本Kylin Capital", "haituo_id": 833}
 {"itjuzi_id": 1660, "itjuzi_name": "德美化工", "haituo_id": 8354}
 {"itjuzi_id": 1661, "itjuzi_name": "春华资本Primavera", "haituo_id": 24173}
 {"itjuzi_id": 1662, "itjuzi_name": "蓝山中国资本", "haituo_id": 4892}
@@ -1883,7 +1883,7 @@
 {"itjuzi_id": 1899, "itjuzi_name": "AA投资", "haituo_id": 4771}
 {"itjuzi_id": 1900, "itjuzi_name": "东湖天使基金", "haituo_id": 23690}
 {"itjuzi_id": 1901, "itjuzi_name": "连力创投", "haituo_id": 3738}
-{"itjuzi_id": 1902, "itjuzi_name": "万达院线(万达影视)", "haituo_id": 2842}
+{"itjuzi_id": 1902, "itjuzi_name": "万达院线(万达影视)", "haituo_id": 9560}
 {"itjuzi_id": 1903, "itjuzi_name": "七喜控股", "haituo_id": 2094}
 {"itjuzi_id": 1904, "itjuzi_name": "泰有投资", "haituo_id": 4703}
 {"itjuzi_id": 1905, "itjuzi_name": "浙富控股", "haituo_id": 1221}
@@ -2104,7 +2104,7 @@
 {"itjuzi_id": 2124, "itjuzi_name": "湖杉资本", "haituo_id": 3419}
 {"itjuzi_id": 2125, "itjuzi_name": "红马资本", "haituo_id": 5006}
 {"itjuzi_id": 2126, "itjuzi_name": "每日优鲜", "haituo_id": 30898}
-{"itjuzi_id": 2127, "itjuzi_name": "北汽产业投资基金", "haituo_id": 7960}
+{"itjuzi_id": 2127, "itjuzi_name": "北汽产业投资基金", "haituo_id": 2}
 {"itjuzi_id": 2128, "itjuzi_name": "天使投资人周哲", "haituo_id": 30899}
 {"itjuzi_id": 2129, "itjuzi_name": "亿联资本", "haituo_id": 4291}
 {"itjuzi_id": 2130, "itjuzi_name": "银翎资本Silverlink Capital", "haituo_id": 7299}
@@ -2224,7 +2224,7 @@
 {"itjuzi_id": 2246, "itjuzi_name": "康联药业", "haituo_id": 30936}
 {"itjuzi_id": 2247, "itjuzi_name": "Wellington Partners", "haituo_id": 28345}
 {"itjuzi_id": 2248, "itjuzi_name": "创湃资本", "haituo_id": 30937}
-{"itjuzi_id": 2249, "itjuzi_name": "建投华科", "haituo_id": 6672}
+{"itjuzi_id": 2249, "itjuzi_name": "建投华科", "haituo_id": 6820}
 {"itjuzi_id": 2250, "itjuzi_name": "Volition Capital", "haituo_id": 30938}
 {"itjuzi_id": 2251, "itjuzi_name": "中投中财基金", "haituo_id": 13777}
 {"itjuzi_id": 2252, "itjuzi_name": "Athyrium Capital Management", "haituo_id": 30939}
@@ -2477,7 +2477,7 @@
 {"itjuzi_id": 2503, "itjuzi_name": "九毛九餐饮", "haituo_id": 31024}
 {"itjuzi_id": 2504, "itjuzi_name": "诚承投资", "haituo_id": 31025}
 {"itjuzi_id": 2505, "itjuzi_name": "金复资本", "haituo_id": 31026}
-{"itjuzi_id": 2506, "itjuzi_name": "Integral雄厚资本", "haituo_id": 1161}
+{"itjuzi_id": 2506, "itjuzi_name": "Integral雄厚资本", "haituo_id": 608}
 {"itjuzi_id": 2507, "itjuzi_name": "小马创投", "haituo_id": 3932}
 {"itjuzi_id": 2508, "itjuzi_name": "阿基米互联网公社", "haituo_id": 31027}
 {"itjuzi_id": 2509, "itjuzi_name": "慧鑫泉投资", "haituo_id": 31028}
@@ -3684,7 +3684,7 @@
 {"itjuzi_id": 3729, "itjuzi_name": "潍坊创投", "haituo_id": 29139}
 {"itjuzi_id": 3730, "itjuzi_name": "百富川投资", "haituo_id": 31499}
 {"itjuzi_id": 3731, "itjuzi_name": "运时投资", "haituo_id": 31500}
-{"itjuzi_id": 3732, "itjuzi_name": "信达资本", "haituo_id": 563}
+{"itjuzi_id": 3732, "itjuzi_name": "信达资本", "haituo_id": 11449}
 {"itjuzi_id": 3733, "itjuzi_name": "宏源汇富", "haituo_id": 24016}
 {"itjuzi_id": 3734, "itjuzi_name": "金科君创", "haituo_id": 7665}
 {"itjuzi_id": 3735, "itjuzi_name": "世欣荣和", "haituo_id": 23677}
@@ -4859,7 +4859,7 @@
 {"itjuzi_id": 4917, "itjuzi_name": "凯德咨询", "haituo_id": 32333}
 {"itjuzi_id": 4918, "itjuzi_name": "前海长城基金", "haituo_id": 32334}
 {"itjuzi_id": 4919, "itjuzi_name": "瑞富时代", "haituo_id": 32335}
-{"itjuzi_id": 4920, "itjuzi_name": "越秀产投", "haituo_id": 24480}
+{"itjuzi_id": 4920, "itjuzi_name": "越秀产投", "haituo_id": 9407}
 {"itjuzi_id": 4921, "itjuzi_name": "唐融投资", "haituo_id": 28436}
 {"itjuzi_id": 4922, "itjuzi_name": "北京信托", "haituo_id": 32336}
 {"itjuzi_id": 4923, "itjuzi_name": "富智阳光", "haituo_id": 24025}
@@ -5954,7 +5954,7 @@
 {"itjuzi_id": 6039, "itjuzi_name": "大连创新投", "haituo_id": 33086}
 {"itjuzi_id": 6040, "itjuzi_name": "利天投资", "haituo_id": 33087}
 {"itjuzi_id": 6041, "itjuzi_name": "远卓投资", "haituo_id": 33088}
-{"itjuzi_id": 6042, "itjuzi_name": "中航信托", "haituo_id": 28494}
+{"itjuzi_id": 6042, "itjuzi_name": "中航信托", "haituo_id": 33835}
 {"itjuzi_id": 6043, "itjuzi_name": "逸海投资", "haituo_id": 33089}
 {"itjuzi_id": 6044, "itjuzi_name": "恒德盛投资", "haituo_id": 33090}
 {"itjuzi_id": 6045, "itjuzi_name": "重庆市青年创新创业天使基金", "haituo_id": 33091}
@@ -6058,7 +6058,7 @@
 {"itjuzi_id": 6143, "itjuzi_name": "凯德商用基金", "haituo_id": 33162}
 {"itjuzi_id": 6144, "itjuzi_name": "汉武投资", "haituo_id": 33163}
 {"itjuzi_id": 6145, "itjuzi_name": "长丰投资", "haituo_id": 33164}
-{"itjuzi_id": 6146, "itjuzi_name": "信达投资", "haituo_id": 3441}
+{"itjuzi_id": 6146, "itjuzi_name": "信达投资", "haituo_id": 11449}
 {"itjuzi_id": 6147, "itjuzi_name": "北斗资本", "haituo_id": 7989}
 {"itjuzi_id": 6148, "itjuzi_name": "和赛投资", "haituo_id": 28889}
 {"itjuzi_id": 6149, "itjuzi_name": "东吴投资集团", "haituo_id": 33165}
@@ -6845,7 +6845,7 @@
 {"itjuzi_id": 6941, "itjuzi_name": "东方翌睿", "haituo_id": 42148}
 {"itjuzi_id": 6942, "itjuzi_name": "龙磐投资", "haituo_id": 4177}
 {"itjuzi_id": 6943, "itjuzi_name": "鲁信创投", "haituo_id": 218}
-{"itjuzi_id": 6944, "itjuzi_name": "国投创业", "haituo_id": 42113}
+{"itjuzi_id": 6944, "itjuzi_name": "国投创业", "haituo_id": 3483}
 {"itjuzi_id": 6946, "itjuzi_name": "国投创合", "haituo_id": 2543}
 {"itjuzi_id": 6948, "itjuzi_name": "国信国投", "haituo_id": 42149}
 {"itjuzi_id": 6949, "itjuzi_name": "绿河投资", "haituo_id": 42153}

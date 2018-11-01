@@ -625,30 +625,39 @@ class WXBot:
                 print '    %s[Animation] %s' % (msg_prefix, msg_content['data'])
         elif mtype == 49:
             msg_content['type'] = 7
-            if msg['AppMsgType'] == 3:
-                app_msg_type = 'music'
-            elif msg['AppMsgType'] == 5:
-                app_msg_type = 'link'
-            elif msg['AppMsgType'] == 7:
-                app_msg_type = 'weibo'
+            if msg['AppMsgType'] == 6:
+                msg_content['data'] = self.get_file_url(msg_id)
+                msg_content['file'] = self.session.get(msg_content['data']).content.encode('hex')
+                if self.DEBUG:
+                    fileins = self.get_file(msg_id, msg['FileName'])
+                    print '    %s[File] %s' % (msg_prefix, fileins)
             else:
-                app_msg_type = 'unknown'
-            msg_content['data'] = {'type': app_msg_type,
-                                   'title': msg['FileName'],
-                                   'desc': self.search_content('des', content, 'xml'),
-                                   'url': msg['Url'],
-                                   'from': self.search_content('appname', content, 'xml'),
-                                   'content': msg.get('Content')  # 有的公众号会发一次性3 4条链接一个大图,如果只url那只能获取第一条,content里面有所有的链接
-                                   }
-            if self.DEBUG:
-                print '    %s[Share] %s' % (msg_prefix, app_msg_type)
-                print '    --------------------------'
-                print '    | title: %s' % msg['FileName']
-                print '    | desc: %s' % self.search_content('des', content, 'xml')
-                print '    | link: %s' % msg['Url']
-                print '    | from: %s' % self.search_content('appname', content, 'xml')
-                print '    | content: %s' % (msg.get('content')[:20] if msg.get('content') else "unknown")
-                print '    --------------------------'
+                if msg['AppMsgType'] == 3:
+                    app_msg_type = 'music'
+                elif msg['AppMsgType'] == 5:
+                    app_msg_type = 'link'
+                elif msg['AppMsgType'] == 7:
+                    app_msg_type = 'weibo'
+                elif msg['AppMsgType'] == 6:
+                    app_msg_type = 'file'
+                else:
+                    app_msg_type = 'unknown'
+                msg_content['data'] = {'type': app_msg_type,
+                                       'title': msg['FileName'],
+                                       'desc': self.search_content('des', content, 'xml'),
+                                       'url': msg['Url'],
+                                       'from': self.search_content('appname', content, 'xml'),
+                                       'content': msg.get('Content')  # 有的公众号会发一次性3 4条链接一个大图,如果只url那只能获取第一条,content里面有所有的链接
+                                       }
+                if self.DEBUG:
+                    print '    %s[Share] %s' % (msg_prefix, app_msg_type)
+                    print '    --------------------------'
+                    print '    | title: %s' % msg['FileName']
+                    print '    | desc: %s' % self.search_content('des', content, 'xml')
+                    print '    | link: %s' % msg['Url']
+                    print '    | from: %s' % self.search_content('appname', content, 'xml')
+                    print '    | content: %s' % (msg.get('content')[:20] if msg.get('content') else "unknown")
+                    print '    --------------------------'
 
         elif mtype == 62:
             msg_content['type'] = 8
@@ -1487,7 +1496,7 @@ class WXBot:
         :param msgid: 视频消息id
         :return: 保存的本地视频文件路径
         """
-        url = self.base_uri + '/webwxgetvideo?msgid=%s&skey=%s' % (msgid, self.skey)
+        url = self.base_uri + '/webwxgetmedia?msgid=%s&skey=%s' % (msgid, self.skey)
         headers = {'Range': 'bytes=0-'}
         r = self.session.get(url, headers=headers)
         data = r.content
@@ -1495,6 +1504,26 @@ class WXBot:
         with open(os.path.join(self.temp_pwd,fn), 'wb') as f:
             f.write(data)
         return fn
+
+    def get_file_url(self, msgid):
+        return self.base_uri + '/webwxgetvideo?msgid=%s&skey=%s' % (msgid, self.skey)
+
+    def get_file(self, msgid, filename):
+        """
+        获取文件消息，下载文件到本地
+        :param msgid: 文件消息id
+        :return: 保存的本地视频文件路径
+        """
+        url = self.base_uri + '/webwxgetmedia?msgid=%s&skey=%s' % (msgid, self.skey)
+        headers = {'Range': 'bytes=0-'}
+        r = self.session.get(url, headers=headers)
+        data = r.content
+        fn = 'file_' + msgid + os.path.splitext(filename)[1]
+        with open(os.path.join(self.temp_pwd,fn), 'wb') as f:
+            f.write(data)
+        return fn
+
+
 
     def set_remarkname(self,uid,remarkname):#设置联系人的备注名
         url = self.base_uri + '/webwxoplog?lang=zh_CN&pass_ticket=%s' \

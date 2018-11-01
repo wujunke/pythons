@@ -12,7 +12,9 @@ from selenium import webdriver
 # 引入配置对象DesiredCapabilities
 from selenium.common.exceptions import TimeoutException
 from data2.itjuzi_config import base_url, token,  iplist
-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 #会话不使用代理，用于更新/插入数据
 session = requests.Session()
 session.trust_env = False
@@ -276,7 +278,7 @@ def saveEventToMongo(events, com_id):
 def getpage(driver,com_id,wait):
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
-        time.sleep(1)
+        time.sleep(wait)
         page = driver.page_source
         resdic, com_name = parseHtml(page)
         if resdic:
@@ -313,28 +315,30 @@ def getpage(driver,com_id,wait):
                 print('空页面--%s' % com_id)
     except TimeoutException:
         print('打开页面超时，公司：id--%s'%com_id)
+        driver.refresh()
         getpage(driver, com_id, wait)
 
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--proxy-server=http://223.93.172.248:3128')
+chrome_options.add_argument('--proxy-server=http://101.37.79.125:3128')
 prefs={'profile.default_content_setting_values': {
         'images': 2,   #禁用图片
+        'javascript':2   #禁用JS
     }}
 chrome_options.add_experimental_option('prefs',prefs)
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 driver.set_window_size('1280','800')
 driver.get("https://www.itjuzi.com/user/login")
-time.sleep(5)
+time.sleep(3)
 print('正在输入账号...')
-driver.find_element_by_xpath('//*[@id="create_account_email"]').send_keys("18616837957",)
+driver.find_element_by_xpath('//*[@id="create_account_email"]').send_keys("18964687678",)
 print('正在输入密码...')
-driver.find_element_by_xpath('//*[@id="create_account_password"]').send_keys("x81y0122",)
+driver.find_element_by_xpath('//*[@id="create_account_password"]').send_keys("123456789",)
 print('正在登录...')
 driver.find_element_by_id('login_btn').click()
 
-page_index = 4817
-while page_index <= 12000:
+page_index = 4015
+while page_index <= 12300:
     projlist = get_companglist(page_index)
     print('当前页码：page_index = %s' % str(page_index))
     print(datetime.datetime.now())
@@ -343,7 +347,7 @@ while page_index <= 12000:
         for proj in projlist:
             com_id = proj['com_id']
             # com_id = 1556
-            getpage(driver, com_id, 10)
+            getpage(driver, com_id, 15)
 
 
 driver.quit()
