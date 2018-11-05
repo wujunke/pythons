@@ -73,6 +73,10 @@ def parseHtml(html):
 
 def saveComList(comDict):
     for com in comDict:
+        com['com_born_date'] = '-'
+        com['invse_date'] = '-'
+        com['invse_detail_money'] = '-'
+        com['com_addr'] = '-'
         res = requests.post(base_url + 'mongolog/proj', data=json.dumps(com),
                             headers={'Content-Type': 'application/json', 'token': token}).content
         res = json.loads(res)

@@ -19,7 +19,8 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from data2.itjuzi_config import base_url, token,  iplist
 import sys
 
-from webdriver.parseItjuziHtml import parseComDetailHtml, parseComMemberByDriver, parseComFinanceByDriver
+from webdriver.parseItjuziHtml import parseComDetailHtml, parseComMemberByDriver, parseComFinanceByDriver, \
+    getComIndustryInfo, getComBasic
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -208,21 +209,17 @@ def getpage(driver,com_id,wait):
             print(com_name)
             news = resdic['news']
             saveCompanyNewsToMongo(news, resdic['com_id'], com_name)
-            # saveCompanyIndustyInfoToMongo(resdic)
-            # # saveEventToMySqlOrg(resdic['events'], resdic['com_id'], com_name, resdic['industryType'])
-            dic = {}
-            dic['com_id'] = int(resdic.get('com_id'))
-            dic['tags'] = resdic.get('tags', [])
-            dic['com_web'] = resdic.get('com_web', None)
-            dic['mobile'] = resdic.get('mobile', None)
-            dic['email'] = resdic.get('email', None)
-            dic['detailaddress'] = resdic.get('detailaddress', None)
-            dic['com_name'] = com_name
-            dic['com_full_name'] = full_name
-            updateCompanyToMongo(dic)
+
             eventlist = parseComFinanceByDriver(driver)
+            indus_member = parseComMemberByDriver(driver)
             saveEventToMongo(eventlist, resdic['com_id'])
-            # time.sleep(random.randint(3, 5))
+
+            basicDic = getComBasic(driver, com_id)
+            updateCompanyToMongo(basicDic)
+
+            industryInfoDic = getComIndustryInfo(driver, com_id)
+            industryInfoDic['indus_member'] = indus_member
+            saveCompanyIndustyInfoToMongo(industryInfoDic)
         else:
             if com_name:
                 if com_name in (u'找不到您访问的页面',):
@@ -271,16 +268,18 @@ account = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/
 account.click()
 # account.send_keys("18616837957",)
 account.send_keys("18964687678",)
+time.sleep(1)
 print('正在输入密码...')
 paswd = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[2]/input')
 # paswd.send_keys("x81y0122",)
 paswd.send_keys("123456789")
+time.sleep(1)
 print('正在登录...')
 driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
-
+time.sleep(1)
 
 page_index = 1
-while page_index <= 10:
+while page_index <= 6:
     projlist = get_companglist(1)
 
     print('当前页码：page_index = %s' % str(page_index))
@@ -289,10 +288,8 @@ while page_index <= 10:
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
-            # com_id = 33547046
+            # com_id = 2
             getpage(driver, com_id, 10)
-
-
 
 driver.quit()
 

@@ -337,4 +337,68 @@ def parseComMemberByDriver(driver):
             break
     return memberlist
 
+def getComBasic(driver, com_id):
+    driver.get('https://www.itjuzi.com/api/companies/%s?type=basic' % com_id)
+    basicpage = driver.page_source.replace(
+        '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">',
+        '').replace('</pre></body></html>', '')
+    basic = json.loads(basicpage)
+    basicDic = {}
+    basicDic.update(basic['data']['basic'])
+    basicDic['com_addr'] = basic['data']['basic']['com_prov']
+    basicDic['com_sub_cat_name'] = basic['data']['basic']['com_sub_scope'][0]['name']
+    basicDic['com_full_name'] = basic['data']['basic']['com_registered_name']
+    basicDic['com_web'] = basic['data']['basic']['com_url']
+    basicDic['invse_total_money'] = str(basic['data']['basic']['total_money']) + '万'
+    return basicDic
+
+def getComIndustryInfo(driver, com_id):
+    driver.get('https://www.itjuzi.com/api/companies/%s?type=icp' % com_id)
+    industryinfo = driver.page_source.replace(
+        '<html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">',
+        '').replace('</pre></body></html>', '')
+    info = json.loads(industryinfo)
+
+    indus_base = {}
+    indus_baseData = info['data']['elecredit'].get('elecredit_basic')
+    if indus_baseData:
+        indus_base.update({ u'地址:': indus_baseData['dom'],
+                            u'公司类型:': indus_baseData['enttype'],
+                            u'公司名称:': indus_baseData['entname'],
+                            u'注册资本:': indus_baseData['regcap'] + '万人民币',
+                            u'法人代表:': indus_baseData['frname'],
+                            u'成立时间:': indus_baseData['esdate'], })
+    indus_shareholderDara = info['data']['elecredit'].get('elecredit_shareholder')
+    indus_shareholder = []
+    if indus_shareholderDara:
+        for userdata in indus_shareholderDara:
+            indus_shareholder.append({u'出资比例': userdata['fundedratio'],
+                                      u'出资日期': userdata['condate'],
+                                      u'股东': userdata['shaname'],
+                                      u'出资方式': userdata['conform'],
+                                      u'认缴出资额': userdata['subconam'] + '万' + userdata['regcapcur'],})
+    indus_busi_info = []
+    indus_busi_infoData = info['data']['elecredit'].get('elecredit_alter')
+    if indus_busi_infoData:
+        for busiData in indus_busi_infoData:
+            indus_busi_info.append({
+                u'变更日期': busiData['altdate'] + busiData['altitem'],
+                u'变更前': busiData['altbe'],
+                u'变更后': busiData['altaf'],
+            })
+    indus_foreign_invest = []
+    indus_foreign_investData = info['data']['elecredit'].get('elecredit_entinv')
+    if indus_foreign_investData:
+        for foreignData in indus_foreign_investData:
+            indus_foreign_invest.append({
+                u'出资比例': foreignData['fundedratio'],
+                u'出资日期': foreignData['esdate'],
+                u'出资方式': foreignData['conform'],
+                u'认缴出资额': foreignData['subconam'] + '万' + foreignData['regcapcur'],
+                u'公司名称': foreignData['entname'],
+            })
+
+
+    return {'com_id': com_id, 'indus_base': indus_base, 'indus_shareholder': indus_shareholder, 'indus_busi_info': indus_busi_info, 'indus_foreign_invest': indus_foreign_invest}
+
 
