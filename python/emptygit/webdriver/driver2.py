@@ -20,7 +20,7 @@ from data2.itjuzi_config import base_url, token,  iplist
 import sys
 
 from webdriver.parseItjuziHtml import parseComDetailHtml, parseComMemberByDriver, parseComFinanceByDriver, \
-    getComIndustryInfo, getComBasic
+    getComIndustryInfo, getComBasic, parseComIndustryInfoByDriver
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -215,9 +215,10 @@ def getpage(driver,com_id,wait):
             saveEventToMongo(eventlist, resdic['com_id'])
 
             basicDic = getComBasic(driver, com_id)
-            updateCompanyToMongo(basicDic)
+            resdic.update(basicDic)
+            updateCompanyToMongo(resdic)
 
-            industryInfoDic = getComIndustryInfo(driver, com_id)
+            industryInfoDic = parseComIndustryInfoByDriver(driver, com_id)
             industryInfoDic['indus_member'] = indus_member
             saveCompanyIndustyInfoToMongo(industryInfoDic)
         else:
@@ -242,12 +243,6 @@ def getpage(driver,com_id,wait):
                 getpage(driver,com_id,wait)
     except TimeoutException:
         print('打开页面超时，跳过公司：id--%s'%com_id)
-
-# desired_capabilities = dict(DesiredCapabilities.PHANTOMJS)
-# desired_capabilities["phantomjs.page.settings.userAgent"] = 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.3 Safari/537.36'
-# desired_capabilities["phantomjs.page.settings.loadImages"] = False
-# #打开带配置信息的phantomJS浏览器
-# driver = webdriver.PhantomJS('/Users/investarget/wxNLP-env/selenium/webdriver/phantomjs-2.1.1-macosx/bin/phantomjs', desired_capabilities=desired_capabilities,service_args=['--ssl-protocol=any','--ignore-ssl-errors=true'])
 
 chrome_options = webdriver.ChromeOptions()
 prefs={
@@ -277,6 +272,8 @@ time.sleep(1)
 print('正在登录...')
 driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
 time.sleep(1)
+
+acc_token = driver.execute_script("return localStorage.getItem('accessToken')")
 
 page_index = 1
 while page_index <= 6:

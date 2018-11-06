@@ -89,12 +89,9 @@ def saveComList(comDict):
             print(res)
 
 
-def nextPage(i):
-    if i >= 5:
-        time.sleep(20)
-    if i >= 6:
-        i = 6
-    nextbutton = driver.find_element_by_css_selector('#table > ul > li:nth-child(%s) > a' % i)
+def nextPage():
+    driver.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+    nextbutton = driver.find_element_by_css_selector('#table > ul > li:nth-child(8) > a')
     nextbutton.click()
     html = driver.page_source
     comlist = parseHtml(html)
@@ -107,11 +104,11 @@ time.sleep(5)
 html = driver.page_source
 comDict = parseHtml(html)
 saveComList(comDict)
-i = 3
+i = 0
 while True:
     i += 1
-    print(i)
-    nextPage(i)
+    print('page-%s' % i)
+    nextPage()
 
 
 
