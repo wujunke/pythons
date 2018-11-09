@@ -1,13 +1,24 @@
 #coding=utf-8
 import json
 import random
+
+
 import datetime
 import requests
 import time
+from bs4 import BeautifulSoup
+
 from selenium import webdriver
+# 引入配置对象DesiredCapabilities
 from selenium.common.exceptions import TimeoutException
+from selenium.webdriver import FirefoxProfile
+
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+
 from data2.itjuzi_config import base_url, token,  iplist
 import sys
+
 from webdriver.parseItjuziHtml import parseComDetailHtml, parseComMemberByDriver, parseComFinanceByDriver, \
     getComIndustryInfo, getComBasic, parseComIndustryInfoByDriver
 
@@ -95,7 +106,7 @@ def updateCompanyToMongo(info):
 
 def get_companglist(page_index):
     projlist = None
-    res = session.get(base_url + 'mongolog/proj?page_size=10&sort=com_id&page_index=%s' % page_index, headers={'Content-Type': 'application/json', 'token': token})
+    res = session.get(base_url + 'mongolog/proj?page_size=10&sort=&page_index=%s' % page_index, headers={'Content-Type': 'application/json', 'token': token})
     if res.status_code == 200:
         res = json.loads(res.content)
         if res['code'] == 1000:
@@ -190,7 +201,7 @@ def saveEventToMySqlOrg(events, com_id, com_name, industryType):
 def getpage(driver,com_id,wait):
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
-        time.sleep(2)
+        time.sleep(5)
         page = driver.page_source
         resdic, com_name, full_name = parseComDetailHtml(page)
         if resdic:
@@ -200,19 +211,19 @@ def getpage(driver,com_id,wait):
             saveCompanyNewsToMongo(news, resdic['com_id'], com_name)
 
             eventlist = parseComFinanceByDriver(driver)
-            indus_member = parseComMemberByDriver(driver)
+            # indus_member = parseComMemberByDriver(driver)
             saveEventToMongo(eventlist, resdic['com_id'])
 
-            basicDic = getComBasic(driver, com_id)
-            resdic.update(basicDic)
-            updateCompanyToMongo(resdic)
+            # basicDic = getComBasic(driver, com_id)
+            # resdic.update(basicDic)
+            # updateCompanyToMongo(resdic)
 
-            industryInfoDic = parseComIndustryInfoByDriver(driver, com_id)
-            industryInfoDic['indus_member'] = indus_member
-            saveCompanyIndustyInfoToMongo(industryInfoDic)
+            # industryInfoDic = parseComIndustryInfoByDriver(driver, com_id , proxy)
+            # industryInfoDic['indus_member'] = indus_member
+            # saveCompanyIndustyInfoToMongo(industryInfoDic)
         else:
             if com_name:
-                if com_name in (u'找不到您访问的页面',):
+                if com_name in (u'找不到您访问的页面',u'IT桔子 | 泛互联网创业投资项目信息数据库及商业信息服务商'):
                     print('com_id:%s 未找到'%str(com_id))
                     print(com_name)
                 elif com_name in (u'www.itjuzi.com', u'502 Bad Gateway',u'403'):
@@ -240,8 +251,9 @@ prefs={
         # 'javascript':2   #禁用JS
     }
 }
+proxy = '221.6.201.18:9999'
 chrome_options.add_experimental_option('prefs',prefs)
-# chrome_options.add_argument('--proxy-server=http://118.31.223.194:3128')
+chrome_options.add_argument('--proxy-server=http://%s' % proxy)
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 driver.set_window_size('1280','800')
 print('正在打开网站...')
@@ -262,15 +274,19 @@ print('正在登录...')
 driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
 time.sleep(1)
 
+
+
 page_index = 4015
 while page_index <= 12300:
     projlist = get_companglist(page_index)
+
     print('当前页码：page_index = %s' % str(page_index))
     print(datetime.datetime.now())
     page_index += 1
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
+            # com_id = 33527726
             getpage(driver, com_id, 10)
 
 driver.quit()

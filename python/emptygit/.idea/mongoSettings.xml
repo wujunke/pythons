@@ -13,6 +13,20 @@
             <SshTunnelingConfiguration />
           </option>
         </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="authenticationMechanism" value="SCRAM-SHA-1" />
+          <option name="label" value="39" />
+          <option name="password" value="investarget@2018" />
+          <option name="serverUrls">
+            <list>
+              <option value="39.107.14.53:27017" />
+            </list>
+          </option>
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+          <option name="username" value="root" />
+        </ServerConfiguration>
       </list>
     </option>
   </component>

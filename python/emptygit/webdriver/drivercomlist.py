@@ -26,24 +26,6 @@ prefs={
         # 'javascript':2   #禁用JS
     }
 }
-chrome_options.add_experimental_option('prefs',prefs)
-# chrome_options.add_argument('--proxy-server=http://114.113.126.82:80')
-driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
-driver.set_window_size('1280','800')
-print('正在打开网站...')
-driver.get("https://www.itjuzi.com/login?url=%2F")
-time.sleep(5)
-print('正在输入账号...')
-account = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[1]/input')
-account.click()
-# account.send_keys("18616837957",)
-account.send_keys("18964687678",)
-print('正在输入密码...')
-paswd = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[2]/input')
-# paswd.send_keys("x81y0122",)
-paswd.send_keys("123456789")
-print('正在登录...')
-driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
 
 
 
@@ -73,10 +55,6 @@ def parseHtml(html):
 
 def saveComList(comDict):
     for com in comDict:
-        com['com_born_date'] = '-'
-        com['invse_date'] = '-'
-        com['invse_detail_money'] = '-'
-        com['com_addr'] = '-'
         res = requests.post(base_url + 'mongolog/proj', data=json.dumps(com),
                             headers={'Content-Type': 'application/json', 'token': token}).content
         res = json.loads(res)
@@ -99,12 +77,33 @@ def nextPage():
 
 
 
+
+
+chrome_options.add_experimental_option('prefs',prefs)
+chrome_options.add_argument('--proxy-server=http://221.6.201.18:9999')
+driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
+driver.set_window_size('1280','800')
+print('正在打开网站...')
+driver.get("https://www.itjuzi.com/login?url=%2F")
+time.sleep(5)
+print('正在输入账号...')
+account = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[1]/input')
+account.click()
+# account.send_keys("18616837957",)
+account.send_keys("18964687678",)
+print('正在输入密码...')
+paswd = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[2]/input')
+# paswd.send_keys("x81y0122",)
+paswd.send_keys("123456789")
+print('正在登录...')
+driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
+
 driver.get('http://radar.itjuzi.com/company')
 time.sleep(5)
+i = 1
 html = driver.page_source
 comDict = parseHtml(html)
 saveComList(comDict)
-i = 0
 while True:
     i += 1
     print('page-%s' % i)

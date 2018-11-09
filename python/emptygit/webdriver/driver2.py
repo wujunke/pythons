@@ -201,7 +201,7 @@ def saveEventToMySqlOrg(events, com_id, com_name, industryType):
 def getpage(driver,com_id,wait):
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
-        time.sleep(2)
+        time.sleep(5)
         page = driver.page_source
         resdic, com_name, full_name = parseComDetailHtml(page)
         if resdic:
@@ -216,14 +216,15 @@ def getpage(driver,com_id,wait):
 
             basicDic = getComBasic(driver, com_id)
             resdic.update(basicDic)
-            updateCompanyToMongo(resdic)
 
-            industryInfoDic = parseComIndustryInfoByDriver(driver, com_id)
+            industryInfoDic = parseComIndustryInfoByDriver(driver, com_id , proxy)
             industryInfoDic['indus_member'] = indus_member
+
+            updateCompanyToMongo(resdic)
             saveCompanyIndustyInfoToMongo(industryInfoDic)
         else:
             if com_name:
-                if com_name in (u'找不到您访问的页面',):
+                if com_name in (u'找不到您访问的页面',u'IT桔子 | 泛互联网创业投资项目信息数据库及商业信息服务商'):
                     print('com_id:%s 未找到'%str(com_id))
                     print(com_name)
                 elif com_name in (u'www.itjuzi.com', u'502 Bad Gateway',u'403'):
@@ -251,8 +252,9 @@ prefs={
         # 'javascript':2   #禁用JS
     }
 }
+proxy = '119.31.210.170:7777'
 chrome_options.add_experimental_option('prefs',prefs)
-# chrome_options.add_argument('--proxy-server=http://118.31.223.194:3128')
+chrome_options.add_argument('--proxy-server=http://%s' % proxy)
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
 driver.set_window_size('1280','800')
 print('正在打开网站...')
@@ -273,7 +275,6 @@ print('正在登录...')
 driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
 time.sleep(1)
 
-acc_token = driver.execute_script("return localStorage.getItem('accessToken')")
 
 page_index = 1
 while page_index <= 6:
@@ -285,7 +286,7 @@ while page_index <= 6:
     if projlist:
         for proj in projlist:
             com_id = proj['com_id']
-            # com_id = 2
+            # com_id = 33546960
             getpage(driver, com_id, 10)
 
 driver.quit()

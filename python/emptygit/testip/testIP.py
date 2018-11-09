@@ -67,7 +67,7 @@ def getIPs():
 
 
 def testIP(ip):
-    url = 'https://www.itjuzi.com/user/login'
+    url = 'https://www.itjuzi.com/login?url=%2F'
     # url= 'https://www.itjuzi.com/investment/info/search?id=1'
     headers = {
 
@@ -86,7 +86,7 @@ def testIP(ip):
         title = soup.title
         if title:
             title = title.text
-        if title in ['用户登录 | IT桔子', u'用户登录 | IT桔子', '美丽说,北京美丽时空网络科技有限公司,一个女性时尚社区和社会化电商平台 - IT桔子', u'美丽说,北京美丽时空网络科技有限公司,一个女性时尚社区和社会化电商平台 - IT桔子']:
+        if title in ['IT桔子 | 泛互联网创业投资项目信息数据库及商业信息服务商', u'IT桔子 | 泛互联网创业投资项目信息数据库及商业信息服务商']:
             print 'ip-  %s  -可用' % str(ip)
         else:
             print 'ip-  %s  -不可用' % str(ip)

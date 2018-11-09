@@ -1,7 +1,9 @@
 #coding=utf-8
 import json
+import traceback
 
 import requests
+import time
 from bs4 import BeautifulSoup
 
 # html = open('itjuzi_gai.html','r').read()
@@ -61,8 +63,8 @@ def parseComDetailHtml(html):
     if soup.title:
         response = {}
         com_name = soup.title.text
-        if com_name in (u'www.itjuzi.com', u'找不到您访问的页面', u'502 Bad Gateway', u'403'):
-            return None, com_name
+        if com_name in (u'www.itjuzi.com', u'找不到您访问的页面', u'502 Bad Gateway', u'403', u'IT桔子 | 泛互联网创业投资项目信息数据库及商业信息服务商'):
+            return None, com_name, None
         com_name = com_name.replace(u' - IT桔子', u'').split(',')[0]
         com_web = None
         a_s = soup.find('svg', class_='svg-icon link mr-2', )
@@ -85,13 +87,15 @@ def parseComDetailHtml(html):
 
         com_sub_cat = soup.find('a', class_='tag d-inline-block mr-2 mb-2 sub_scope-tag tag-item').text
         newslist = []
-        newsEle = soup.find(id='news').find_all('div', class_='list-group-item d-flex align-items-center feedback-btn-parent justify-content-around border-0 juzi-list-item pt-4 pb-4')
-        for new in newsEle:
-            newdata = {}
-            newdata['newsdate'] = new.find('span', class_='news-date d-inline-block').text
-            newdata['linkurl'] = new.find('a').get('href')
-            newdata['title'] = new.find('a').text
-            newslist.append(newdata)
+        newsEle = soup.find(id='news')
+        if newsEle:
+            newsEle = newsEle.find_all('div', class_='list-group-item d-flex align-items-center feedback-btn-parent justify-content-around border-0 juzi-list-item pt-4 pb-4')
+            for new in newsEle:
+                newdata = {}
+                newdata['newsdate'] = new.find('span', class_='news-date d-inline-block').text
+                newdata['linkurl'] = new.find('a').get('href')
+                newdata['title'] = new.find('a').text
+                newslist.append(newdata)
 
         response['news'] = newslist
         response['com_sub_cat_name'] = com_sub_cat
@@ -276,7 +280,8 @@ def parseComFinanceByDriver(driver):
             eventdata['round'] = driver.find_element_by_xpath(tr_xpath + '/td[2]').text
             eventdata['money'] = driver.find_element_by_xpath(tr_xpath + '/td[3]').text
 
-            eventurl = driver.find_element_by_xpath(tr_xpath + '/td[5]').get_attribute("href")
+            eventurlele = driver.find_element_by_xpath(tr_xpath + '/td[5]/a')
+            eventurl = eventurlele.get_attribute('href')
             if eventurl.split('/')[-2] == 'investevent':
                 investormerge = 1
                 eventdata['invse_id'] = eventurl.split('/')[-1]
@@ -402,7 +407,7 @@ def getComIndustryInfo(driver, com_id):
     return {'com_id': com_id, 'indus_base': indus_base, 'indus_shareholder': indus_shareholder, 'indus_busi_info': indus_busi_info, 'indus_foreign_invest': indus_foreign_invest}
 
 
-def parseComIndustryInfoByDriver(driver, com_id):
+def parseComIndustryInfoByDriver(driver, com_id, proxy):
     cookies = driver.get_cookies()
     coostrlist = []
     for coo in cookies:
@@ -420,8 +425,21 @@ def parseComIndustryInfoByDriver(driver, com_id):
         'Referer': 'https://www.itjuzi.com/company/%s' % com_id,
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36',
     }
-    res = requests.get('https://www.itjuzi.com/api/companies/%s?type=icp' % com_id, headers=headers).content
-    info = json.loads(res)
+    proxies = {
+        "https": "http://%s" % proxy,
+    }
+    def getRequestRes():
+        try:
+            res = requests.get('https://www.itjuzi.com/api/companies/%s?type=icp' % com_id, headers=headers,
+                               proxies=proxies, timeout=20).content
+            infores = json.loads(res)
+            return infores
+        except Exception:
+            print('获取icp失败--com_id:%s'%com_id)
+            time.sleep(3)
+            return getRequestRes()
+
+    info = getRequestRes()
 
     indus_base = {}
     indus_baseData = info['data']['elecredit'].get('elecredit_basic')
@@ -436,11 +454,11 @@ def parseComIndustryInfoByDriver(driver, com_id):
     indus_shareholder = []
     if indus_shareholderDara:
         for userdata in indus_shareholderDara:
-            indus_shareholder.append({u'出资比例': userdata['fundedratio'],
+            indus_shareholder.append({u'出资比例': (str(userdata['fundedratio']) + '%') if userdata['fundedratio'] and userdata['fundedratio'] != 0 else None,
                                       u'出资日期': userdata['condate'],
                                       u'股东': userdata['shaname'],
                                       u'出资方式': userdata['conform'],
-                                      u'认缴出资额': str(userdata['subconam']) + '万' + userdata['regcapcur'] if userdata['regcapcur'] else '',})
+                                      u'认缴出资额': (str(userdata['subconam']) + '万' if userdata['subconam'] else '' ) + (userdata['regcapcur'] if userdata['regcapcur'] else ''),})
     indus_busi_info = []
     indus_busi_infoData = info['data']['elecredit'].get('elecredit_alter')
     if indus_busi_infoData:
@@ -455,10 +473,10 @@ def parseComIndustryInfoByDriver(driver, com_id):
     if indus_foreign_investData:
         for foreignData in indus_foreign_investData:
             indus_foreign_invest.append({
-                u'出资比例': foreignData['fundedratio'],
+                u'出资比例': (str(foreignData['fundedratio']) + '%') if foreignData['fundedratio'] and foreignData['fundedratio'] != 0 else None,
                 u'出资日期': foreignData['esdate'],
                 u'出资方式': foreignData['conform'],
-                u'认缴出资额': str(foreignData['subconam']) + '万' + foreignData['regcapcur'] if foreignData['regcapcur'] else '',
+                u'认缴出资额': (str(foreignData['subconam']) + '万') if foreignData['subconam'] else '' + foreignData['regcapcur'] if foreignData['regcapcur'] else '',
                 u'公司名称': foreignData['entname'],
             })
 
