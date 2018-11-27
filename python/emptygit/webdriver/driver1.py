@@ -201,7 +201,7 @@ def saveEventToMySqlOrg(events, com_id, com_name, industryType):
 def getpage(driver,com_id,wait):
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
-        time.sleep(5)
+        time.sleep(10)
         page = driver.page_source
         resdic, com_name, full_name = parseComDetailHtml(page)
         if resdic:
@@ -263,20 +263,20 @@ print('正在输入账号...')
 account = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[1]/input')
 account.click()
 # account.send_keys("18616837957",)
-account.send_keys("18964687678",)
+account.send_keys("wjk1397@163.com",)
 time.sleep(1)
 print('正在输入密码...')
 paswd = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[2]/input')
 # paswd.send_keys("x81y0122",)
-paswd.send_keys("123456789")
+paswd.send_keys("Aa123456")
 time.sleep(1)
 print('正在登录...')
 driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
-time.sleep(1)
+time.sleep(5)
 
 
 
-page_index = 4015
+page_index = 5174
 while page_index <= 12300:
     projlist = get_companglist(page_index)
 

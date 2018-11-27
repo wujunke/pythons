@@ -31,7 +31,7 @@ iplist = [
 # &createtime=2018-06-12T11:51:00
 def getSearchCompany(page):
     com_list = []
-    res = requests.get(base_url + 'mongolog/proj/search?page_index=%s&createtime=2018-08-06T00:00:00' % page , headers=headers).content
+    res = requests.get(base_url + 'mongolog/proj/search?page_index=%s&createtime=2018-10-16T00:00:00' % page , headers=headers).content
     res = json.loads(res)
     if res['code'] == 1000:
         data = res['result']['data']
@@ -93,7 +93,7 @@ jingzhun_headers = {
     'Referer': 'https://rong.36kr.com/list/detail&?sortField=HOT_SCORE',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36',
     'X-Requested-With': 'XMLHttpRequest',
-    'Cookie': 'Z-XSRF-TOKEN=eyJpdiI6IjMrN3BZbW1RUlBXMm16NDNKSktmSWc9PSIsInZhbHVlIjoiU1hhRkdjQTdqSjJsMzBWM09cL0VMRFJPajIrbjdXXC95eUVIc2x2ZVRMdVwvcCtXWDFNVU91c0VTdysraTVnZ0hrUVROTUlvWjB4b2J3c09sanRndE1ybGc9PSIsIm1hYyI6IjU5YTBmNWE4ODc2YWJhZjFlMTIzNzFhNjgyNjdiZDk2N2I0YzZkZGVmN2JhYTljZjIwN2EwZDczZDkxODA3OTQifQ%3D%3D; krchoasss=eyJpdiI6IkhJQVlXaTExb0ZcL2FUWElQODFrR2N3PT0iLCJ2YWx1ZSI6Ill2eFBrbXBPdm9EQ0tKSWdhd1g1SlpcL0NTWWxvYk5wNmFMT21Qd1ZEWWh1VTQ5Q1RpUXFwS1FHUTFnbFV4WEhNR3EwcXdLeENSU2xJWXoySHFYVXRZUT09IiwibWFjIjoiNWRiMjNjY2ExY2MyOTJjNWU3YzM2ZDczM2U5ZWE3YTdlY2NhNTRlOGE5MDdiYWRhMjA4MjIzNjgxMmRkNjkyZiJ9; kr_plus_id=1805651323; kr_plus_token=ChRu3U8IxG5YVHGc_SKHM1OPp_bc2tep38753___; kr_plus_utype=0; _kr_p_se=d125571e-4cef-4d0b-a769-19a20c528edc; krid_user_id=1805651323; krid_user_version=2; download_animation=1; Hm_lpvt_e8ec47088ed7458ec32cde3617b23ee3=1534497047; Hm_lvt_e8ec47088ed7458ec32cde3617b23ee3=1534497047; kr_stat_uuid=CSZsM25574950; acw_tc=AQAAANe1JXyzQgIA3lXWZ6sfU7z3ymmA'
+    'Cookie': 'kr_plus_utype=0; _kr_p_se=37119f36-bfcc-4d94-bd3c-2057667f80a5; kr_plus_id=1805651323; kr_plus_token=PqxHzJwuNkwUmMXtm4XsEgjiCi2239448_36____; krid_user_id=1805651323; krid_user_version=2; download_animation=1; Hm_lpvt_e8ec47088ed7458ec32cde3617b23ee3=1542181351; Hm_lvt_e8ec47088ed7458ec32cde3617b23ee3=1542181351; kr_stat_uuid=3kiki25703022'
 }
 
 
@@ -221,7 +221,7 @@ def saveCompanyToMongo(com_data):
         print res
 
 
-jingzhun_search_url = 'https://rong.36kr.com/n/api/search/company??asEncryptedTs=-0.9521875261991889&asTs=1534497074078&p=2&kw='
+jingzhun_search_url = 'https://rong.36kr.com/n/api/search/company??asEncryptedTs=0.69822284848257&asTs=1542181437687&kw='
 proxy = {'http':'http://118.212.137.135:31288'}
 
 event_id_none_count = 18    #系数 -  none_count = none_id
@@ -237,7 +237,7 @@ for page in range(1, 100):
         print 'page=%s, search_name=%s'%(page, proj['com_name'])
         if res['code'] == 1000:
             if len(res['result']['data']) == 0:
-                time.sleep(30)
+                time.sleep(10)
                 res = requests.get(jingzhun_search_url + kw, headers=jingzhun_headers, proxies=proxy).content
                 res = json.loads(res)
                 pagedata = res['data']

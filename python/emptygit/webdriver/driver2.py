@@ -6,17 +6,10 @@ import random
 import datetime
 import requests
 import time
-from bs4 import BeautifulSoup
-
 from selenium import webdriver
-# 引入配置对象DesiredCapabilities
+
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver import FirefoxProfile
-
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-
-
-from data2.itjuzi_config import base_url, token,  iplist
+from data2.itjuzi_config import base_url, token
 import sys
 
 from webdriver.parseItjuziHtml import parseComDetailHtml, parseComMemberByDriver, parseComFinanceByDriver, \
@@ -28,8 +21,6 @@ sys.setdefaultencoding('utf-8')
 session = requests.Session()
 session.trust_env = False
 
-def rand_proxie():
-    return {'http':'http://%s' % iplist[random.randint(0, len(iplist)) - 1],}
 
 
 def saveCompanyIndustyInfoToMongo(info):
@@ -106,7 +97,9 @@ def updateCompanyToMongo(info):
 
 def get_companglist(page_index):
     projlist = None
-    res = session.get(base_url + 'mongolog/proj?page_size=10&sort=&page_index=%s&com_name=...' % page_index, headers={'Content-Type': 'application/json', 'token': token})
+    res = session.get(base_url + 'mongolog/proj?page_size=10&sort='
+                                 '&page_index=%s&com_name=...' % page_index,
+                      headers={'Content-Type': 'application/json', 'token': token})
     if res.status_code == 200:
         res = json.loads(res.content)
         if res['code'] == 1000:
@@ -201,7 +194,7 @@ def saveEventToMySqlOrg(events, com_id, com_name, industryType):
 def getpage(driver,com_id,wait):
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
-        time.sleep(5)
+        time.sleep(15)
         page = driver.page_source
         resdic, com_name, full_name = parseComDetailHtml(page)
         if resdic:
@@ -252,7 +245,7 @@ prefs={
         # 'javascript':2   #禁用JS
     }
 }
-proxy = '119.31.210.170:7777'
+proxy = '27.191.234.69:9999'
 chrome_options.add_experimental_option('prefs',prefs)
 chrome_options.add_argument('--proxy-server=http://%s' % proxy)
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
@@ -273,7 +266,7 @@ paswd.send_keys("123456789")
 time.sleep(1)
 print('正在登录...')
 driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
-time.sleep(1)
+time.sleep(5)
 
 
 page_index = 1

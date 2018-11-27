@@ -7,41 +7,26 @@ import pyautogui as pg
 # pip install baidu-aip
 from aip import AipOcr
 import datetime
-from selenium import webdriver
-
-
-
-driver = webdriver.Ie(executable_path='F://Lib/IEDriverServer.exe')
-driver.set_window_position(0, 0)
-driver.set_window_size(950, 950)
-driver.get('http://moni.51hupai.org/')
-
-
 
 # policy = 'a'
 # policy = 'b'
 policy = 'c'
 
-basetimestr = '10:33:'
-
+basetimestr = '11:29:'
 
 sleeptime = 0.02  #鼠标反应时间
 
-
-# 浏览器多页面时出现的头部高度   safari为22
-browser_header = 0
-
 points = {
-    'customUpPriceIuput': (645, 340 - browser_header),            # 自定义加价输入框
-    'customUpPriceButton': (800, 340 - browser_header),           # 自定义加价按钮
-    'offerButton': (800, 505 - browser_header),                   # 出价按钮
-    'currentPriceImage': (640, 490 - browser_header, 710, 511 - browser_header),   # 当前出价图片      moneyshot1.png
-    'lowestPriceImage': (150, 495 - browser_header, 195, 511 - browser_header),    # 最低可成交价图片   moneyshot2.png
-    'biggestPriceImage': (275, 526 - browser_header, 318, 542 - browser_header),   # 最高可接受价图片   moneyshot3.png
-    'YZMquestion': (),                                # 验证码问题
-    'YZMImage': (),                                   # 验证码图片
-    'YZMCancelButton': (750, 590 - browser_header),               # 验证码取消按钮
-    'YZMSureButton': (550, 590 - browser_header),                 # 验证码确定按钮
+    'customUpPriceIuput': (650, 375),            # 自定义加价输入框
+    'customUpPriceButton': (800, 375),           # 自定义加价按钮
+    'offerButton': (800, 485),                   # 出价按钮
+    'currentPriceImage': (650, 469, 700, 486),   # 当前出价图片      moneyshot1.png  #retina屏分辨率高 截图需要 x2
+    'lowestPriceImage': (151, 474, 193, 489),    # 最低可成交价图片   moneyshot2.png  #retina屏分辨率高 截图需要 x2
+    'biggestPriceImage': (273, 522, 316, 538),   # 最高可接受价图片   moneyshot3.png  #retina屏分辨率高 截图需要 x2
+    'YZMquestion': (),                           # 验证码问题
+    'YZMImage': (),                              # 验证码图片
+    'YZMCancelButton': (750, 564),               # 验证码取消按钮
+    'YZMSureButton': (550, 564),                 # 验证码确定按钮
 }
 APP_ID = '11546435'
 API_KEY = 'w9646O4Ug0H2XNwXQX0WLcen'
@@ -92,7 +77,6 @@ def policyA():
     pg.moveTo(points['YZMSureButton'])  # 验证码确定按钮
     time.sleep(sleeptime)
     pg.click()
-
 
 
 def policyB():
@@ -161,11 +145,11 @@ def policyB():
 
 def policyC():
     policys = {
-            'startTime': '49.0',        # 第一次出价时间
-            'upPrice': '700',           # 第一次出价加价
-            'checkPrice': '100',          # 验证差价
-            'sureOfferTime': '53.0',    # 验证码确定按钮点击最早时间
-            'latestSureOfferTime': '55.0',    # 验证码确定按钮点击最晚时间
+            'startTime': '48.0',            # 第一次出价时间
+            'upPrice': '1000',               # 第一次出价加价
+            'checkPrice': '100',            # 验证差价
+            'sureOfferTime': '53.0',        # 验证码确定按钮点击最早时间
+            'latestSureOfferTime': '55.0',  # 验证码确定按钮点击最晚时间
     }
     checkTimeRight(policys['startTime'])
 
@@ -184,6 +168,7 @@ def policyC():
     moneyshot1 = get_file_content('moneyshot1.png')
     moneyress1 = client.basicGeneral(moneyshot1)
     moneystr1 = moneyress1['words_result'][0]['words']  # 当前出价
+    print(moneystr1)
 
     pg.moveTo(points['offerButton'])     # 出价按钮
     time.sleep(sleeptime)
@@ -201,7 +186,9 @@ def policyC():
         print(moneyress3, str(datetime.datetime.now())[17:21])
         moneystr3 = moneyress3['words_result'][0]['words']  # 最大可接受出价
         if int(moneystr1) - int(moneystr3) <= int(policys['checkPrice']):
+            print('出价到达检查点:  %s' % policys['checkPrice'])
             break
+    print('提交出价时间：%s' % str(datetime.datetime.now())[17:21])
 
     pg.moveTo(points['YZMSureButton'])  # 验证码确定按钮
     time.sleep(sleeptime)

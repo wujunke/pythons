@@ -258,7 +258,7 @@ class MyWXBot(WXBot):
                 if org.get('id', None):
                     org_id = org['id']
         return org_id
-    
+
     def get_title_id_by_titleC(self, titleC):
         titleId = None
         headers = {
@@ -469,7 +469,7 @@ class MyWXBot(WXBot):
          #            self.save_file_to_dataroom(key, filename)
          #            os.remove(self.linkpdf_path)
         #
-        # rootdir = '/var/www/apilog/pdffile/'
+        # rootdir = '/var/www/apilog/dffilep/'
         # filelist = os.listdir(rootdir)  # 列出文件夹下所有的目录与文件
         # print len(filelist)
         # for i in range(0, len(filelist)):

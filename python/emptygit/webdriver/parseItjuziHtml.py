@@ -69,7 +69,7 @@ def parseComDetailHtml(html):
         com_web = None
         a_s = soup.find('svg', class_='svg-icon link mr-2', )
         if a_s:
-            com_web = a_s.parent['href']
+            com_web = a_s.parent.get('href')
         response['com_web'] = com_web
         full_name = soup.find('p', class_='seo-second-title margin-right50', )
         if full_name:
@@ -85,7 +85,8 @@ def parseComDetailHtml(html):
                 if info.find('svg', class_='svg-icon home'):
                     response['detailaddress'] = info.text.replace('\n', '').replace('\t', '')
 
-        com_sub_cat = soup.find('a', class_='tag d-inline-block mr-2 mb-2 sub_scope-tag tag-item').text
+        com_sub_catele = soup.find('a', class_='tag d-inline-block mr-2 mb-2 sub_scope-tag tag-item')
+        com_sub_cat = com_sub_catele.text if com_sub_catele else None
         newslist = []
         newsEle = soup.find(id='news')
         if newsEle:
@@ -349,12 +350,13 @@ def getComBasic(driver, com_id):
         '').replace('</pre></body></html>', '')
     basic = json.loads(basicpage)
     basicDic = {}
-    basicDic.update(basic['data']['basic'])
-    basicDic['com_addr'] = basic['data']['basic']['com_prov']
-    basicDic['com_sub_cat_name'] = basic['data']['basic']['com_sub_scope'][0]['name']
-    basicDic['com_full_name'] = basic['data']['basic']['com_registered_name']
-    basicDic['com_web'] = basic['data']['basic']['com_url']
-    basicDic['invse_total_money'] = str(basic['data']['basic']['total_money']) + '万'
+    if basic.get('data'):
+        basicDic.update(basic['data']['basic'])
+        basicDic['com_addr'] = basic['data']['basic']['com_prov']
+        basicDic['com_sub_cat_name'] = basic['data']['basic']['com_sub_scope'][0]['name']
+        basicDic['com_full_name'] = basic['data']['basic']['com_registered_name']
+        basicDic['com_web'] = basic['data']['basic']['com_url']
+        basicDic['invse_total_money'] = str(basic['data']['basic']['total_money']) + '万'
     return basicDic
 
 def getComIndustryInfo(driver, com_id):
@@ -432,7 +434,7 @@ def parseComIndustryInfoByDriver(driver, com_id, proxy):
         try:
             res = requests.get('https://www.itjuzi.com/api/companies/%s?type=icp' % com_id, headers=headers,
                                proxies=proxies, timeout=20).content
-            infores = json.loads(res)
+            infores = json.loads(res)['data']['elecredit']
             return infores
         except Exception:
             print('获取icp失败--com_id:%s'%com_id)
@@ -442,7 +444,7 @@ def parseComIndustryInfoByDriver(driver, com_id, proxy):
     info = getRequestRes()
 
     indus_base = {}
-    indus_baseData = info['data']['elecredit'].get('elecredit_basic')
+    indus_baseData = info.get('elecredit_basic')
     if indus_baseData:
         indus_base.update({ u'地址:': indus_baseData['dom'],
                             u'公司类型:': indus_baseData['enttype'],
@@ -450,7 +452,7 @@ def parseComIndustryInfoByDriver(driver, com_id, proxy):
                             u'注册资本:': str(indus_baseData['regcap']) + '万人民币' if indus_baseData['regcap'] else '',
                             u'法人代表:': indus_baseData['frname'],
                             u'成立时间:': indus_baseData['esdate'], })
-    indus_shareholderDara = info['data']['elecredit'].get('elecredit_shareholder')
+    indus_shareholderDara = info.get('elecredit_shareholder')
     indus_shareholder = []
     if indus_shareholderDara:
         for userdata in indus_shareholderDara:
@@ -460,7 +462,7 @@ def parseComIndustryInfoByDriver(driver, com_id, proxy):
                                       u'出资方式': userdata['conform'],
                                       u'认缴出资额': (str(userdata['subconam']) + '万' if userdata['subconam'] else '' ) + (userdata['regcapcur'] if userdata['regcapcur'] else ''),})
     indus_busi_info = []
-    indus_busi_infoData = info['data']['elecredit'].get('elecredit_alter')
+    indus_busi_infoData = info.get('elecredit_alter')
     if indus_busi_infoData:
         for busiData in indus_busi_infoData:
             indus_busi_info.append({
@@ -469,7 +471,7 @@ def parseComIndustryInfoByDriver(driver, com_id, proxy):
                 u'变更后': busiData['altaf'],
             })
     indus_foreign_invest = []
-    indus_foreign_investData = info['data']['elecredit'].get('elecredit_entinv')
+    indus_foreign_investData = info.get('elecredit_entinv')
     if indus_foreign_investData:
         for foreignData in indus_foreign_investData:
             indus_foreign_invest.append({

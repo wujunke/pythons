@@ -75,7 +75,7 @@ def testIP(ip):
     }
     pox = {'https':'https://%s' % str(ip)}
     try:
-        res = requests.get(url, headers=headers, proxies=pox, timeout=3).content
+        res = requests.get(url, headers=headers, proxies=pox, timeout=(3, 3)).content
         soup = BeautifulSoup(res, 'html.parser')
         # res = json.loads(res)
     except Exception:
