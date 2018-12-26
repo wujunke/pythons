@@ -78,23 +78,26 @@ def nextPage():
 chrome_options.add_experimental_option('prefs',prefs)
 # chrome_options.add_argument('--proxy-server=http://210.22.176.146:32153')
 driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
-driver.set_window_size('1280','800')
-print('正在打开网站...')
-# driver.get("https://www.itjuzi.com/login?url=%2F")
+# driver.set_window_size('1280','800')
+# print('正在打开网站...')
+# driver.get("https://www.itjuzi.com/login")
 # time.sleep(5)
 # print('正在输入账号...')
 # account = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[1]/input')
 # account.click()
 # # account.send_keys("18616837957",)
-# account.send_keys("18964687678",)
+# account.send_keys("wjk1397@163.com",)
 # print('正在输入密码...')
 # paswd = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[2]/input')
 # # paswd.send_keys("x81y0122",)
-# paswd.send_keys("123456789")
+# paswd.send_keys("Aa123456")
 # print('正在登录...')
 # driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
 
 driver.get('http://radar.itjuzi.com/company')
+# driver.find_element_by_xpath('//*[@id="app"]/div[1]/div/div[3]/div[1]/div/div[1]/div/div/ul/li[1]/a').click()
+# driver.close()
+# driver.switch_to.window(driver.window_handles[0])
 time.sleep(5)
 i = 1
 html = driver.page_source
@@ -102,8 +105,6 @@ comDict = parseHtml(html)
 saveComList(comDict)
 while True:
     i += 1
+    time.sleep(20)
     print('page-%s' % i)
     nextPage()
-
-
-

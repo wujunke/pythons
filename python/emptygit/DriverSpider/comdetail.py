@@ -1,20 +1,31 @@
 #coding=utf-8
 import json
-import random
-
-
 import datetime
+import threading
+import traceback
+
 import requests
 import time
 from selenium import webdriver
-
+import Tkinter as tk
 from selenium.common.exceptions import TimeoutException
-from data2.itjuzi_config import base_url, token
 import sys
+from parseHtml import parseComDetailHtml, parseComMemberByDriver, parseComFinanceByDriver, getComBasic, parseComIndustryInfoByDriver
 
-from webdriver.parseItjuziHtml import parseComDetailHtml, parseComMemberByDriver, parseComFinanceByDriver, \
-    getComIndustryInfo, getComBasic, parseComIndustryInfoByDriver
 
+token = '0011b9120f76196890f1bb33326128ef125a95d359dc2ecf'
+base_url = 'https://api.investarget.com/'
+
+
+driver = None
+isLogin = False
+isCatch = False
+window = tk.Tk()
+width, height = 800, 700   # 窗口大小
+screenwidth, screenheight = window.winfo_screenwidth(), window.winfo_screenheight()    # 屏幕大小
+alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth-width)/2, (screenheight-height)/2)
+window.geometry(alignstr)
+window.title = '盈钛爬虫'
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -135,7 +146,7 @@ def saveEventToMongo(events, com_id):
                             headers={'Content-Type': 'application/json', 'token': token}).content
         res = json.loads(res)
         if res['code'] == 1000:
-            print('新增invse--' + str(res['result'].get('invse_id', res['result'].get('merger_id', None))))
+            consoleRes('新增invse--' + str(res['result'].get('invse_id', res['result'].get('merger_id', None))))
         elif res['code'] == 8001:
             print('重复invest')
         else:
@@ -192,6 +203,9 @@ def saveEventToMySqlOrg(events, com_id, com_name, industryType):
 
 
 def getpage(driver,com_id,wait):
+    proxy = vars_proxy.get()
+    if proxy:
+        proxy = proxy.replace(' ', '')
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
         time.sleep(wait)
@@ -199,7 +213,7 @@ def getpage(driver,com_id,wait):
         resdic, com_name, full_name = parseComDetailHtml(page)
         if resdic:
             resdic['com_id'] = int(com_id)
-            print(com_name)
+            consoleRes(com_name)
             news = resdic['news']
             saveCompanyNewsToMongo(news, resdic['com_id'], com_name)
 
@@ -209,13 +223,12 @@ def getpage(driver,com_id,wait):
 
             basicDic = getComBasic(driver, com_id)
             resdic.update(basicDic)
-            if basicDic[u'com_location'] != u'out':
-                industryInfoDic = parseComIndustryInfoByDriver(driver, com_id , proxy)
-                industryInfoDic['indus_member'] = indus_member
-                updateCompanyToMongo(resdic)
-                saveCompanyIndustyInfoToMongo(industryInfoDic)
-            else:
-                updateCompanyToMongo(resdic)
+
+            industryInfoDic = parseComIndustryInfoByDriver(driver, com_id, proxy)
+            industryInfoDic['indus_member'] = indus_member
+
+            updateCompanyToMongo(resdic)
+            saveCompanyIndustyInfoToMongo(industryInfoDic)
         else:
             if com_name:
                 if com_name in (u'找不到您访问的页面',u'IT桔子 | 泛互联网创业投资项目信息数据库及商业信息服务商'):
@@ -237,53 +250,136 @@ def getpage(driver,com_id,wait):
                 time.sleep(wait)
                 getpage(driver,com_id,wait)
     except TimeoutException:
-        print('打开页面超时，跳过公司：id--%s'%com_id)
-
-chrome_options = webdriver.ChromeOptions()
-prefs={
-     'profile.default_content_setting_values': {
-        'images': 2,   #禁用图片
-        # 'javascript':2   #禁用JS
-    }
-}
-proxy = '119.101.113.153:9999'
-chrome_options.add_experimental_option('prefs',prefs)
-chrome_options.add_argument('--proxy-server=http://%s' % proxy)
-driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
-driver.set_window_size('1280','800')
-print('正在打开网站...')
-driver.get("https://www.itjuzi.com/login?url=%2F")
-time.sleep(5)
-print('正在输入账号...')
-account = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[1]/input')
-account.click()
-# account.send_keys("wjk1397@163.com",)
-account.send_keys("18964687678",)
-time.sleep(1)
-print('正在输入密码...')
-paswd = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[2]/input')
-# paswd.send_keys("Aa123456",)
-paswd.send_keys("123456789")
-time.sleep(1)
-print('正在登录...')
-driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
-time.sleep(5)
-
-
-page_index = 1
-while page_index <= 6:
-    projlist = get_companglist(1)
-
-    print('当前页码：page_index = %s' % str(page_index))
-    print(datetime.datetime.now())
-    page_index += 1
-    if projlist:
-        for proj in projlist:
-            com_id = proj['com_id']
-            # com_id = 33546960
-            getpage(driver, com_id, 20)
-
-driver.quit()
+        consoleRes('打开页面超时，跳过公司：id--%s'%com_id)
 
 
 
+
+def consoleRes(res):
+    global consoleText
+    consoleText.insert(tk.END, res + '\n')
+    consoleText.update()
+
+
+def openWeb():
+    global driver
+    if not driver:
+        proxy = vars_proxy.get()
+        if proxy:
+            proxy = proxy.replace(' ', '')
+        chrome_options = webdriver.ChromeOptions()
+        if proxy and len(proxy) > 0:
+            chrome_options.add_argument('--proxy-server=http://%s' % proxy)
+        driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options=chrome_options)
+        driver.set_window_size('1280', '800')
+        consoleRes('正在打开网站...')
+        driver.get("https://www.itjuzi.com/login?url=%2F")
+        consoleRes('网页加载完成')
+    else:
+        consoleRes('重新启动浏览器')
+
+def login():
+    global isLogin
+    if driver:
+        if not isLogin:
+            consoleRes('正在输入账号...')
+            account = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[1]/input')
+            accountstr = vars_account.get()
+            account.send_keys(accountstr)
+            time.sleep(1)
+            consoleRes('正在输入密码...')
+            paswd = driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/div[2]/input')
+            passwordstr = vars_password.get()
+            paswd.send_keys(passwordstr)
+            time.sleep(1)
+            consoleRes('正在登录...')
+            driver.find_element_by_xpath('//*[@id="app"]/div[1]/div[2]/div[1]/div/form/button').click()
+            time.sleep(2)
+            isLogin = True
+        else:
+            consoleRes('已登录')
+    else:
+        consoleRes('浏览器未启动')
+
+
+def start():
+    global driver, isCatch, isLogin
+    if driver:
+        if isLogin:
+            isCatch = True
+            t = threading.Thread(target=catchHtml)
+            t.setDaemon(True)
+            t.start()
+            consoleRes('开始爬取网页内容')
+        else:
+            consoleRes('未登录')
+    else:
+        consoleRes('浏览器未启动')
+
+
+def catchHtml():
+    global isCatch, driver
+    sleeptime = vars_catchTime.get()
+    try:
+        page_index = 1
+        while isCatch:
+            projlist = get_companglist(1)
+            consoleRes('当前页码：page_index = %s' % str(page_index))
+            print(datetime.datetime.now())
+            page_index += 1
+            if projlist:
+                for proj in projlist:
+                    com_id = proj['com_id']
+                    getpage(driver, com_id, float(sleeptime))
+        consoleRes('结束抓取')
+    except Exception:
+        consoleRes('抓取出错')
+
+
+def stop():
+    global driver, isCatch
+    if driver:
+        isCatch = False
+        consoleRes('当前页爬取完成结束爬取')
+    else:
+        consoleRes('浏览器未启动')
+
+def close():
+    global driver, isCatch
+    driver.quit()
+    driver = None
+    isCatch = False
+    consoleRes('已关闭浏览器')
+
+
+
+def creatOneEntry(text, point, w):
+    x = point[0]
+    y = point[1]
+    tk.Label(window, text=text).place(x=x, y=y)
+    var_iuput = tk.StringVar()
+    tk.Entry(window, textvariable=var_iuput).place(x=x + 140, y=y, w=w, h=25)
+    return var_iuput
+
+
+
+
+tk.Button(window, text="打开网页", font=("Arial", 20), command=openWeb).place(x=50, y=50, w=150, h=50)
+tk.Button(window, text="登录", font=("Arial", 20), command=login).place(x=50, y=100, w=150, h=50)
+tk.Button(window, text="开始爬取", font=("Arial", 20), command=start).place(x=50, y=150, w=150, h=50)
+tk.Button(window, text="结束爬取", font=("Arial", 20), command=stop).place(x=50, y=200, w=150, h=50)
+tk.Button(window, text="关闭网页", font=("Arial", 20), command=close).place(x=50, y=250, w=150, h=50)
+tk.Label(window, text='程序输出', font=("Arial", 16)).place(x=400, y=70)
+consoleText = tk.Text(window, bg='gray')
+consoleText.place(x=430, y=100, w=300, h=500)
+vars_catchTime = creatOneEntry('爬取间隔（单位：秒）', (50 , 330), 30)
+vars_catchTime.set(5)
+vars_proxy = creatOneEntry('网络代理', (50 , 360), 200)
+# vars_proxy.set('221.6.201.18:9999')
+vars_account = creatOneEntry('账号', (50 , 390), 200)
+vars_account.set('18964687678')
+vars_password = creatOneEntry('密码', (50 , 420), 200)
+vars_password.set('123456789')
+
+
+window.mainloop()

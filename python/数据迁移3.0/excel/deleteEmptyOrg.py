@@ -59,7 +59,10 @@ i = 1
 
 def getOrgID(orgname=None):
     if orgname:
-        url = baseurl + 'org/?orgname=%s' % parse.quote(orgname,encoding='utf-8')
+        if '--' not in orgname:
+            url = baseurl + 'org/?orgname=%s' % parse.quote(orgname, encoding='utf-8')
+        else:
+            url = baseurl + 'org/?orgname=%s&issub=false' % parse.quote(orgname,encoding='utf-8')
         orglist = json.loads(requests.get(url, headers=headers).content).get('result', {}).get('data', [])
         if len(orglist) > 1:
             print('有多个搜索结果--%s' % orgname)
@@ -68,27 +71,27 @@ def getOrgID(orgname=None):
     return None
 
 
-def deleteOrg(org_id):
+def deleteOrg(org_id, i):
 
     url = baseurl + 'org/%s/' % org_id
     res = requests.delete(url, headers=headers).content
     res = json.loads(res)
     if res['code'] != 1000:
-        print('######删除失败----%s' % org_id)
+        print('######删除失败----机构id-%s       行-%s' % (org_id, i))
         print(res)
     else:
-        print('******删除成功----%s' % org_id)
+        print('******删除成功----机构id-%s       行-%s' % (org_id, i))
 
 
 for row in tables:
     i += 1
-    if i <= 1422:
+    if i <= 15000 and i >= 8001:
         orgname = row[u'机构名称']
         isDelete = row.get(u'保留')
         if isDelete in [u'', None, u' ']:
             org_id = getOrgID(orgname)
             if org_id:
-                deleteOrg(org_id)
+                deleteOrg(org_id, i)
             else:
-                print('未找到--%s' % i)
+                print('未找到--行-%s' % i)
 

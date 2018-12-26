@@ -1,13 +1,8 @@
 #coding=utf-8
 import json
-import traceback
-
 import requests
 import time
 from bs4 import BeautifulSoup
-
-# html = open('itjuzi_gai.html','r').read()
-from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 
 
@@ -90,7 +85,7 @@ def parseComDetailHtml(html):
         newslist = []
         newsEle = soup.find(id='news')
         if newsEle:
-            newsEle = newsEle.find_all('div', class_='list-group-item mobile-news-item d-flex align-items-center feedback-btn-parent justify-content-around border-0 juzi-list-item pt-4 pb-4')
+            newsEle = newsEle.find_all('div', class_='list-group-item d-flex align-items-center feedback-btn-parent justify-content-around border-0 juzi-list-item pt-4 pb-4')
             for new in newsEle:
                 newdata = {}
                 newdata['newsdate'] = new.find('span', class_='news-date d-inline-block').text

@@ -201,7 +201,7 @@ def saveEventToMySqlOrg(events, com_id, com_name, industryType):
 def getpage(driver,com_id,wait):
     try:
         driver.get("https://www.itjuzi.com/company/%s" % com_id)
-        time.sleep(10)
+        time.sleep(wait)
         page = driver.page_source
         resdic, com_name, full_name = parseComDetailHtml(page)
         if resdic:
@@ -276,7 +276,7 @@ time.sleep(5)
 
 
 
-page_index = 5174
+page_index = 6
 while page_index <= 12300:
     projlist = get_companglist(page_index)
 
@@ -287,7 +287,7 @@ while page_index <= 12300:
         for proj in projlist:
             com_id = proj['com_id']
             # com_id = 33527726
-            getpage(driver, com_id, 10)
+            getpage(driver, com_id, 20)
 
 driver.quit()
 

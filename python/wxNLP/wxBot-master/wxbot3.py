@@ -97,6 +97,9 @@ class MyWXBot(WXBot):
                             for link in self.link_list:
                                 if link['time'] > int(time.time()) - 300:
                                     if link['fromuser'] == fromuser:
+                                        if link['fileMsg']:
+                                            fileins = self.get_file(link['fileMsg'])
+                                            link['link_url'] = '/wxShareFile/' + fileins
                                         self.savelink(link['link_url'], link['link_title'], link['link_desc'], fromuser)
                                         self.link_list.remove(link)
                                         break
@@ -112,6 +115,7 @@ class MyWXBot(WXBot):
                                         'link_desc': content.get('desc', None),
                                         'fromuser': fromuser,
                                         'time': int(time.time()),
+                                        'fileMsg': content.get('fileMsg', None)
                                     })
                         self.send_msg_by_uid('%s，是否将该分享链接保存至系统，请回答 \'是\' 或者 \'否\' ' % fromuser, self.get_user_id(fromgroup))
                 except Exception:
@@ -469,7 +473,7 @@ class MyWXBot(WXBot):
          #            self.save_file_to_dataroom(key, filename)
          #            os.remove(self.linkpdf_path)
         #
-        # rootdir = '/var/www/apilog/dffilep/'
+        # rootdir = '/var/www/apilog/pdffile/'
         # filelist = os.listdir(rootdir)  # 列出文件夹下所有的目录与文件
         # print len(filelist)
         # for i in range(0, len(filelist)):
